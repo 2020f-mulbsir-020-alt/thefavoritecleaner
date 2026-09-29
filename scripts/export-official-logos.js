@@ -1,13 +1,22 @@
 /**
- * Export exact brand logos from official PSD files to web-ready PNGs.
+ * Export exact logos from official TFC White/Black PSD files.
  */
 const fs = require("fs");
 const path = require("path");
 const { readPsd, initializeCanvas } = require("ag-psd");
-const { createCanvas, Image } = require("canvas");
+const { createCanvas, ImageData } = require("canvas");
 const sharp = require("sharp");
 
-initializeCanvas(createCanvas, Image);
+initializeCanvas(
+  (w, h) => createCanvas(w, h),
+  (w, h) => {
+    try {
+      return new ImageData(w, h);
+    } catch (e) {
+      return createCanvas(w, h).getContext("2d").createImageData(w, h);
+    }
+  }
+);
 
 const whitePath =
   "C:/Users/HomePC/OneDrive/Personal Data/The Favorite Cleaner/PNG Files/TFC (White).psd";
@@ -15,60 +24,80 @@ const blackPath =
   "C:/Users/HomePC/OneDrive/Personal Data/The Favorite Cleaner/PNG Files/TFC (Black).psd";
 const outDir = path.join(__dirname, "..", "assets", "brand");
 
-function canvasToPng(canvas) {
+function psdToPngBuffer(psdPath) {
+  const buf = fs.readFileSync(psdPath);
+  const psd = readPsd(buf, {
+    skipLayerImageData: true,
+    skipCompositeImageData: false,
+    useImageData: true
+  });
+  if (!psd.imageData) throw new Error("No image data in " + psdPath);
+  const canvas = createCanvas(psd.width, psd.height);
+  const ctx = canvas.getContext("2d");
+  ctx.putImageData(psd.imageData, 0, 0);
   return canvas.toBuffer("image/png");
 }
 
-async function exportPsd(psdPath, label) {
-  const buffer = fs.readFileSync(psdPath);
-  const psd = readPsd(buffer);
-  console.log(label, "canvas", psd.width, "x", psd.height);
-  if (!psd.canvas) throw new Error("No composite canvas for " + label);
-  const png = canvasToPng(psd.canvas);
-  const trimmed = await sharp(png)
-    .trim({ threshold: 8 })
+async function processLogo(pngBuffer, outName, maxWidth) {
+  const trimmed = await sharp(pngBuffer)
+    .trim({ threshold: 10 })
     .png()
     .toBuffer({ resolveWithObject: true });
-  console.log(label, "trimmed", trimmed.info.width, "x", trimmed.info.height);
+
+  console.log(outName, "trimmed", trimmed.info.width + "x" + trimmed.info.height);
+
+  await sharp(trimmed.data)
+    .png()
+    .toFile(path.join(outDir, outName.replace(".png", "-full.png")));
+
+  await sharp(trimmed.data)
+    .resize({
+      width: maxWidth,
+      height: Math.round(maxWidth * 0.4),
+      fit: "inside",
+      withoutEnlargement: false
+    })
+    .png()
+    .toFile(path.join(outDir, outName));
+
   return trimmed.data;
 }
 
 async function main() {
   fs.mkdirSync(outDir, { recursive: true });
 
-  const whiteBuf = await exportPsd(whitePath, "white");
-  const blackBuf = await exportPsd(blackPath, "black");
+  console.log("Reading white PSD…");
+  const whitePng = psdToPngBuffer(whitePath);
+  console.log("Reading black PSD…");
+  const blackPng = psdToPngBuffer(blackPath);
 
-  // Official white logo for dark backgrounds
-  await sharp(whiteBuf)
-    .resize({ width: 800, height: 220, fit: "inside" })
-    .png()
-    .toFile(path.join(outDir, "logo-light.png"));
+  const whiteTrimmed = await processLogo(whitePng, "logo-light.png", 800);
+  const blackTrimmed = await processLogo(blackPng, "logo-dark.png", 800);
 
-  // Official black logo for light backgrounds
-  await sharp(blackBuf)
-    .resize({ width: 800, height: 220, fit: "inside" })
-    .png()
-    .toFile(path.join(outDir, "logo-dark.png"));
-
-  // Full-resolution masters
-  await sharp(whiteBuf).png().toFile(path.join(outDir, "logo-light-full.png"));
-  await sharp(blackBuf).png().toFile(path.join(outDir, "logo-dark-full.png"));
-
-  // Mark + favicon from black logo (works on light and can sit in square)
-  await sharp(blackBuf)
-    .resize({ width: 256, height: 256, fit: "contain", background: { r: 0, g: 0, b: 0, alpha: 0 } })
+  // Square mark from black logo for favicon / apple touch
+  await sharp(blackTrimmed)
+    .resize({
+      width: 256,
+      height: 256,
+      fit: "contain",
+      background: { r: 0, g: 0, b: 0, alpha: 0 }
+    })
     .png()
     .toFile(path.join(outDir, "logo-mark.png"));
 
-  await sharp(blackBuf)
-    .resize({ width: 64, height: 64, fit: "contain", background: { r: 0, g: 0, b: 0, alpha: 0 } })
+  await sharp(blackTrimmed)
+    .resize({
+      width: 64,
+      height: 64,
+      fit: "contain",
+      background: { r: 0, g: 0, b: 0, alpha: 0 }
+    })
     .png()
     .toFile(path.join(outDir, "favicon.png"));
 
-  // Social preview: navy field + exact white logo
-  const logoOg = await sharp(whiteBuf)
-    .resize({ width: 760, height: 220, fit: "inside" })
+  // Social preview with exact white logo
+  const logoOg = await sharp(whiteTrimmed)
+    .resize({ width: 780, height: 260, fit: "inside" })
     .png()
     .toBuffer();
 
@@ -91,19 +120,27 @@ async function main() {
     .jpeg({ quality: 92 })
     .toFile(path.join(outDir, "social-preview.jpg"));
 
-  // Keep PSD references in project brand folder
+  // Archive source PSDs in project
   fs.copyFileSync(whitePath, path.join(outDir, "TFC White.psd"));
   fs.copyFileSync(blackPath, path.join(outDir, "TFC Black.psd"));
 
-  // Also copy FB profile for potential mark use
-  const profile = "C:/Users/HomePC/OneDrive/Personal Data/The Favorite Cleaner/JPG Files/Profile For FB.jpg";
+  const profile =
+    "C:/Users/HomePC/OneDrive/Personal Data/The Favorite Cleaner/JPG Files/Profile For FB.jpg";
   if (fs.existsSync(profile)) {
     fs.copyFileSync(profile, path.join(outDir, "Profile For FB.jpg"));
+  }
+
+  // Remove temporary generated SVG wordmarks if present
+  for (const stale of ["logo-dark.svg", "logo-light.svg", "logo-mark.svg", "_test-white.png"]) {
+    const p = path.join(outDir, stale);
+    if (fs.existsSync(p)) fs.unlinkSync(p);
   }
 
   for (const f of [
     "logo-light.png",
     "logo-dark.png",
+    "logo-light-full.png",
+    "logo-dark-full.png",
     "logo-mark.png",
     "favicon.png",
     "social-preview.jpg"
@@ -112,7 +149,7 @@ async function main() {
     console.log("OUT", f, m.width + "x" + m.height);
   }
 
-  console.log("Exact logos exported.");
+  console.log("Exact official logos installed.");
 }
 
 main().catch((err) => {

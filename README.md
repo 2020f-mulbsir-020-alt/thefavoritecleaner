@@ -164,24 +164,25 @@ Uses `sharp` to create JPG + WebP outputs and responsive width variants. Aim for
 
 ## Replace the logo
 
-Web-ready brand files:
+Official logos are exported from the brand PSD files into:
 
-- `assets/brand/logo-dark.png` — dark logo for light backgrounds  
-- `assets/brand/logo-light.png` — light logo for navy / dark backgrounds  
+- `assets/brand/logo-dark.png` — black logo for light backgrounds  
+- `assets/brand/logo-light.png` — white logo for navy / dark backgrounds  
 - `assets/brand/logo-mark.png` — square mark  
 - `assets/brand/favicon.png`  
 - `assets/brand/social-preview.jpg` — Open Graph / Twitter image  
 
-Original PSD sources (`TFC Black.psd`, `TFC White.psd`) and `Profile For FB.jpg` should be stored in `assets/brand/` for reference only — **do not load PSD files in the browser**.
+Original PSD sources (`TFC Black.psd`, `TFC White.psd`) and `Profile For FB.jpg` are stored in `assets/brand/` for reference only — **do not load PSD files in the browser**.
 
 Export replacements at the same aspect ratio. Do not stretch or recolor logos in CSS.
 
-Temporary wordmark PNGs were generated for development. Replace them with official exports from the brand PSD files.
+To re-export the official logos from the PSD sources:
 
 ```bash
-npm run generate-brand
+node scripts/export-official-logos.js
 ```
 
+This reads `TFC (White).psd` and `TFC (Black).psd` and writes web PNGs without altering artwork.
 ---
 
 ## Update metadata

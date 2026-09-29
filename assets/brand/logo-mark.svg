@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="The Favorite Cleaner mark">
-  <rect width="256" height="256" rx="32" fill="#002157"/>
-  <circle cx="128" cy="118" r="58" fill="none" stroke="#FFFFFF" stroke-width="6"/>
-  <path d="M96 132c14-30 42-46 56-46s42 16 56 46" fill="none" stroke="#FFC50C" stroke-width="6" stroke-linecap="round"/>
-  <circle cx="128" cy="98" r="8" fill="#FFC50C"/>
-  <text x="128" y="214" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="28" font-weight="700" fill="#FFFFFF" letter-spacing="4">TFC</text>
-</svg>

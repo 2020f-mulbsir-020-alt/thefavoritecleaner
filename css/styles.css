@@ -19,7 +19,7 @@
   --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   --font-body: "Manrope", Arial, Helvetica, sans-serif;
 
-  --header-height: 5.25rem;
+  --header-height: 5.75rem;
   --container: min(1180px, calc(100% - 3rem));
   --radius-sm: 4px;
   --radius-md: 8px;
@@ -393,13 +393,16 @@ strong {
 
 .logo {
   display: block;
-  width: clamp(150px, 18vw, 198px);
+  width: clamp(148px, 16vw, 210px);
   flex-shrink: 0;
+  line-height: 0;
 }
 
 .logo img {
   width: 100%;
   height: auto;
+  object-fit: contain;
+  object-position: left center;
 }
 
 .logo-dark {
@@ -1584,7 +1587,7 @@ strong {
 }
 
 .site-footer .logo {
-  width: 180px;
+  width: min(200px, 70%);
   margin-bottom: 1.15rem;
 }
 

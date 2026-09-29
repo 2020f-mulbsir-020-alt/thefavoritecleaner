@@ -45,8 +45,8 @@ function header(opts = {}) {
   <header${forceSolid} role="banner">
     <div class="header-inner">
       <a class="logo" href="index.html" aria-label="The Favorite Cleaner home">
-        <img class="logo-light" src="assets/brand/logo-light.png" width="198" height="44" alt="The Favorite Cleaner" />
-        <img class="logo-dark" src="assets/brand/logo-dark.png" width="198" height="44" alt="The Favorite Cleaner" />
+        <img class="logo-light" src="assets/brand/logo-light.png" width="210" height="98" alt="The Favorite Cleaner" />
+        <img class="logo-dark" src="assets/brand/logo-dark.png" width="210" height="98" alt="The Favorite Cleaner" />
       </a>
       <nav class="nav" id="primary-nav" aria-label="Primary">
         <ul class="nav-list">
@@ -90,7 +90,7 @@ function footer() {
       <div class="footer-grid">
         <div>
           <a class="logo" href="index.html" aria-label="The Favorite Cleaner home">
-            <img src="assets/brand/logo-light.png" width="180" height="40" alt="The Favorite Cleaner" />
+            <img src="assets/brand/logo-light.png" width="200" height="93" alt="The Favorite Cleaner" />
           </a>
           <p>Professional cleaning for homes and businesses, delivered with quality, consistency, and careful attention to detail.</p>
           ${socialLinks()}
