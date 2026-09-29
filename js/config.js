@@ -1,5 +1,5 @@
 /**
- * The Favorite Cleaner — Site Configuration
+ * The Favorite Cleaner - Site Configuration
  * Edit these values to update contact info, social links, and feature flags site-wide.
  */
 const SITE_CONFIG = {

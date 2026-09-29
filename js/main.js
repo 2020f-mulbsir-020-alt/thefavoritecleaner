@@ -120,26 +120,42 @@
 
   /* ---- Active nav ------------------------------------------------------ */
   function setActiveNav() {
-    const path = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
-    document.querySelectorAll(".nav-link[href], .dropdown a[href]").forEach((link) => {
-      const href = (link.getAttribute("href") || "").split("#")[0].toLowerCase();
+    let path = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
+    if (!path || path === "/") path = "index.html";
+    if (!path.includes(".")) path = path + ".html";
+
+    const servicePages = [
+      "residential-cleaning.html",
+      "commercial-cleaning.html",
+      "deep-cleaning.html",
+      "move-in-move-out.html",
+      "services.html"
+    ];
+
+    document.querySelectorAll(".nav-list > li > .nav-link").forEach((link) => {
+      const raw = link.getAttribute("href") || "";
+      const href = raw.split("#")[0].toLowerCase();
+      const hasHash = raw.includes("#");
+      link.removeAttribute("aria-current");
+
       if (!href || href === "#") return;
-      const isActive =
-        href === path ||
-        (path === "" && href === "index.html") ||
-        (path === "index.html" && href === "index.html");
-      if (link.classList.contains("nav-link")) {
-        if (isActive) link.setAttribute("aria-current", "page");
-        else link.removeAttribute("aria-current");
+      if (hasHash) return;
+
+      const isHome = path === "" || path === "index.html";
+      if (href === "index.html" && isHome) {
+        link.setAttribute("aria-current", "page");
+        return;
       }
-      if (
-        ["residential-cleaning.html", "commercial-cleaning.html", "deep-cleaning.html", "move-in-move-out.html", "services.html"].includes(path) &&
-        href === "services.html"
-      ) {
-        const servicesLink = document.querySelector('.nav-link[href="services.html"], .nav-link[data-services-trigger]');
-        if (servicesLink) servicesLink.setAttribute("aria-current", "page");
+
+      if (href === path) {
+        link.setAttribute("aria-current", "page");
       }
     });
+
+    if (servicePages.includes(path)) {
+      const servicesLink = document.querySelector("[data-services-trigger]");
+      if (servicesLink) servicesLink.setAttribute("aria-current", "page");
+    }
   }
 
   /* ---- Header scroll --------------------------------------------------- */
@@ -267,19 +283,30 @@
       return;
     }
 
+    const reveal = (el) => {
+      el.classList.add("is-visible", "is-inview");
+    };
+
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible", "is-inview");
+            reveal(entry.target);
             io.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.08, rootMargin: "0px 0px -10px 0px" }
     );
 
-    els.forEach((el) => io.observe(el));
+    els.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.92 && rect.bottom > 0) {
+        reveal(el);
+      } else {
+        io.observe(el);
+      }
+    });
   }
 
   /* ---- Soft parallax (desktop) ----------------------------------------- */
