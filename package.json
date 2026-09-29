@@ -9,6 +9,7 @@
     "generate-brand": "node scripts/generate-brand.js"
   },
   "devDependencies": {
+    "ag-psd": "^31.0.2",
     "sharp": "^0.33.5"
   }
 }
