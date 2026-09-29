@@ -1,0 +1,14 @@
+{
+  "name": "thefavoritecleaner",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Premium website for The Favorite Cleaner",
+  "scripts": {
+    "serve": "npx --yes serve -l 3000",
+    "optimize-images": "node scripts/optimize-images.js",
+    "generate-brand": "node scripts/generate-brand.js"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.5"
+  }
+}

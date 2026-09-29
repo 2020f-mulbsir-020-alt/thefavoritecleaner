@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="160" viewBox="0 0 720 160" role="img" aria-label="The Favorite Cleaner">
+  <rect width="720" height="160" fill="none"/>
+  <circle cx="52" cy="80" r="36" fill="none" stroke="#002157" stroke-width="3"/>
+  <path d="M36 88c8-18 24-28 32-28s24 10 32 28" fill="none" stroke="#FFC50C" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="52" cy="68" r="5" fill="#FFC50C"/>
+  <text x="108" y="72" font-family="Georgia, 'Times New Roman', serif" font-size="42" font-weight="600" fill="#002157" letter-spacing="1">The Favorite</text>
+  <text x="108" y="118" font-family="Georgia, 'Times New Roman', serif" font-size="42" font-weight="600" fill="#002157" letter-spacing="4">CLEANER</text>
+</svg>
