@@ -11,5 +11,9 @@
   "devDependencies": {
     "ag-psd": "^31.0.2",
     "sharp": "^0.33.5"
+  },
+  "dependencies": {
+    "@webtoon/psd": "^0.4.0",
+    "canvas": "^3.2.3"
   }
 }
