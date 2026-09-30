@@ -184,14 +184,14 @@ function head({ title, description, path: pagePath, ogType = "website", schema =
   <meta property="og:title" content="${title}" />
   <meta property="og:description" content="${description}" />
   <meta property="og:url" content="${canonical}" />
-  <meta property="og:image" content="${SITE}/assets/brand/social-preview.jpg" />
+  <meta property="og:image" content="${SITE}/assets/brand/social-preview.jpg?v=20260930" />
   <meta property="og:site_name" content="The Favorite Cleaner" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="${title}" />
   <meta name="twitter:description" content="${description}" />
-  <meta name="twitter:image" content="${SITE}/assets/brand/social-preview.jpg" />
-  <link rel="icon" type="image/png" href="assets/brand/favicon.png" />
-  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+  <meta name="twitter:image" content="${SITE}/assets/brand/social-preview.jpg?v=20260930" />
+  <link rel="icon" type="image/png" href="assets/brand/favicon.png?v=20260930" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png?v=20260930" />
   <meta name="theme-color" content="#00183F" />
   <meta property="og:locale" content="en_US" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -336,8 +336,8 @@ const localBusinessSchema = `
   "description": "Professional cleaning services for homes and businesses across Texas, delivered with reliability, consistency, and careful attention to detail.",
   "url": "${SITE}/",
   "email": "${EMAIL}",
-  "image": "${SITE}/assets/brand/social-preview.jpg",
-  "logo": "${SITE}/assets/brand/logo-dark.png",
+  "image": "${SITE}/assets/brand/social-preview.jpg?v=20260930",
+  "logo": "${SITE}/assets/brand/logo-mark.png?v=20260930",
   "areaServed": {
     "@type": "State",
     "name": "Texas"
