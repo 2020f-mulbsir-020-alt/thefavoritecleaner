@@ -1095,6 +1095,34 @@ function buildServices() {
       </div>
     </div>
   </section>
+  <section class="section section--off-white" aria-labelledby="moments-heading">
+    <div class="container">
+      <div class="section__header reveal">
+        <p class="eyebrow">Photo Moments</p>
+        <h2 id="moments-heading" class="display-lg">Every Service Has a Visual Story</h2>
+        <span class="gold-line draw"></span>
+        <p>Kitchen, bathroom, office, and turnover photos help clients choose faster — and help us scale quality with documented results.</p>
+      </div>
+      <div class="proof-rail">
+        <figure class="proof-rail__item reveal">
+          <img src="assets/images/services/kitchen.jpg" alt="Kitchen prepared for professional cleaning" width="1200" height="800" loading="lazy" />
+          <figcaption>Kitchen cleaning</figcaption>
+        </figure>
+        <figure class="proof-rail__item reveal reveal-delay-1">
+          <img src="assets/images/services/bathroom.jpg" alt="Bathroom prepared for detailed cleaning" width="1200" height="800" loading="lazy" />
+          <figcaption>Bathroom cleaning</figcaption>
+        </figure>
+        <figure class="proof-rail__item reveal reveal-delay-2">
+          <img src="assets/images/services/office.jpg" alt="Office environment for commercial cleaning" width="1200" height="800" loading="lazy" />
+          <figcaption>Office cleaning</figcaption>
+        </figure>
+        <figure class="proof-rail__item reveal reveal-delay-3">
+          <img src="assets/images/about/team-work.jpg" alt="Professional cleaner maintaining polished interiors" width="1200" height="800" loading="lazy" />
+          <figcaption>Detail standards</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
   ${ctaBand()}
   `;
   return pageShell({
@@ -1206,7 +1234,7 @@ function buildGallery() {
   const content = `
   ${pageHero({
     title: "Gallery",
-    copy: "A look at the spaces, tools, and professional care behind our work.",
+    copy: "Real work photos, tools, and before-and-after results — updated as new jobs are documented.",
     image: "assets/images/gallery/living-2.jpg",
     crumbs: [
       { label: "Home", href: "index.html" },
@@ -1215,20 +1243,62 @@ function buildGallery() {
   })}
   <section class="section">
     <div class="container">
-      <div class="gallery-grid">
+      <div class="section__header reveal">
+        <p class="eyebrow">Live Work Gallery</p>
+        <h2 class="display-lg">Cleaning Moments Worth Showing</h2>
+        <span class="gold-line draw"></span>
+        <p>These photos power our marketing flywheel: proof for clients, content for social, and quality checks for a scalable team.</p>
+      </div>
+      <div class="gallery-grid" data-work-photos data-instagram-feed>
         ${galleryItem("assets/images/gallery/cleaner-work-1.jpg", "Professional cleaner at work", "Professional cleaners working")}
+        ${galleryItem("assets/images/gallery/cleaner-work-2.jpg", "Vacuum clearing debris from carpet", "Equipment in action")}
         ${galleryItem("assets/images/gallery/tools-1.jpg", "Cleaning tools arranged neatly", "Cleaning tools")}
         ${galleryItem("assets/images/gallery/kitchen-1.jpg", "Clean modern kitchen", "Kitchens")}
         ${galleryItem("assets/images/gallery/bathroom-1.jpg", "Clean bathroom", "Bathrooms")}
         ${galleryItem("assets/images/gallery/office-1.jpg", "Office interior", "Offices")}
         ${galleryItem("assets/images/gallery/living-1.jpg", "Fresh living space", "Living spaces")}
+        ${galleryItem("assets/images/gallery/living-2.jpg", "Bright residential interior", "Fresh interiors")}
         ${galleryItem("assets/images/gallery/moveout-1.jpg", "Move-out ready interior", "Move-out cleaning")}
         ${galleryItem("assets/images/gallery/commercial-1.jpg", "Commercial environment", "Commercial environments")}
-        ${galleryItem("assets/images/gallery/cleaner-work-2.jpg", "Detailed cleaning in progress", "Detail work")}
-        ${galleryItem("assets/images/gallery/living-2.jpg", "Bright residential interior", "Fresh interiors")}
       </div>
-      <div class="text-center" style="margin-top:2.5rem">
-        <a class="btn btn--gold" data-social="instagram" href="https://www.instagram.com/thefavoritecleaner" target="_blank" rel="noopener noreferrer">${ICONS.instagram} Follow on Instagram</a>
+    </div>
+  </section>
+  <section class="section section--off-white" aria-labelledby="results-heading">
+    <div class="container">
+      <div class="section__header reveal">
+        <p class="eyebrow">Results Library</p>
+        <h2 id="results-heading" class="display-lg">Before &amp; After Highlights</h2>
+        <span class="gold-line draw"></span>
+      </div>
+      <div class="proof-rail">
+        <figure class="proof-rail__item reveal">
+          <img src="assets/images/before-after/kitchen-before.jpg" alt="Messy kitchen before professional cleaning" width="1200" height="800" loading="lazy" />
+          <figcaption>Kitchen before</figcaption>
+        </figure>
+        <figure class="proof-rail__item reveal reveal-delay-1">
+          <img src="assets/images/before-after/kitchen-after.jpg" alt="Spotless kitchen after professional cleaning" width="1200" height="800" loading="lazy" />
+          <figcaption>Kitchen after</figcaption>
+        </figure>
+        <figure class="proof-rail__item reveal reveal-delay-2">
+          <img src="assets/images/before-after/bathroom-before.jpg" alt="Dirty bathroom before professional cleaning" width="1200" height="800" loading="lazy" />
+          <figcaption>Bathroom before</figcaption>
+        </figure>
+        <figure class="proof-rail__item reveal reveal-delay-3">
+          <img src="assets/images/before-after/bathroom-after.jpg" alt="Spotless bathroom after professional cleaning" width="1200" height="800" loading="lazy" />
+          <figcaption>Bathroom after</figcaption>
+        </figure>
+        <figure class="proof-rail__item reveal">
+          <img src="assets/images/before-after/living-before.jpg" alt="Cluttered living room before professional cleaning" width="1200" height="800" loading="lazy" />
+          <figcaption>Living before</figcaption>
+        </figure>
+        <figure class="proof-rail__item reveal reveal-delay-1">
+          <img src="assets/images/before-after/living-after.jpg" alt="Neat living room after professional cleaning" width="1200" height="800" loading="lazy" />
+          <figcaption>Living after</figcaption>
+        </figure>
+      </div>
+      <div class="text-center" style="margin-top:2rem">
+        <a class="btn btn--gold" href="contact.html#booking">Book From What You See ${ICONS.arrow}</a>
+        <a class="btn btn--outline-navy" data-social="instagram" href="https://www.instagram.com/thefavoritecleaner" target="_blank" rel="noopener noreferrer" style="margin-left:0.75rem">${ICONS.instagram} Instagram</a>
       </div>
     </div>
   </section>
@@ -1470,6 +1540,12 @@ const pages = {
     ],
     suitable:
       "Ideal for homeowners, renters, and families who want dependable cleaning support without compromising the feel of their space.",
+    photos: [
+      { src: "assets/images/gallery/living-1.jpg", alt: "Fresh living room after residential cleaning", caption: "Living spaces" },
+      { src: "assets/images/gallery/kitchen-1.jpg", alt: "Bright clean kitchen interior", caption: "Kitchen care" },
+      { src: "assets/images/gallery/cleaner-work-2.jpg", alt: "Vacuum cleaning carpet in a home", caption: "Floor care" },
+      { src: "assets/images/before-after/living-after.jpg", alt: "Neat living room after professional cleaning", caption: "After results" }
+    ],
     related: [
       relatedCommon[1],
       relatedCommon[2],
@@ -1494,6 +1570,12 @@ const pages = {
     ],
     suitable:
       "Well suited for offices, professional suites, and commercial spaces seeking consistent, discreet cleaning support.",
+    photos: [
+      { src: "assets/images/gallery/office-1.jpg", alt: "Professional office ready for commercial cleaning", caption: "Offices" },
+      { src: "assets/images/gallery/commercial-1.jpg", alt: "Modern commercial workspace", caption: "Business spaces" },
+      { src: "assets/images/services/office.jpg", alt: "Office interior maintained for clients and teams", caption: "Workplaces" },
+      { src: "assets/images/gallery/tools-1.jpg", alt: "Organized professional cleaning tools", caption: "Ready to work" }
+    ],
     related: [
       relatedCommon[0],
       relatedCommon[2],
@@ -1518,6 +1600,12 @@ const pages = {
     ],
     suitable:
       "A strong choice for seasonal resets, pre-event preparation, or spaces that have gone longer between thorough cleanings.",
+    photos: [
+      { src: "assets/images/gallery/cleaner-work-1.jpg", alt: "Cleaner detailing shutters during deep cleaning", caption: "Detail work" },
+      { src: "assets/images/before-after/kitchen-after.jpg", alt: "Kitchen after deep cleaning", caption: "Kitchen reset" },
+      { src: "assets/images/before-after/bathroom-after.jpg", alt: "Bathroom after deep cleaning", caption: "Bathroom reset" },
+      { src: "assets/images/services/bathroom.jpg", alt: "Bathroom prepared for detailed cleaning", caption: "Focus areas" }
+    ],
     related: [
       relatedCommon[0],
       { href: "move-in-move-out.html", img: "assets/images/services/move-in-out.jpg", title: "Move-In / Move-Out" },
@@ -1542,6 +1630,12 @@ const pages = {
     ],
     suitable:
       "Helpful for homeowners, renters, landlords, and property managers managing transitions or turnovers.",
+    photos: [
+      { src: "assets/images/gallery/moveout-1.jpg", alt: "Open home ready for move-out cleaning", caption: "Turnover ready" },
+      { src: "assets/images/services/move-in-out.jpg", alt: "Bright empty home interior", caption: "Empty-home focus" },
+      { src: "assets/images/before-after/kitchen-after.jpg", alt: "Kitchen cleaned for move-in or move-out", caption: "Kitchen ready" },
+      { src: "assets/images/gallery/living-2.jpg", alt: "Bright residential interior after cleaning", caption: "Fresh start" }
+    ],
     related: [
       relatedCommon[2],
       relatedCommon[0],
@@ -1564,9 +1658,11 @@ const pages = {
       <li>Name and contact details (email address, phone number)</li>
       <li>Property type, size, address or ZIP code, and service preferences</li>
       <li>Preferred dates, times, frequency, and special instructions</li>
-      <li>Access notes, product preferences, and other message content you choose to share</li>
+      <li>Access notes, product preferences, pets, and other message content you choose to share</li>
+      <li>Optional marketing attribution data (such as campaign source parameters) that help us understand how you found us</li>
     </ul>
     <p>Our hosting provider may also collect standard technical logs such as IP address, browser type, and page requests for security and reliability.</p>
+    <p>When we photograph work results for quality and marketing, we do so only for the areas and purposes you approve. Tell us if certain spaces should not be photographed.</p>
 
     <h2>How We Use Information</h2>
     <p>We use inquiry and booking information to:</p>

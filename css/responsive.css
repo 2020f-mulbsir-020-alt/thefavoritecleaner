@@ -9,6 +9,10 @@
     gap: 1.75rem 1.5rem;
   }
 
+  .proof-rail {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .gallery-grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -207,6 +211,7 @@
   .services-grid,
   .benefits-grid,
   .care-grid,
+  .proof-rail,
   .values-grid,
   .service-group__list,
   .related-services,
