@@ -981,6 +981,67 @@ strong {
   margin-bottom: 0.65rem;
 }
 
+/* Client care ------------------------------------------------------------- */
+.care-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.75rem;
+  margin-top: 2.5rem;
+}
+
+.care-point {
+  padding: 0.25rem 0;
+}
+
+.care-point__icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  color: var(--navy);
+  border: 1px solid rgba(11, 37, 69, 0.18);
+  border-radius: 50%;
+}
+
+.care-point__icon svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.care-point h3 {
+  font-size: 1.35rem;
+  margin-bottom: 0.55rem;
+  color: var(--navy);
+}
+
+.care-point p {
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+}
+
+.contact-reassure {
+  margin: 1.25rem 0 1.5rem;
+  padding: 1rem 1.15rem;
+  border-left: 3px solid var(--gold-primary);
+  background: rgba(255, 197, 12, 0.08);
+}
+
+.contact-reassure p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.form-reassure {
+  margin: 1rem 0 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
 /* Process timeline -------------------------------------------------------- */
 .timeline {
   display: grid;

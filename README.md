@@ -1,6 +1,6 @@
 # The Favorite Cleaner — Website
 
-Premium static website for **The Favorite Cleaner** (`https://www.thefavoritecleaner.com`).
+Premium static website for **The Favorite Cleaner** (`https://thefavoritecleaner.com`).
 
 Built with semantic HTML5, modern CSS, and vanilla JavaScript. No frameworks, no jQuery.
 
@@ -34,7 +34,7 @@ const SITE_CONFIG = {
   companyName: "The Favorite Cleaner",
   tagline: "Clean Beyond Expectations.",
   email: "contact@thefavoritecleaner.com",
-  website: "https://www.thefavoritecleaner.com",
+  website: "https://thefavoritecleaner.com",
   serviceArea: "Texas",
   phoneNumber: "",
   whatsappNumber: "",
@@ -230,7 +230,7 @@ Upload all files via SFTP/cPanel keeping the folder structure intact. Ensure `as
 
 ## Configure the domain (GitHub Pages + HTTPS)
 
-This site is published on **GitHub Pages** with custom domain `www.thefavoritecleaner.com`.
+This site is published on **GitHub Pages** with custom domain `thefavoritecleaner.com` (apex). `www` redirects to the apex HTTPS site.
 
 If GitHub shows:
 

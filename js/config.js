@@ -8,7 +8,7 @@ const SITE_CONFIG = {
   tagline: "Clean Beyond Expectations.",
   supportingLine: "A Higher Standard of Clean.",
   email: "contact@thefavoritecleaner.com",
-  website: "https://www.thefavoritecleaner.com",
+  website: "https://thefavoritecleaner.com",
   serviceArea: "Texas",
   serviceAreaDetail:
     "Professional cleaning for homes and businesses across Texas. Coverage for your location is confirmed when you inquire.",

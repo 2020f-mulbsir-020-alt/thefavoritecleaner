@@ -3,7 +3,8 @@
    ========================================================================== */
 
 @media (max-width: 1200px) {
-  .benefits-grid {
+  .benefits-grid,
+  .care-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.75rem 1.5rem;
   }
@@ -205,6 +206,7 @@
 
   .services-grid,
   .benefits-grid,
+  .care-grid,
   .values-grid,
   .service-group__list,
   .related-services,

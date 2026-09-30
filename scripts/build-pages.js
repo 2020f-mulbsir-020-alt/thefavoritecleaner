@@ -6,7 +6,7 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT = path.join(__dirname, "..");
-const SITE = "https://www.thefavoritecleaner.com";
+const SITE = "https://thefavoritecleaner.com";
 const EMAIL = "contact@thefavoritecleaner.com";
 
 const ICONS = {
@@ -286,11 +286,11 @@ const HOME_FAQS = [
   },
   {
     q: "Do you offer recurring cleaning services?",
-    a: "Yes. Recurring cleaning can be arranged on a weekly, biweekly, monthly, or customized schedule based on your needs and availability."
+    a: "Yes. Recurring cleaning can be arranged on a weekly, biweekly, monthly, or customized schedule based on your needs and availability — ideal for households and businesses that want steady, sustainable upkeep."
   },
   {
     q: "Can a cleaning plan be customized?",
-    a: "Absolutely. Every property is different, and cleaning plans can be tailored around specific rooms, priorities, product preferences, and access requirements."
+    a: "Absolutely. Every property is different, and cleaning plans can be tailored around specific rooms, priorities, product preferences, pets, and access requirements."
   },
   {
     q: "Do you provide move-in and move-out cleaning?",
@@ -298,19 +298,27 @@ const HOME_FAQS = [
   },
   {
     q: "How can a cleaning service be booked?",
-    a: "Submit a request through our booking form or email contact@thefavoritecleaner.com. We will follow up to confirm details, scope, timing, and next steps."
+    a: "Submit a request through our booking form or email contact@thefavoritecleaner.com. We will follow up to confirm details, scope, timing, pricing, and next steps — usually within one business day."
   },
   {
     q: "How is pricing determined?",
-    a: "Pricing depends on property size, condition, service type, frequency, and the scope you request. After reviewing your details, we confirm pricing before service begins."
+    a: "Pricing depends on property size, condition, service type, frequency, and the scope you request. After reviewing your details, we confirm pricing before service begins so you know what to expect."
   },
   {
     q: "Do you bring cleaning supplies and equipment?",
-    a: "Yes. Unless otherwise arranged, our team brings professional cleaning supplies and equipment. If you prefer specific products (such as fragrance-free options), let us know when booking."
+    a: "Yes. Unless otherwise arranged, our team brings professional cleaning supplies and equipment. Prefer fragrance-free, gentler, or specific products? Note that on your booking request and we will accommodate when practical."
+  },
+  {
+    q: "Do you clean homes with pets?",
+    a: "Yes. Please tell us about pets in advance so we can plan safely and respectfully. Secure or separate animals if needed, and share any areas to avoid or focus on."
+  },
+  {
+    q: "What if something was missed after cleaning?",
+    a: "Your satisfaction matters. If something within the agreed scope was missed, contact us within 24 hours with details (photos help). When the concern is reasonable and related to our work, we will return to address it at no extra charge."
   },
   {
     q: "What should be prepared before the appointment?",
-    a: "Please clear personal items from key surfaces when possible, secure valuables, arrange safe access (keys, codes, or an adult present), and note any pets, parking, or special instructions in advance."
+    a: "Please clear personal items from key surfaces when possible, secure valuables, arrange safe access (keys, codes, or an adult present), and note any pets, parking, allergies, or special instructions in advance."
   },
   {
     q: "How long does a cleaning usually take?",
@@ -318,15 +326,15 @@ const HOME_FAQS = [
   },
   {
     q: "What is your cancellation policy?",
-    a: "Please provide at least 24 hours’ notice when canceling or rescheduling whenever possible. Late cancellations, no-shows, or lack of access may incur a fee as outlined in our Terms & Conditions."
+    a: "Please provide at least 24 hours’ notice when canceling or rescheduling whenever possible. Late cancellations, no-shows, or lack of access may incur a fee as outlined in our Terms & Conditions. We also notify you promptly if we must reschedule."
   },
   {
     q: "How can special cleaning instructions be shared?",
-    a: "Include special instructions in your booking request or mention them when we confirm your service so preferences can be noted and followed."
+    a: "Use the booking form fields for access notes, product preferences, and pets — or include details in your message. Preferences are confirmed before your appointment."
   },
   {
     q: "How far in advance should a service be scheduled?",
-    a: "Scheduling ahead is recommended, especially for deep cleans, move-related services, or preferred time windows. Availability can be discussed when you reach out."
+    a: "Scheduling ahead is recommended, especially for deep cleans, move-related services, or preferred time windows. Availability can be discussed when you reach out; flexible options are always welcome."
   }
 ];
 
@@ -458,7 +466,7 @@ function buildHome() {
         <article class="benefit reveal">
           <div class="benefit__icon">${ICONS.shield}</div>
           <h3>Reliable Service</h3>
-          <p>Dependable scheduling, communication, and service.</p>
+          <p>Clear communication, dependable scheduling, and follow-through you can count on.</p>
         </article>
         <article class="benefit reveal reveal-delay-1">
           <div class="benefit__icon">${ICONS.spark}</div>
@@ -468,12 +476,45 @@ function buildHome() {
         <article class="benefit reveal reveal-delay-2">
           <div class="benefit__icon">${ICONS.heart}</div>
           <h3>Respectful Care</h3>
-          <p>Every property, belonging, and preference is treated with care.</p>
+          <p>Homes, offices, pets, and personal preferences are treated with genuine care.</p>
         </article>
         <article class="benefit reveal reveal-delay-3">
           <div class="benefit__icon">${ICONS.refresh}</div>
           <h3>Consistent Quality</h3>
-          <p>Professional standards applied to every visit.</p>
+          <p>Professional standards on every visit — one-time or recurring.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--off-white" aria-labelledby="care-heading">
+    <div class="container">
+      <div class="section__header section__header--center reveal">
+        <p class="eyebrow">Client Care</p>
+        <h2 id="care-heading" class="display-lg">Built to Accommodate You</h2>
+        <span class="gold-line gold-line--center draw"></span>
+        <p class="lead" style="max-width:36rem;margin:1rem auto 0">We run a sustainable cleaning business by keeping expectations clear, honoring preferences, and making it easy to book with confidence.</p>
+      </div>
+      <div class="care-grid">
+        <article class="care-point reveal">
+          <div class="care-point__icon">${ICONS.check}</div>
+          <h3>Pricing Before You Commit</h3>
+          <p>Scope and pricing are confirmed before service begins — no surprise charges for the agreed work.</p>
+        </article>
+        <article class="care-point reveal reveal-delay-1">
+          <div class="care-point__icon">${ICONS.refresh}</div>
+          <h3>Flexible Scheduling</h3>
+          <p>Share preferred days and times. We work with your calendar for one-time and recurring visits.</p>
+        </article>
+        <article class="care-point reveal reveal-delay-2">
+          <div class="care-point__icon">${ICONS.heart}</div>
+          <h3>Your Preferences Matter</h3>
+          <p>Pets, fragrance-free or gentler products, access notes, and priority rooms — tell us what helps.</p>
+        </article>
+        <article class="care-point reveal reveal-delay-3">
+          <div class="care-point__icon">${ICONS.shield}</div>
+          <h3>Satisfaction Follow-Up</h3>
+          <p>If something in the agreed scope was missed, contact us within 24 hours and we will make it right.</p>
         </article>
       </div>
     </div>
@@ -490,22 +531,22 @@ function buildHome() {
         <li class="timeline__step reveal">
           <span class="timeline__number">01</span>
           <h3>Tell Us About the Space</h3>
-          <p>Share property details, priorities, and any special instructions.</p>
+          <p>Share property details, priorities, pets, access notes, and any special instructions.</p>
         </li>
         <li class="timeline__step reveal reveal-delay-1">
           <span class="timeline__number">02</span>
           <h3>Receive a Personalized Plan</h3>
-          <p>We outline a cleaning approach tailored to your needs.</p>
+          <p>We outline scope, timing, and pricing tailored to your needs — before you commit.</p>
         </li>
         <li class="timeline__step reveal reveal-delay-2">
           <span class="timeline__number">03</span>
           <h3>Choose a Convenient Time</h3>
-          <p>Select a schedule that works for your home or business.</p>
+          <p>Select a schedule that works for your home or business. Rescheduling with notice is welcome.</p>
         </li>
         <li class="timeline__step reveal reveal-delay-3">
           <span class="timeline__number">04</span>
           <h3>Enjoy a Fresh, Clean Space</h3>
-          <p>Settle into a space that feels cared for and renewed.</p>
+          <p>Settle into a space that feels cared for — and reach out if anything needs a touch-up.</p>
         </li>
       </ol>
     </div>
@@ -660,6 +701,15 @@ function bookingForm() {
         <span class="field-error"></span>
       </div>
       <div class="form-field">
+        <label for="preferredContact">Preferred Contact <span class="optional">(optional)</span></label>
+        <select id="preferredContact" name="preferredContact">
+          <option value="">Select…</option>
+          <option>Email</option>
+          <option>Phone</option>
+          <option>Either is fine</option>
+        </select>
+      </div>
+      <div class="form-field">
         <label for="propertyType">Property Type <span class="optional">(optional)</span></label>
         <select id="propertyType" name="propertyType">
           <option value="">Select…</option>
@@ -696,6 +746,7 @@ function bookingForm() {
           <option value="">Select…</option>
           <option>Morning</option>
           <option>Afternoon</option>
+          <option>Evening</option>
           <option>Flexible</option>
         </select>
       </div>
@@ -714,13 +765,39 @@ function bookingForm() {
           <option>Custom</option>
         </select>
       </div>
+      <div class="form-field">
+        <label for="pets">Pets on Site <span class="optional">(optional)</span></label>
+        <select id="pets" name="pets">
+          <option value="">Select…</option>
+          <option>No pets</option>
+          <option>Dog(s)</option>
+          <option>Cat(s)</option>
+          <option>Other / multiple</option>
+          <option>Will secure during visit</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="productPreference">Product Preference <span class="optional">(optional)</span></label>
+        <select id="productPreference" name="productPreference">
+          <option value="">Select…</option>
+          <option>Standard professional supplies</option>
+          <option>Fragrance-free preferred</option>
+          <option>Gentler / sensitive-friendly preferred</option>
+          <option>Client-provided products</option>
+          <option>Other (note in message)</option>
+        </select>
+      </div>
       <div class="form-field form-field--full">
         <label for="location">Address or ZIP Code <span class="optional">(optional)</span></label>
-        <input id="location" name="location" type="text" autocomplete="postal-code" />
+        <input id="location" name="location" type="text" autocomplete="postal-code" placeholder="City, ZIP, or full address" />
+      </div>
+      <div class="form-field form-field--full">
+        <label for="accessNotes">Access &amp; Arrival Notes <span class="optional">(optional)</span></label>
+        <textarea id="accessNotes" name="accessNotes" rows="3" placeholder="Gate code, parking, lockbox, building rules, or best arrival window."></textarea>
       </div>
       <div class="form-field form-field--full">
         <label for="message">Message or Special Instructions <span class="optional">(optional)</span></label>
-        <textarea id="message" name="message" rows="5" placeholder="Tell us about the space, priorities, or access notes."></textarea>
+        <textarea id="message" name="message" rows="4" placeholder="Priority rooms, allergies, focus areas, or anything that helps us serve you well."></textarea>
       </div>
       <div class="checkbox-field">
         <input id="consent" name="consent" type="checkbox" required />
@@ -733,6 +810,7 @@ function bookingForm() {
         <button class="btn btn--gold" type="submit">Submit Request ${ICONS.arrow}</button>
       </div>
     </div>
+    <p class="form-reassure">We typically reply within 1 business day. Pricing and scope are confirmed before service — you are never locked in by submitting this form alone.</p>
     <div class="form-message form-message--success" role="status" aria-live="polite"></div>
     <div class="form-message form-message--error" role="alert" aria-live="assertive"></div>
   </form>`;
@@ -1096,7 +1174,7 @@ function buildContact() {
   const content = `
   ${pageHero({
     title: "Contact & Booking",
-    copy: "Tell us about your space. We will follow up to discuss a cleaning plan that fits.",
+    copy: "Tell us about your space, preferences, and timing. We will follow up with a clear plan that fits — no pressure to commit until details are confirmed.",
     image: "assets/images/about/intro-interior.jpg",
     crumbs: [
       { label: "Home", href: "index.html" },
@@ -1109,7 +1187,10 @@ function buildContact() {
         <p class="eyebrow">Reach Out</p>
         <h2 class="display-md">Let’s Plan Your Clean</h2>
         <span class="gold-line draw"></span>
-        <p>Share your property details and preferred timing. We review every request carefully and confirm next steps by email.</p>
+        <p>Share property details, preferred timing, and anything that helps us accommodate you — pets, products, access, or priorities. We review every request carefully and confirm next steps by email.</p>
+        <div class="contact-reassure">
+          <p><strong>How we treat clients:</strong> pricing before service, flexible scheduling when possible, and a 24-hour satisfaction follow-up on agreed scope.</p>
+        </div>
         <div class="contact-meta">
           <div class="contact-meta__item">
             <h3>Email</h3>
@@ -1148,7 +1229,7 @@ function buildContact() {
       </aside>
       <div class="reveal reveal-delay-1">
         <h2 class="display-md" style="margin-bottom:1rem">Booking Form</h2>
-        <p style="margin-bottom:1.25rem;color:var(--text-secondary)">Required fields help us prepare an accurate follow-up. Optional fields can improve scheduling and pricing accuracy.</p>
+        <p style="margin-bottom:1.25rem;color:var(--text-secondary)">Required fields help us prepare an accurate follow-up. Optional fields — pets, products, access — help us accommodate you from the first visit.</p>
         ${bookingForm()}
       </div>
     </div>
@@ -1194,10 +1275,11 @@ function buildContact() {
         <li>Secure cash, jewelry, and fragile valuables</li>
         <li>Confirm access (keys, codes, gate, or an adult present)</li>
         <li>Share pet details and any safety notes in advance</li>
-        <li>Note parking, building rules, or product preferences</li>
+        <li>Note parking, building rules, allergies, or product preferences</li>
         <li>List priority rooms or focus areas for the visit</li>
+        <li>Leave a short note if you will not be home — we work carefully either way</li>
       </ul>
-      <p class="reveal" style="color:var(--text-secondary)">Full customer terms, cancellations, and service expectations are detailed in our <a href="terms.html">Terms &amp; Conditions</a>.</p>
+      <p class="reveal" style="color:var(--text-secondary)">Full customer terms, cancellations, satisfaction follow-up, and service expectations are detailed in our <a href="terms.html">Terms &amp; Conditions</a>.</p>
     </div>
   </section>
   `;
@@ -1450,7 +1532,7 @@ const pages = {
     "Terms & Conditions",
     "Terms & Conditions | The Favorite Cleaner",
     `
-    <p>These Terms &amp; Conditions ("Terms") govern cleaning services provided by The Favorite Cleaner ("we," "us," or "our") to customers ("you" or "customer") in Texas, and use of our website. By requesting, booking, or receiving our services—or by using www.thefavoritecleaner.com—you agree to these Terms.</p>
+    <p>These Terms &amp; Conditions ("Terms") govern cleaning services provided by The Favorite Cleaner ("we," "us," or "our") to customers ("you" or "customer") in Texas, and use of our website. By requesting, booking, or receiving our services—or by using thefavoritecleaner.com—you agree to these Terms.</p>
 
     <h2>1. Services</h2>
     <p>We provide professional residential and commercial cleaning, including recurring cleaning, deep cleaning, move-in/move-out cleaning, and customized plans as discussed with you. Website descriptions are general. The scope of work, areas included, timing, and pricing for your job are confirmed when your booking is accepted.</p>
