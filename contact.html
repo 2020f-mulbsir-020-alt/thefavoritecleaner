@@ -4,24 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact & Book | The Favorite Cleaner</title>
-  <meta name="description" content="Contact The Favorite Cleaner to book residential or commercial cleaning across Texas. Email contact@thefavoritecleaner.com." />
+  <meta name="description" content="Contact The Favorite Cleaner to book residential or commercial cleaning across Texas. Email contact@thefavoritecleaner.com. Hours Monday–Saturday 8 AM–6 PM CT." />
   <link rel="canonical" href="https://www.thefavoritecleaner.com/contact.html" />
   <meta name="robots" content="index, follow" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Contact & Book | The Favorite Cleaner" />
-  <meta property="og:description" content="Contact The Favorite Cleaner to book residential or commercial cleaning across Texas. Email contact@thefavoritecleaner.com." />
+  <meta property="og:description" content="Contact The Favorite Cleaner to book residential or commercial cleaning across Texas. Email contact@thefavoritecleaner.com. Hours Monday–Saturday 8 AM–6 PM CT." />
   <meta property="og:url" content="https://www.thefavoritecleaner.com/contact.html" />
   <meta property="og:image" content="https://www.thefavoritecleaner.com/assets/brand/social-preview.jpg" />
   <meta property="og:site_name" content="The Favorite Cleaner" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Contact & Book | The Favorite Cleaner" />
-  <meta name="twitter:description" content="Contact The Favorite Cleaner to book residential or commercial cleaning across Texas. Email contact@thefavoritecleaner.com." />
+  <meta name="twitter:description" content="Contact The Favorite Cleaner to book residential or commercial cleaning across Texas. Email contact@thefavoritecleaner.com. Hours Monday–Saturday 8 AM–6 PM CT." />
   <meta name="twitter:image" content="https://www.thefavoritecleaner.com/assets/brand/social-preview.jpg" />
   <link rel="icon" type="image/png" href="assets/brand/favicon.png" />
   <link rel="apple-touch-icon" href="assets/brand/logo-mark.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/responsive.css" />
   
@@ -31,7 +31,7 @@
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "CleaningService"],
   "name": "The Favorite Cleaner",
-  "description": "Professional cleaning services for homes and businesses, delivered with reliability, consistency, and careful attention to detail.",
+  "description": "Professional cleaning services for homes and businesses across Texas, delivered with reliability, consistency, and careful attention to detail.",
   "url": "https://www.thefavoritecleaner.com/",
   "email": "contact@thefavoritecleaner.com",
   "image": "https://www.thefavoritecleaner.com/assets/brand/social-preview.jpg",
@@ -40,12 +40,22 @@
     "@type": "State",
     "name": "Texas"
   },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    }
+  ],
   "sameAs": [
     "https://www.instagram.com/thefavoritecleaner",
     "https://www.facebook.com/thefavoritecleaner",
     "https://www.linkedin.com/company/thefavoritecleaner"
   ],
-  "priceRange": "$$"
+  "priceRange": "$$",
+  "currenciesAccepted": "USD",
+  "paymentAccepted": "Invoice, arrangements confirmed at booking"
 }
 </script>
 </head>
@@ -122,7 +132,7 @@
         <p class="eyebrow">Reach Out</p>
         <h2 class="display-md">Let’s Plan Your Clean</h2>
         <span class="gold-line draw"></span>
-        <p>Prefer email? We are easy to reach and respond thoughtfully to every inquiry.</p>
+        <p>Share your property details and preferred timing. We review every request carefully and confirm next steps by email.</p>
         <div class="contact-meta">
           <div class="contact-meta__item">
             <h3>Email</h3>
@@ -135,10 +145,23 @@
           <div class="contact-meta__item">
             <h3>Service Area</h3>
             <p><span data-config-area>Texas</span>, USA</p>
+            <p data-area-detail style="margin-top:0.4rem">Professional cleaning for homes and businesses across Texas. Coverage for your location is confirmed when you inquire.</p>
           </div>
           <div class="contact-meta__item">
             <h3>Business Hours</h3>
-            <p data-business-hours>Hours available upon request.</p>
+            <p data-business-hours>Monday–Saturday: 8:00 AM – 6:00 PM (Central Time)</p>
+          </div>
+          <div class="contact-meta__item">
+            <h3>Response Time</h3>
+            <p data-response-time>We typically respond within 1 business day.</p>
+          </div>
+          <div class="contact-meta__item">
+            <h3>Payment</h3>
+            <p data-payment-note>Pricing is confirmed before service. Payment instructions are shared with your booking confirmation or invoice.</p>
+          </div>
+          <div class="contact-meta__item">
+            <h3>Policies</h3>
+            <p><a href="terms.html">Terms &amp; Conditions</a> · <a href="privacy-policy.html">Privacy Policy</a></p>
           </div>
           <div class="contact-meta__item">
             <h3>Social</h3>
@@ -153,6 +176,7 @@
       </aside>
       <div class="reveal reveal-delay-1">
         <h2 class="display-md" style="margin-bottom:1rem">Booking Form</h2>
+        <p style="margin-bottom:1.25rem;color:var(--text-secondary)">Required fields help us prepare an accurate follow-up. Optional fields can improve scheduling and pricing accuracy.</p>
         
   <form class="form-card" data-contact-form id="booking" novalidate>
     <div class="form-grid">
@@ -237,7 +261,7 @@
       <div class="checkbox-field">
         <input id="consent" name="consent" type="checkbox" required />
         <div>
-          <label for="consent">I agree to the processing of my information for the purpose of responding to this inquiry. <a href="privacy-policy.html">Privacy Policy</a> <span aria-hidden="true">*</span></label>
+          <label for="consent">I agree to the <a href="terms.html">Terms &amp; Conditions</a> and the processing of my information as described in the <a href="privacy-policy.html">Privacy Policy</a>. <span aria-hidden="true">*</span></label>
           <span class="field-error"></span>
         </div>
       </div>
@@ -249,6 +273,53 @@
     <div class="form-message form-message--error" role="alert" aria-live="assertive"></div>
   </form>
       </div>
+    </div>
+  </section>
+  <section class="section section--off-white" aria-labelledby="expect-heading">
+    <div class="container">
+      <div class="section__header reveal">
+        <p class="eyebrow">What Happens Next</p>
+        <h2 id="expect-heading" class="display-lg">A Clear Path From Inquiry to Service</h2>
+        <span class="gold-line draw"></span>
+      </div>
+      <ol class="timeline">
+        <li class="timeline__step reveal">
+          <span class="timeline__number">01</span>
+          <h3>Submit Your Request</h3>
+          <p>Tell us the property type, service needed, location, and any access or preference notes.</p>
+        </li>
+        <li class="timeline__step reveal reveal-delay-1">
+          <span class="timeline__number">02</span>
+          <h3>Receive a Follow-Up</h3>
+          <p>We confirm availability, clarify scope, and share pricing details before anything is finalized.</p>
+        </li>
+        <li class="timeline__step reveal reveal-delay-2">
+          <span class="timeline__number">03</span>
+          <h3>Schedule Your Cleaning</h3>
+          <p>Once details are agreed, we lock in a convenient date and time for your home or business.</p>
+        </li>
+        <li class="timeline__step reveal reveal-delay-3">
+          <span class="timeline__number">04</span>
+          <h3>Enjoy a Fresh Space</h3>
+          <p>Our team arrives prepared with supplies and completes the agreed scope with careful attention.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+  <section class="section" aria-labelledby="prep-heading">
+    <div class="container" style="max-width:46rem">
+      <p class="eyebrow reveal">Before We Arrive</p>
+      <h2 id="prep-heading" class="display-lg reveal">Helpful Preparation Checklist</h2>
+      <span class="gold-line draw"></span>
+      <ul class="checklist reveal">
+        <li>Clear counters and floors of excess clutter where possible</li>
+        <li>Secure cash, jewelry, and fragile valuables</li>
+        <li>Confirm access (keys, codes, gate, or an adult present)</li>
+        <li>Share pet details and any safety notes in advance</li>
+        <li>Note parking, building rules, or product preferences</li>
+        <li>List priority rooms or focus areas for the visit</li>
+      </ul>
+      <p class="reveal" style="color:var(--text-secondary)">Full customer terms, cancellations, and service expectations are detailed in our <a href="terms.html">Terms &amp; Conditions</a>.</p>
     </div>
   </section>
   
@@ -296,6 +367,7 @@
           <ul class="footer-links">
             <li><a data-config-email="text" href="mailto:contact@thefavoritecleaner.com">contact@thefavoritecleaner.com</a></li>
             <li>Service area: <span data-config-area>Texas</span>, USA</li>
+            <li><span data-business-hours>Monday–Saturday: 8:00 AM – 6:00 PM (Central Time)</span></li>
             <li><a data-book-now data-book-fallback="contact.html#booking" href="contact.html#booking">Book a Cleaning</a></li>
           </ul>
         </div>
@@ -304,7 +376,7 @@
         <p>&copy; <span data-year></span> <span data-config-company>The Favorite Cleaner</span>. All rights reserved.</p>
         <div class="footer-legal">
           <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="terms.html">Terms</a>
+          <a href="terms.html">Terms &amp; Conditions</a>
         </div>
       </div>
     </div>

@@ -40,6 +40,14 @@
     "@type": "State",
     "name": "Texas"
   },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    }
+  ],
   "sameAs": [
     "https://www.instagram.com/thefavoritecleaner",
     "https://www.facebook.com/thefavoritecleaner",
@@ -52,7 +60,7 @@
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": [{"@type":"Question","name":"What types of properties do you clean?","acceptedAnswer":{"@type":"Answer","text":"We provide cleaning services for residential and commercial properties. Share details about your space so we can recommend a suitable approach."}},{"@type":"Question","name":"Do you offer recurring cleaning services?","acceptedAnswer":{"@type":"Answer","text":"Yes. Recurring cleaning can be arranged on a weekly, biweekly, or customized schedule based on your needs."}},{"@type":"Question","name":"Can a cleaning plan be customized?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. Every property is different, and cleaning plans can be tailored around specific areas, priorities, and preferences."}},{"@type":"Question","name":"Do you provide move-in and move-out cleaning?","acceptedAnswer":{"@type":"Answer","text":"Yes. Move-in and move-out cleaning is available to help make transitions simpler and spaces ready for the next chapter."}},{"@type":"Question","name":"How can a cleaning service be booked?","acceptedAnswer":{"@type":"Answer","text":"You can submit a request through our booking form or email us directly. We will follow up to discuss details and next steps."}},{"@type":"Question","name":"What should be prepared before the appointment?","acceptedAnswer":{"@type":"Answer","text":"Clearing personal items from surfaces and noting any access instructions is generally helpful. Specific preparation guidance can be shared when your service is scheduled."}},{"@type":"Question","name":"How can special cleaning instructions be shared?","acceptedAnswer":{"@type":"Answer","text":"Include special instructions in your booking request or mention them when we confirm your service so preferences can be noted."}},{"@type":"Question","name":"How far in advance should a service be scheduled?","acceptedAnswer":{"@type":"Answer","text":"Scheduling ahead is recommended when possible, especially for larger projects or preferred time windows. Availability can be discussed when you reach out."}}]
+  "mainEntity": [{"@type":"Question","name":"What types of properties do you clean?","acceptedAnswer":{"@type":"Answer","text":"We provide cleaning services for residential and commercial properties, including homes, apartments, offices, and selected rental or turnover spaces. Share details about your property so we can recommend a suitable approach."}},{"@type":"Question","name":"Do you offer recurring cleaning services?","acceptedAnswer":{"@type":"Answer","text":"Yes. Recurring cleaning can be arranged on a weekly, biweekly, monthly, or customized schedule based on your needs and availability."}},{"@type":"Question","name":"Can a cleaning plan be customized?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. Every property is different, and cleaning plans can be tailored around specific rooms, priorities, product preferences, and access requirements."}},{"@type":"Question","name":"Do you provide move-in and move-out cleaning?","acceptedAnswer":{"@type":"Answer","text":"Yes. Move-in and move-out cleaning is available to help make transitions simpler and spaces ready for the next chapter."}},{"@type":"Question","name":"How can a cleaning service be booked?","acceptedAnswer":{"@type":"Answer","text":"Submit a request through our booking form or email contact@thefavoritecleaner.com. We will follow up to confirm details, scope, timing, and next steps."}},{"@type":"Question","name":"How is pricing determined?","acceptedAnswer":{"@type":"Answer","text":"Pricing depends on property size, condition, service type, frequency, and the scope you request. After reviewing your details, we confirm pricing before service begins."}},{"@type":"Question","name":"Do you bring cleaning supplies and equipment?","acceptedAnswer":{"@type":"Answer","text":"Yes. Unless otherwise arranged, our team brings professional cleaning supplies and equipment. If you prefer specific products (such as fragrance-free options), let us know when booking."}},{"@type":"Question","name":"What should be prepared before the appointment?","acceptedAnswer":{"@type":"Answer","text":"Please clear personal items from key surfaces when possible, secure valuables, arrange safe access (keys, codes, or an adult present), and note any pets, parking, or special instructions in advance."}},{"@type":"Question","name":"How long does a cleaning usually take?","acceptedAnswer":{"@type":"Answer","text":"Timing depends on the size of the property, its condition, and the service selected. We will give a clearer time expectation when your booking details are confirmed."}},{"@type":"Question","name":"What is your cancellation policy?","acceptedAnswer":{"@type":"Answer","text":"Please provide at least 24 hours' notice when canceling or rescheduling whenever possible. Late cancellations, no-shows, or lack of access may incur a fee as outlined in our Terms & Conditions."}},{"@type":"Question","name":"How can special cleaning instructions be shared?","acceptedAnswer":{"@type":"Answer","text":"Include special instructions in your booking request or mention them when we confirm your service so preferences can be noted and followed."}},{"@type":"Question","name":"How far in advance should a service be scheduled?","acceptedAnswer":{"@type":"Answer","text":"Scheduling ahead is recommended, especially for deep cleans, move-related services, or preferred time windows. Availability can be discussed when you reach out."}}]
 }
 </script>
 </head>
@@ -455,7 +463,6 @@
         <span class="gold-line gold-line--center draw"></span>
       </div>
       <div class="faq-list reveal">
-        
       <div class="faq-item">
         <h3>
           <button class="faq-question" type="button" id="faq-1-q" aria-expanded="false" aria-controls="faq-1">
@@ -465,7 +472,7 @@
         </h3>
         <div class="faq-answer" id="faq-1" role="region" aria-labelledby="faq-1-q" hidden>
           <div class="faq-answer__inner">
-            <p>We provide cleaning services for residential and commercial properties. Share details about your space so we can recommend a suitable approach.</p>
+            <p>We provide cleaning services for residential and commercial properties, including homes, apartments, offices, and selected rental or turnover spaces. Share details about your property so we can recommend a suitable approach.</p>
           </div>
         </div>
       </div>
@@ -478,7 +485,7 @@
         </h3>
         <div class="faq-answer" id="faq-2" role="region" aria-labelledby="faq-2-q" hidden>
           <div class="faq-answer__inner">
-            <p>Yes. Recurring cleaning can be arranged on a weekly, biweekly, or customized schedule based on your needs.</p>
+            <p>Yes. Recurring cleaning can be arranged on a weekly, biweekly, monthly, or customized schedule based on your needs and availability.</p>
           </div>
         </div>
       </div>
@@ -491,7 +498,7 @@
         </h3>
         <div class="faq-answer" id="faq-3" role="region" aria-labelledby="faq-3-q" hidden>
           <div class="faq-answer__inner">
-            <p>Absolutely. Every property is different, and cleaning plans can be tailored around specific areas, priorities, and preferences.</p>
+            <p>Absolutely. Every property is different, and cleaning plans can be tailored around specific rooms, priorities, product preferences, and access requirements.</p>
           </div>
         </div>
       </div>
@@ -517,46 +524,98 @@
         </h3>
         <div class="faq-answer" id="faq-5" role="region" aria-labelledby="faq-5-q" hidden>
           <div class="faq-answer__inner">
-            <p>You can submit a request through our booking form or email us directly. We will follow up to discuss details and next steps.</p>
+            <p>Submit a request through our booking form or email contact@thefavoritecleaner.com. We will follow up to confirm details, scope, timing, and next steps.</p>
           </div>
         </div>
       </div>
       <div class="faq-item">
         <h3>
           <button class="faq-question" type="button" id="faq-6-q" aria-expanded="false" aria-controls="faq-6">
-            What should be prepared before the appointment?
+            How is pricing determined?
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
           </button>
         </h3>
         <div class="faq-answer" id="faq-6" role="region" aria-labelledby="faq-6-q" hidden>
           <div class="faq-answer__inner">
-            <p>Clearing personal items from surfaces and noting any access instructions is generally helpful. Specific preparation guidance can be shared when your service is scheduled.</p>
+            <p>Pricing depends on property size, condition, service type, frequency, and the scope you request. After reviewing your details, we confirm pricing before service begins.</p>
           </div>
         </div>
       </div>
       <div class="faq-item">
         <h3>
           <button class="faq-question" type="button" id="faq-7-q" aria-expanded="false" aria-controls="faq-7">
-            How can special cleaning instructions be shared?
+            Do you bring cleaning supplies and equipment?
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
           </button>
         </h3>
         <div class="faq-answer" id="faq-7" role="region" aria-labelledby="faq-7-q" hidden>
           <div class="faq-answer__inner">
-            <p>Include special instructions in your booking request or mention them when we confirm your service so preferences can be noted.</p>
+            <p>Yes. Unless otherwise arranged, our team brings professional cleaning supplies and equipment. If you prefer specific products (such as fragrance-free options), let us know when booking.</p>
           </div>
         </div>
       </div>
       <div class="faq-item">
         <h3>
           <button class="faq-question" type="button" id="faq-8-q" aria-expanded="false" aria-controls="faq-8">
-            How far in advance should a service be scheduled?
+            What should be prepared before the appointment?
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
           </button>
         </h3>
         <div class="faq-answer" id="faq-8" role="region" aria-labelledby="faq-8-q" hidden>
           <div class="faq-answer__inner">
-            <p>Scheduling ahead is recommended when possible, especially for larger projects or preferred time windows. Availability can be discussed when you reach out.</p>
+            <p>Please clear personal items from key surfaces when possible, secure valuables, arrange safe access (keys, codes, or an adult present), and note any pets, parking, or special instructions in advance.</p>
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          <button class="faq-question" type="button" id="faq-9-q" aria-expanded="false" aria-controls="faq-9">
+            How long does a cleaning usually take?
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+          </button>
+        </h3>
+        <div class="faq-answer" id="faq-9" role="region" aria-labelledby="faq-9-q" hidden>
+          <div class="faq-answer__inner">
+            <p>Timing depends on the size of the property, its condition, and the service selected. We will give a clearer time expectation when your booking details are confirmed.</p>
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          <button class="faq-question" type="button" id="faq-10-q" aria-expanded="false" aria-controls="faq-10">
+            What is your cancellation policy?
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+          </button>
+        </h3>
+        <div class="faq-answer" id="faq-10" role="region" aria-labelledby="faq-10-q" hidden>
+          <div class="faq-answer__inner">
+            <p>Please provide at least 24 hours' notice when canceling or rescheduling whenever possible. Late cancellations, no-shows, or lack of access may incur a fee as outlined in our Terms & Conditions.</p>
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          <button class="faq-question" type="button" id="faq-11-q" aria-expanded="false" aria-controls="faq-11">
+            How can special cleaning instructions be shared?
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+          </button>
+        </h3>
+        <div class="faq-answer" id="faq-11" role="region" aria-labelledby="faq-11-q" hidden>
+          <div class="faq-answer__inner">
+            <p>Include special instructions in your booking request or mention them when we confirm your service so preferences can be noted and followed.</p>
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          <button class="faq-question" type="button" id="faq-12-q" aria-expanded="false" aria-controls="faq-12">
+            How far in advance should a service be scheduled?
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+          </button>
+        </h3>
+        <div class="faq-answer" id="faq-12" role="region" aria-labelledby="faq-12-q" hidden>
+          <div class="faq-answer__inner">
+            <p>Scheduling ahead is recommended, especially for deep cleans, move-related services, or preferred time windows. Availability can be discussed when you reach out.</p>
           </div>
         </div>
       </div>
@@ -564,7 +623,6 @@
     </div>
   </section>
 
-  
   <section class="section section--navy cta-band" aria-labelledby="cta-heading">
     <div class="cta-band__line" aria-hidden="true"></div>
     <div class="container cta-band__content">
@@ -623,6 +681,7 @@
           <ul class="footer-links">
             <li><a data-config-email="text" href="mailto:contact@thefavoritecleaner.com">contact@thefavoritecleaner.com</a></li>
             <li>Service area: <span data-config-area>Texas</span>, USA</li>
+            <li><span data-business-hours>Monday–Saturday: 8:00 AM – 6:00 PM (Central Time)</span></li>
             <li><a data-book-now data-book-fallback="contact.html#booking" href="contact.html#booking">Book a Cleaning</a></li>
           </ul>
         </div>
@@ -631,7 +690,7 @@
         <p>&copy; <span data-year></span> <span data-config-company>The Favorite Cleaner</span>. All rights reserved.</p>
         <div class="footer-legal">
           <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="terms.html">Terms</a>
+          <a href="terms.html">Terms &amp; Conditions</a>
         </div>
       </div>
     </div>

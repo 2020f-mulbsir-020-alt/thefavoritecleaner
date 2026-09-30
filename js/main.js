@@ -109,6 +109,21 @@
         el.textContent = hours;
       }
     });
+
+    const responseTime = (cfg.responseTime || "").trim();
+    document.querySelectorAll("[data-response-time]").forEach((el) => {
+      el.textContent = responseTime || "We respond as soon as we can during business hours.";
+    });
+
+    const areaDetail = (cfg.serviceAreaDetail || "").trim();
+    document.querySelectorAll("[data-area-detail]").forEach((el) => {
+      if (areaDetail) el.textContent = areaDetail;
+    });
+
+    const paymentNote = (cfg.paymentNote || "").trim();
+    document.querySelectorAll("[data-payment-note]").forEach((el) => {
+      if (paymentNote) el.textContent = paymentNote;
+    });
   }
 
   /* ---- Copyright year -------------------------------------------------- */

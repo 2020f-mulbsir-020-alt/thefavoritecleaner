@@ -122,6 +122,7 @@ function footer() {
           <ul class="footer-links">
             <li><a data-config-email="text" href="mailto:${EMAIL}">${EMAIL}</a></li>
             <li>Service area: <span data-config-area>Texas</span>, USA</li>
+            <li><span data-business-hours>Monday–Saturday: 8:00 AM – 6:00 PM (Central Time)</span></li>
             <li><a data-book-now data-book-fallback="contact.html#booking" href="contact.html#booking">Book a Cleaning</a></li>
           </ul>
         </div>
@@ -130,7 +131,7 @@ function footer() {
         <p>&copy; <span data-year></span> <span data-config-company>The Favorite Cleaner</span>. All rights reserved.</p>
         <div class="footer-legal">
           <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="terms.html">Terms</a>
+          <a href="terms.html">Terms &amp; Conditions</a>
         </div>
       </div>
     </div>
@@ -276,15 +277,15 @@ function faqItems(items, idPrefix = "faq") {
 const HOME_FAQS = [
   {
     q: "What types of properties do you clean?",
-    a: "We provide cleaning services for residential and commercial properties. Share details about your space so we can recommend a suitable approach."
+    a: "We provide cleaning services for residential and commercial properties, including homes, apartments, offices, and selected rental or turnover spaces. Share details about your property so we can recommend a suitable approach."
   },
   {
     q: "Do you offer recurring cleaning services?",
-    a: "Yes. Recurring cleaning can be arranged on a weekly, biweekly, or customized schedule based on your needs."
+    a: "Yes. Recurring cleaning can be arranged on a weekly, biweekly, monthly, or customized schedule based on your needs and availability."
   },
   {
     q: "Can a cleaning plan be customized?",
-    a: "Absolutely. Every property is different, and cleaning plans can be tailored around specific areas, priorities, and preferences."
+    a: "Absolutely. Every property is different, and cleaning plans can be tailored around specific rooms, priorities, product preferences, and access requirements."
   },
   {
     q: "Do you provide move-in and move-out cleaning?",
@@ -292,19 +293,35 @@ const HOME_FAQS = [
   },
   {
     q: "How can a cleaning service be booked?",
-    a: "You can submit a request through our booking form or email us directly. We will follow up to discuss details and next steps."
+    a: "Submit a request through our booking form or email contact@thefavoritecleaner.com. We will follow up to confirm details, scope, timing, and next steps."
+  },
+  {
+    q: "How is pricing determined?",
+    a: "Pricing depends on property size, condition, service type, frequency, and the scope you request. After reviewing your details, we confirm pricing before service begins."
+  },
+  {
+    q: "Do you bring cleaning supplies and equipment?",
+    a: "Yes. Unless otherwise arranged, our team brings professional cleaning supplies and equipment. If you prefer specific products (such as fragrance-free options), let us know when booking."
   },
   {
     q: "What should be prepared before the appointment?",
-    a: "Clearing personal items from surfaces and noting any access instructions is generally helpful. Specific preparation guidance can be shared when your service is scheduled."
+    a: "Please clear personal items from key surfaces when possible, secure valuables, arrange safe access (keys, codes, or an adult present), and note any pets, parking, or special instructions in advance."
+  },
+  {
+    q: "How long does a cleaning usually take?",
+    a: "Timing depends on the size of the property, its condition, and the service selected. We will give a clearer time expectation when your booking details are confirmed."
+  },
+  {
+    q: "What is your cancellation policy?",
+    a: "Please provide at least 24 hours’ notice when canceling or rescheduling whenever possible. Late cancellations, no-shows, or lack of access may incur a fee as outlined in our Terms & Conditions."
   },
   {
     q: "How can special cleaning instructions be shared?",
-    a: "Include special instructions in your booking request or mention them when we confirm your service so preferences can be noted."
+    a: "Include special instructions in your booking request or mention them when we confirm your service so preferences can be noted and followed."
   },
   {
     q: "How far in advance should a service be scheduled?",
-    a: "Scheduling ahead is recommended when possible, especially for larger projects or preferred time windows. Availability can be discussed when you reach out."
+    a: "Scheduling ahead is recommended, especially for deep cleans, move-related services, or preferred time windows. Availability can be discussed when you reach out."
   }
 ];
 
@@ -314,7 +331,7 @@ const localBusinessSchema = `
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "CleaningService"],
   "name": "The Favorite Cleaner",
-  "description": "Professional cleaning services for homes and businesses, delivered with reliability, consistency, and careful attention to detail.",
+  "description": "Professional cleaning services for homes and businesses across Texas, delivered with reliability, consistency, and careful attention to detail.",
   "url": "${SITE}/",
   "email": "${EMAIL}",
   "image": "${SITE}/assets/brand/social-preview.jpg",
@@ -323,12 +340,22 @@ const localBusinessSchema = `
     "@type": "State",
     "name": "Texas"
   },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    }
+  ],
   "sameAs": [
     "https://www.instagram.com/thefavoritecleaner",
     "https://www.facebook.com/thefavoritecleaner",
     "https://www.linkedin.com/company/thefavoritecleaner"
   ],
-  "priceRange": "$$"
+  "priceRange": "$$",
+  "currenciesAccepted": "USD",
+  "paymentAccepted": "Invoice, arrangements confirmed at booking"
 }
 </script>`;
 
@@ -693,7 +720,7 @@ function bookingForm() {
       <div class="checkbox-field">
         <input id="consent" name="consent" type="checkbox" required />
         <div>
-          <label for="consent">I agree to the processing of my information for the purpose of responding to this inquiry. <a href="privacy-policy.html">Privacy Policy</a> <span aria-hidden="true">*</span></label>
+          <label for="consent">I agree to the <a href="terms.html">Terms &amp; Conditions</a> and the processing of my information as described in the <a href="privacy-policy.html">Privacy Policy</a>. <span aria-hidden="true">*</span></label>
           <span class="field-error"></span>
         </div>
       </div>
@@ -774,13 +801,50 @@ function buildAbout() {
       </div>
     </div>
   </section>
+  <section class="section section--surface" aria-labelledby="standards-heading">
+    <div class="container">
+      <div class="section__header reveal">
+        <p class="eyebrow">How We Work</p>
+        <h2 id="standards-heading" class="display-lg">Professional Service Standards</h2>
+        <span class="gold-line draw"></span>
+        <p>Practical details customers expect from a reliable cleaning company.</p>
+      </div>
+      <div class="values-grid">
+        <article class="value-card reveal">
+          <h3>Supplies &amp; Equipment</h3>
+          <p>We bring professional cleaning supplies and tools unless you request otherwise. Specialty product preferences can be noted when booking.</p>
+        </article>
+        <article class="value-card reveal reveal-delay-1">
+          <h3>Communication</h3>
+          <p>We confirm scope, timing, access needs, and pricing before service so expectations stay clear from the first visit.</p>
+        </article>
+        <article class="value-card reveal reveal-delay-2">
+          <h3>Respectful Access</h3>
+          <p>Keys, codes, and property access are handled carefully. Pets, parking, and building rules should be shared in advance.</p>
+        </article>
+        <article class="value-card reveal">
+          <h3>Quality Follow-Through</h3>
+          <p>If something within the agreed scope was missed, contact us within 24 hours so we can make it right according to our Terms.</p>
+        </article>
+        <article class="value-card reveal reveal-delay-1">
+          <h3>Service Area</h3>
+          <p data-area-detail>Professional cleaning for homes and businesses across Texas. Coverage for your location is confirmed when you inquire.</p>
+        </article>
+        <article class="value-card reveal reveal-delay-2">
+          <h3>Business Hours</h3>
+          <p data-business-hours>Monday–Saturday: 8:00 AM – 6:00 PM (Central Time)</p>
+          <p data-response-time style="margin-top:0.65rem">We typically respond within 1 business day.</p>
+        </article>
+      </div>
+    </div>
+  </section>
   ${ctaBand()}
   `;
   return pageShell({
     meta: {
       title: "About | The Favorite Cleaner",
       description:
-        "Learn about The Favorite Cleaner’s mission, values, and commitment to premium cleaning for homes and businesses across Texas.",
+        "Learn about The Favorite Cleaner’s mission, values, service standards, and commitment to premium cleaning for homes and businesses across Texas.",
       path: "about.html",
       schema: localBusinessSchema
     },
@@ -1040,7 +1104,7 @@ function buildContact() {
         <p class="eyebrow">Reach Out</p>
         <h2 class="display-md">Let’s Plan Your Clean</h2>
         <span class="gold-line draw"></span>
-        <p>Prefer email? We are easy to reach and respond thoughtfully to every inquiry.</p>
+        <p>Share your property details and preferred timing. We review every request carefully and confirm next steps by email.</p>
         <div class="contact-meta">
           <div class="contact-meta__item">
             <h3>Email</h3>
@@ -1053,10 +1117,23 @@ function buildContact() {
           <div class="contact-meta__item">
             <h3>Service Area</h3>
             <p><span data-config-area>Texas</span>, USA</p>
+            <p data-area-detail style="margin-top:0.4rem">Professional cleaning for homes and businesses across Texas. Coverage for your location is confirmed when you inquire.</p>
           </div>
           <div class="contact-meta__item">
             <h3>Business Hours</h3>
-            <p data-business-hours>Hours available upon request.</p>
+            <p data-business-hours>Monday–Saturday: 8:00 AM – 6:00 PM (Central Time)</p>
+          </div>
+          <div class="contact-meta__item">
+            <h3>Response Time</h3>
+            <p data-response-time>We typically respond within 1 business day.</p>
+          </div>
+          <div class="contact-meta__item">
+            <h3>Payment</h3>
+            <p data-payment-note>Pricing is confirmed before service. Payment instructions are shared with your booking confirmation or invoice.</p>
+          </div>
+          <div class="contact-meta__item">
+            <h3>Policies</h3>
+            <p><a href="terms.html">Terms &amp; Conditions</a> · <a href="privacy-policy.html">Privacy Policy</a></p>
           </div>
           <div class="contact-meta__item">
             <h3>Social</h3>
@@ -1066,8 +1143,56 @@ function buildContact() {
       </aside>
       <div class="reveal reveal-delay-1">
         <h2 class="display-md" style="margin-bottom:1rem">Booking Form</h2>
+        <p style="margin-bottom:1.25rem;color:var(--text-secondary)">Required fields help us prepare an accurate follow-up. Optional fields can improve scheduling and pricing accuracy.</p>
         ${bookingForm()}
       </div>
+    </div>
+  </section>
+  <section class="section section--off-white" aria-labelledby="expect-heading">
+    <div class="container">
+      <div class="section__header reveal">
+        <p class="eyebrow">What Happens Next</p>
+        <h2 id="expect-heading" class="display-lg">A Clear Path From Inquiry to Service</h2>
+        <span class="gold-line draw"></span>
+      </div>
+      <ol class="timeline">
+        <li class="timeline__step reveal">
+          <span class="timeline__number">01</span>
+          <h3>Submit Your Request</h3>
+          <p>Tell us the property type, service needed, location, and any access or preference notes.</p>
+        </li>
+        <li class="timeline__step reveal reveal-delay-1">
+          <span class="timeline__number">02</span>
+          <h3>Receive a Follow-Up</h3>
+          <p>We confirm availability, clarify scope, and share pricing details before anything is finalized.</p>
+        </li>
+        <li class="timeline__step reveal reveal-delay-2">
+          <span class="timeline__number">03</span>
+          <h3>Schedule Your Cleaning</h3>
+          <p>Once details are agreed, we lock in a convenient date and time for your home or business.</p>
+        </li>
+        <li class="timeline__step reveal reveal-delay-3">
+          <span class="timeline__number">04</span>
+          <h3>Enjoy a Fresh Space</h3>
+          <p>Our team arrives prepared with supplies and completes the agreed scope with careful attention.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+  <section class="section" aria-labelledby="prep-heading">
+    <div class="container" style="max-width:46rem">
+      <p class="eyebrow reveal">Before We Arrive</p>
+      <h2 id="prep-heading" class="display-lg reveal">Helpful Preparation Checklist</h2>
+      <span class="gold-line draw"></span>
+      <ul class="checklist reveal">
+        <li>Clear counters and floors of excess clutter where possible</li>
+        <li>Secure cash, jewelry, and fragile valuables</li>
+        <li>Confirm access (keys, codes, gate, or an adult present)</li>
+        <li>Share pet details and any safety notes in advance</li>
+        <li>Note parking, building rules, or product preferences</li>
+        <li>List priority rooms or focus areas for the visit</li>
+      </ul>
+      <p class="reveal" style="color:var(--text-secondary)">Full customer terms, cancellations, and service expectations are detailed in our <a href="terms.html">Terms &amp; Conditions</a>.</p>
     </div>
   </section>
   `;
@@ -1075,7 +1200,7 @@ function buildContact() {
     meta: {
       title: "Contact & Book | The Favorite Cleaner",
       description:
-        "Contact The Favorite Cleaner to book residential or commercial cleaning across Texas. Email contact@thefavoritecleaner.com.",
+        "Contact The Favorite Cleaner to book residential or commercial cleaning across Texas. Email contact@thefavoritecleaner.com. Hours Monday–Saturday 8 AM–6 PM CT.",
       path: "contact.html",
       schema: localBusinessSchema
     },
@@ -1100,10 +1225,14 @@ function buildLegal(file, title, metaTitle, bodyHtml) {
     </div>
   </section>
   `;
+  const description =
+    file === "terms.html"
+      ? "Customer Terms & Conditions for The Favorite Cleaner cleaning services in Texas."
+      : `${title} for The Favorite Cleaner website.`;
   return pageShell({
     meta: {
       title: metaTitle,
-      description: `${title} for The Favorite Cleaner website.`,
+      description,
       path: file
     },
     solidHeader: true,
@@ -1264,44 +1393,155 @@ const pages = {
     "Privacy Policy | The Favorite Cleaner",
     `
     <h2>Introduction</h2>
-    <p>The Favorite Cleaner (“we,” “us”) respects your privacy. This policy explains how information submitted through our website may be used.</p>
+    <p>The Favorite Cleaner (“we,” “us”) respects your privacy. This policy explains what information we collect through our website and booking process, how we use it, and the choices available to you.</p>
+
     <h2>Information We Collect</h2>
-    <p>When you use our contact or booking forms, you may provide your name, email address, phone number, property details, and message content.</p>
+    <p>When you use our contact or booking forms, or email us directly, you may provide:</p>
+    <ul>
+      <li>Name and contact details (email address, phone number)</li>
+      <li>Property type, size, address or ZIP code, and service preferences</li>
+      <li>Preferred dates, times, frequency, and special instructions</li>
+      <li>Access notes, product preferences, and other message content you choose to share</li>
+    </ul>
+    <p>Our hosting provider may also collect standard technical logs such as IP address, browser type, and page requests for security and reliability.</p>
+
     <h2>How We Use Information</h2>
-    <p>We use inquiry information to respond to your request, discuss cleaning services, and improve our communication. We do not sell personal information.</p>
-    <h2>Third-Party Services</h2>
-    <p>If a form endpoint provider (such as Formspree or Web3Forms) is connected, your submission is processed according to that provider’s policies in addition to ours.</p>
-    <h2>Cookies</h2>
-    <p>This static website does not set advertising cookies by default. Hosting providers may collect standard server logs.</p>
+    <p>We use inquiry and booking information to:</p>
+    <ul>
+      <li>Respond to your request and discuss cleaning services</li>
+      <li>Confirm scheduling, scope, pricing, and access arrangements</li>
+      <li>Provide customer support related to your service</li>
+      <li>Improve our communication and website experience</li>
+    </ul>
+    <p>We do not sell personal information.</p>
+
+    <h2>Sharing of Information</h2>
+    <p>We may share information only as needed to operate the business, such as with trusted service providers that help us process form submissions or host the website, or when required by law. Providers process information according to their own policies in addition to ours.</p>
+
+    <h2>Form Endpoints &amp; Third Parties</h2>
+    <p>If a form endpoint provider (such as Formspree or Web3Forms) is connected, your submission is processed by that provider so we can receive and respond to your request.</p>
+
+    <h2>Cookies &amp; Analytics</h2>
+    <p>This static website does not set advertising cookies by default. Hosting providers may collect standard server logs. If analytics tools are added later, this policy will be updated.</p>
+
+    <h2>Data Retention</h2>
+    <p>We keep inquiry and booking-related information only as long as needed to respond to your request, provide service, maintain business records, or meet legal obligations.</p>
+
+    <h2>Security</h2>
+    <p>We take reasonable steps to protect information submitted to us. No method of transmission over the internet is completely secure, so please avoid sending unnecessary sensitive details in booking messages.</p>
+
+    <h2>Children’s Privacy</h2>
+    <p>Our services and website are directed to adults arranging cleaning for properties. We do not knowingly collect personal information from children.</p>
+
     <h2>Your Choices</h2>
-    <p>Contact us at <a href="mailto:${EMAIL}">${EMAIL}</a> to ask questions about your information or request updates.</p>
+    <p>You may contact us to ask questions about your information, request updates, or ask us to remove inquiry details that are no longer needed for an active booking or required recordkeeping.</p>
+    <p>Email: <a href="mailto:${EMAIL}">${EMAIL}</a></p>
+
     <h2>Updates</h2>
-    <p>We may update this policy periodically. The “last updated” date reflects the latest revision.</p>`
+    <p>We may update this policy periodically. The “Last updated” date at the top of this page reflects the latest revision.</p>`
   ),
   "terms.html": buildLegal(
     "terms.html",
-    "Terms of Use",
-    "Terms of Use | The Favorite Cleaner",
+    "Terms & Conditions",
+    "Terms & Conditions | The Favorite Cleaner",
     `
-    <h2>Agreement</h2>
-    <p>By using www.thefavoritecleaner.com, you agree to these terms. If you do not agree, please discontinue use of the site.</p>
-    <h2>Services Information</h2>
-    <p>Website content describes cleaning services in general terms. Specific scopes, scheduling, and pricing are confirmed directly with The Favorite Cleaner.</p>
-    <h2>No Guarantees from Website Content Alone</h2>
-    <p>Information on this site is provided for general communication and does not constitute a binding service contract until confirmed separately.</p>
-    <h2>Intellectual Property</h2>
-    <p>Brand assets, site design, and original content belong to The Favorite Cleaner or their respective owners and may not be reused without permission.</p>
-    <h2>Limitation of Liability</h2>
-    <p>We strive to keep the website accurate and available, but we are not liable for interruptions, typographical errors, or reliance on general website content alone.</p>
-    <h2>Contact</h2>
-    <p>Questions about these terms may be sent to <a href="mailto:${EMAIL}">${EMAIL}</a>.</p>`
+    <p>These Terms &amp; Conditions ("Terms") govern cleaning services provided by The Favorite Cleaner ("we," "us," or "our") to customers ("you" or "customer") in Texas, and use of our website. By requesting, booking, or receiving our services—or by using www.thefavoritecleaner.com—you agree to these Terms.</p>
+
+    <h2>1. Services</h2>
+    <p>We provide professional residential and commercial cleaning, including recurring cleaning, deep cleaning, move-in/move-out cleaning, and customized plans as discussed with you. Website descriptions are general. The scope of work, areas included, timing, and pricing for your job are confirmed when your booking is accepted.</p>
+    <p>Services include ordinary household or office cleaning within the agreed scope. Unless expressly agreed in writing, services do not include:</p>
+    <ul>
+      <li>Hoarding cleanup, biohazard, mold remediation, or sewage cleanup</li>
+      <li>Construction or post-renovation debris removal beyond light dusting agreed in advance</li>
+      <li>Exterior window washing above ground level, roof work, or ladder work beyond safe indoor reach</li>
+      <li>Laundry, dishwashing, organizing, packing, or moving furniture beyond light repositioning needed to clean</li>
+      <li>Repair, restoration, or furniture refinishing</li>
+    </ul>
+
+    <h2>2. Booking &amp; Confirmation</h2>
+    <p>Submitting a booking request or inquiry does not guarantee availability. A booking is confirmed only when we accept it in writing (email or message) with a scheduled date and time. We may decline or reschedule service when conditions are unsafe, incomplete information is provided, or the property is outside our service capacity.</p>
+
+    <h2>3. Customer Responsibilities</h2>
+    <p>To allow a safe and effective clean, you agree to:</p>
+    <ul>
+      <li>Provide accurate property details, access instructions, and any special requests before the appointment</li>
+      <li>Ensure safe access to the property at the agreed time (keys, codes, gate access, or an adult present)</li>
+      <li>Secure pets, or disclose pets and any related safety concerns in advance</li>
+      <li>Clear floors and surfaces of excessive clutter so cleaning can be performed within the booked time</li>
+      <li>Safeguard cash, jewelry, important documents, and fragile valuables before our team arrives</li>
+      <li>Disclose known hazards (broken glass, wet floors, electrical issues, contagious illness in the home)</li>
+      <li>Confirm parking arrangements and any building/HOA rules that affect our visit</li>
+    </ul>
+    <p>If we cannot complete the agreed service because of lack of access, unsafe conditions, or excessive clutter that was not disclosed, a trip or cancellation fee may apply, and the appointment may need to be rescheduled.</p>
+
+    <h2>4. Pricing &amp; Payment</h2>
+    <p>Pricing is based on property size, condition, service type, frequency, and the scope you request. Estimates may change if the property condition differs materially from what was described. Final pricing will be confirmed before or at the time of service.</p>
+    <p>Payment is due as stated on your invoice or confirmation (for example, upon completion or according to an agreed recurring schedule). Late payments may result in suspension of future bookings until the balance is resolved. Applicable sales tax will be added where required by law.</p>
+
+    <h2>5. Cancellations, Rescheduling &amp; No-Shows</h2>
+    <p>Please give as much notice as possible if you need to change or cancel an appointment.</p>
+    <ul>
+      <li><strong>Reschedule or cancel 24+ hours ahead:</strong> No fee in most cases.</li>
+      <li><strong>Less than 24 hours’ notice:</strong> A cancellation or late-change fee of up to 50% of the scheduled service may apply.</li>
+      <li><strong>No-show / locked out / no access:</strong> Up to 100% of the scheduled service fee may be charged.</li>
+    </ul>
+    <p>We will notify you as soon as practical if we must reschedule due to illness, weather, emergencies, or operational issues, and we will offer a new appointment time.</p>
+
+    <h2>6. Recurring Cleaning</h2>
+    <p>Recurring plans (weekly, biweekly, or customized) continue on the agreed schedule until you cancel or we discontinue service. Changes to frequency, scope, or day preference should be requested in advance so we can plan staffing. Pricing for recurring visits assumes a maintained property; if condition declines significantly between visits, we may recommend a deep clean or adjusted pricing.</p>
+
+    <h2>7. Satisfaction &amp; Reclean</h2>
+    <p>Your satisfaction matters. If something within the agreed scope was missed, please contact us within 24 hours of the completed service with details and, if helpful, photos. When the concern is reasonable and relates to our work, we will return to address it at no additional charge within a mutually agreed timeframe. Reclean requests do not apply to areas outside the original scope, wear-and-tear, or issues caused after our team left the property.</p>
+
+    <h2>8. Damage, Belongings &amp; Liability</h2>
+    <p>Our team is trained to work carefully and respectfully. Please report any suspected damage within 24 hours of the service. We are not responsible for:</p>
+    <ul>
+      <li>Pre-existing damage, wear, stains, or defects</li>
+      <li>Items that are already fragile, poorly installed, or beyond normal useful life</li>
+      <li>Loss of unsecured cash, jewelry, or valuables left accessible</li>
+      <li>Third-party products, finishes, or surfaces that react poorly to standard professional cleaning methods when manufacturer care instructions were not disclosed</li>
+      <li>Indirect, incidental, or consequential damages</li>
+    </ul>
+    <p>To the fullest extent permitted by law, our total liability related to any service visit is limited to the amount you paid for that visit. Nothing in these Terms limits liability that cannot be limited under Texas law.</p>
+
+    <h2>9. Keys, Codes &amp; Security</h2>
+    <p>If you provide keys, lockboxes, or access codes, you authorize us to use them solely to perform the scheduled service. We will handle access credentials with care. You remain responsible for updating codes after service if required by your building or personal preference. Lost-key situations will be handled case by case in good faith.</p>
+
+    <h2>10. Supplies &amp; Equipment</h2>
+    <p>Unless otherwise arranged, we bring professional cleaning supplies and equipment. If you require specific products (for example, fragrance-free or particular brands), tell us before the appointment. Additional specialty products or equipment may affect pricing.</p>
+
+    <h2>11. Health &amp; Safety</h2>
+    <p>We may postpone or leave a job if conditions are unsafe, including aggressive pets, harassment, illegal activity, contagious illness without disclosure, or environmental hazards. You agree not to request services that would require our team to violate safety standards or the law.</p>
+
+    <h2>12. Website Use</h2>
+    <p>Website content is for general information and does not create a binding service contract by itself. Brand assets, design, and original content belong to The Favorite Cleaner or their respective owners and may not be copied or reused without permission. We are not liable for temporary website outages or reliance on outdated general content.</p>
+
+    <h2>13. Privacy</h2>
+    <p>How we handle inquiry and booking information is described in our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+
+    <h2>14. Changes to These Terms</h2>
+    <p>We may update these Terms from time to time. The "Last updated" date at the top of this page shows the latest revision. Continued use of our services or website after changes means you accept the updated Terms. Material changes affecting an existing confirmed booking will be communicated when practical.</p>
+
+    <h2>15. Governing Law</h2>
+    <p>These Terms are governed by the laws of the State of Texas, without regard to conflict-of-law rules. Any dispute arising from our services or these Terms will be handled in courts located in Texas, unless applicable law requires otherwise.</p>
+
+    <h2>16. Contact</h2>
+    <p>Questions about these Terms or your cleaning service may be sent to <a href="mailto:${EMAIL}">${EMAIL}</a>.</p>
+    <p><em>These Terms are provided for customer clarity and do not replace advice from a licensed attorney. Specific job confirmations may include additional written details.</em></p>`
   ),
   "404.html": build404()
 };
 
 Object.entries(pages).forEach(([file, html]) => {
+  const only = (process.env.WRITE_PAGES || "").split(",").map((s) => s.trim()).filter(Boolean);
+  if (only.length && !only.includes(file)) return;
   fs.writeFileSync(path.join(ROOT, file), html);
   console.log("Wrote", file);
 });
 
-console.log("All pages built.");
+console.log(onlyLengthMessage());
+
+function onlyLengthMessage() {
+  const only = (process.env.WRITE_PAGES || "").split(",").map((s) => s.trim()).filter(Boolean);
+  return only.length ? `Selected pages built (${only.join(", ")}).` : "All pages built.";
+}
