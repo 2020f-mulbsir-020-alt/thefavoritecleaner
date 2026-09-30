@@ -3,7 +3,7 @@
  * Edit these values to update contact info, social links, and feature flags site-wide.
  * Leave phoneNumber / whatsappNumber / bookingUrl empty until real values are ready.
  */
-const SITE_CONFIG = {
+window.SITE_CONFIG = {
   companyName: "The Favorite Cleaner",
   tagline: "Clean Beyond Expectations.",
   supportingLine: "A Higher Standard of Clean.",
@@ -12,11 +12,9 @@ const SITE_CONFIG = {
   serviceArea: "Texas",
   serviceAreaDetail:
     "Professional cleaning for homes and businesses across Texas. Coverage for your location is confirmed when you inquire.",
-  /* Optional — leave blank until ready; UI hides empty phone/WhatsApp */
   phoneNumber: "",
   whatsappNumber: "",
   bookingUrl: "",
-  /* Optional Formspree/Web3Forms URL. Empty = mailto fallback on submit */
   formEndpoint: "",
   instagramUrl: "https://www.instagram.com/thefavoritecleaner",
   facebookUrl: "https://www.facebook.com/thefavoritecleaner",
@@ -29,9 +27,7 @@ const SITE_CONFIG = {
   instagramFeedEndpoint: "/api/instagram"
 };
 
-if (typeof window !== "undefined") {
-  window.SITE_CONFIG = SITE_CONFIG;
-}
+const SITE_CONFIG = window.SITE_CONFIG;
 
 if (typeof module !== "undefined" && module.exports) {
   module.exports = { SITE_CONFIG };

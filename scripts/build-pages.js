@@ -121,7 +121,7 @@ function footer() {
           <h3>Contact</h3>
           <ul class="footer-links">
             <li><a data-config-email="text" href="mailto:${EMAIL}">${EMAIL}</a></li>
-            <li>Service area: <span data-config-area>Texas</span>, USA</li>
+            <li><span data-config-area-line>Service area: Texas, USA</span></li>
             <li><span data-business-hours>Monday–Saturday: 8:00 AM – 6:00 PM (Central Time)</span></li>
             <li><a data-book-now data-book-fallback="contact.html#booking" href="contact.html#booking">Book a Cleaning</a></li>
           </ul>
@@ -176,7 +176,6 @@ function head({ title, description, path: pagePath, ogType = "website", schema =
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#002157" />
   <title>${title}</title>
   <meta name="description" content="${description}" />
   <link rel="canonical" href="${canonical}" />
@@ -192,7 +191,7 @@ function head({ title, description, path: pagePath, ogType = "website", schema =
   <meta name="twitter:description" content="${description}" />
   <meta name="twitter:image" content="${SITE}/assets/brand/social-preview.jpg" />
   <link rel="icon" type="image/png" href="assets/brand/favicon.png" />
-  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+  <link rel="apple-touch-icon" href="assets/brand/logo-mark.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
@@ -522,7 +521,7 @@ function buildHome() {
       ${baPanel("panel-kitchen", "tab-kitchen", false, "kitchen", "Messy kitchen before professional cleaning", "Spotless kitchen after professional cleaning")}
       ${baPanel("panel-bath", "tab-bath", true, "bathroom", "Dirty bathroom before professional cleaning", "Spotless bathroom after professional cleaning")}
       ${baPanel("panel-living", "tab-living", true, "living", "Cluttered living room before professional cleaning", "Neat living room after professional cleaning")}
-      <p class="ba-note">Demonstration comparison — drag the handle to compare before and after.</p>
+      <p class="ba-note">Drag the handle to compare before and after.</p>
     </div>
   </section>
 

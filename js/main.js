@@ -21,8 +21,12 @@
       }
     });
 
+    const area = (cfg.serviceArea || "Texas").trim();
     document.querySelectorAll("[data-config-area]").forEach((el) => {
-      el.textContent = cfg.serviceArea || "Texas";
+      el.textContent = area;
+    });
+    document.querySelectorAll("[data-config-area-line]").forEach((el) => {
+      el.textContent = "Service area: " + area + ", USA";
     });
 
     document.querySelectorAll("[data-config-company]").forEach((el) => {

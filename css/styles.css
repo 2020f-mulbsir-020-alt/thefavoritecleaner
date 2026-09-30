@@ -187,11 +187,17 @@ strong {
 .section__header {
   max-width: 42rem;
   margin-bottom: clamp(2rem, 4vw, 3.5rem);
+  text-align: left;
 }
 
 .section__header--center {
   text-align: center;
   margin-inline: auto;
+}
+
+.section__header--center .gold-line {
+  margin-inline: auto;
+  transform-origin: center;
 }
 
 .eyebrow {
@@ -385,16 +391,17 @@ strong {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
+  justify-items: stretch;
   gap: 1rem 1.5rem;
   padding-block: 0.55rem;
 }
 
 .logo {
   position: relative;
-  display: grid;
+  display: inline-grid;
   align-items: center;
   justify-items: start;
-  width: clamp(112px, 11.5vw, 140px);
+  width: auto;
   height: 2.45rem;
   flex-shrink: 0;
   line-height: 0;
@@ -402,9 +409,10 @@ strong {
 
 .logo img {
   grid-area: 1 / 1;
+  display: block;
   width: auto !important;
   height: 2.45rem !important;
-  max-width: 100%;
+  max-width: min(160px, 42vw);
   max-height: 2.45rem;
   object-fit: contain;
   object-position: left center;
@@ -649,12 +657,13 @@ strong {
   position: relative;
   z-index: 2;
   width: var(--container);
-  margin: 0 auto;
+  margin-inline: auto;
   padding: calc(var(--header-height) + 2.75rem) 0 5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  text-align: left;
   min-height: 108vh;
   min-height: 108svh;
 }
@@ -792,8 +801,9 @@ strong {
   position: relative;
   z-index: 1;
   width: var(--container);
-  margin: 0 auto;
+  margin-inline: auto;
   padding: calc(var(--header-height) + 3rem) 0 3rem;
+  text-align: left;
 }
 
 .page-hero h1 {
@@ -1023,6 +1033,8 @@ strong {
 
 /* Before / After ---------------------------------------------------------- */
 .ba-tabs {
+  justify-content: flex-start;
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
@@ -1642,14 +1654,15 @@ strong {
 }
 
 .site-footer .logo {
-  width: clamp(168px, 18vw, 220px);
+  width: auto;
   height: 3.35rem;
-  margin-bottom: 1.25rem;
+  margin: 0 0 1.25rem;
 }
 
 .site-footer .logo img {
   opacity: 1;
   height: 3.35rem !important;
+  max-width: min(220px, 70%);
   max-height: 3.35rem;
   object-fit: contain;
   object-position: left center;

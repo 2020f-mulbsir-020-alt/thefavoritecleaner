@@ -7,5 +7,3 @@ Thumbs.db
 !.env.example
 .vercel
 .netlify
-assets/images/hero/_candidates/
-scripts/_*.js
