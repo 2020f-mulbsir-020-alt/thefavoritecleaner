@@ -228,12 +228,61 @@ Upload all files via SFTP/cPanel keeping the folder structure intact. Ensure `as
 
 ---
 
-## Configure the domain
+## Configure the domain (GitHub Pages + HTTPS)
 
-1. Point your DNS (A/CNAME) to your host.  
-2. Confirm HTTPS is enabled.  
-3. Set the primary domain to `www.thefavoritecleaner.com` (or your preferred canonical).  
-4. Keep canonical tags and `sitemap.xml` aligned with the live URL.
+This site is published on **GitHub Pages** with custom domain `www.thefavoritecleaner.com`.
+
+If GitHub shows:
+
+> Unavailable for your site because your domain is not properly configured to support HTTPS
+
+your **DNS for `www` is wrong**. Right now `www` points to the apex domain instead of GitHub Pages.
+
+### Fix DNS at your registrar (Hostinger / dns-parking)
+
+Open DNS settings for `thefavoritecleaner.com` (nameservers use Hostinger dns-parking) and set:
+
+| Type | Name / Host | Value | TTL |
+| --- | --- | --- | --- |
+| **A** | `@` | `185.199.108.153` | 3600 |
+| **A** | `@` | `185.199.109.153` | 3600 |
+| **A** | `@` | `185.199.110.153` | 3600 |
+| **A** | `@` | `185.199.111.153` | 3600 |
+| **AAAA** | `@` | `2606:50c0:8000::153` | 3600 |
+| **AAAA** | `@` | `2606:50c0:8001::153` | 3600 |
+| **AAAA** | `@` | `2606:50c0:8002::153` | 3600 |
+| **AAAA** | `@` | `2606:50c0:8003::153` | 3600 |
+| **CNAME** | `www` | `2020f-mulbsir-020-alt.github.io` | 3600 |
+
+Important:
+
+1. **Change the `www` CNAME** from `thefavoritecleaner.com` → `2020f-mulbsir-020-alt.github.io`
+2. Remove any extra `A` / `AAAA` / `CNAME` records on `www` besides that one CNAME
+3. Do not point `www` at the apex domain if you want HTTPS on GitHub Pages
+4. Wait 15–60 minutes for DNS to update (sometimes up to 24 hours)
+
+### Then enable HTTPS in GitHub
+
+1. Open [Pages settings](https://github.com/2020f-mulbsir-020-alt/thefavoritecleaner/settings/pages)
+2. Custom domain: `www.thefavoritecleaner.com` (matches the repo `CNAME` file)
+3. Wait until the DNS check shows a green checkmark
+4. Check **Enforce HTTPS**
+5. If the certificate still fails: remove the custom domain, save, add `www.thefavoritecleaner.com` again, then wait for the new certificate
+
+### Verify
+
+```bash
+nslookup www.thefavoritecleaner.com
+# Should show: canonical name = 2020f-mulbsir-020-alt.github.io
+```
+
+Then open `https://www.thefavoritecleaner.com` — the padlock should appear.
+
+Repo `CNAME` file should remain:
+
+```text
+www.thefavoritecleaner.com
+```
 
 ---
 
