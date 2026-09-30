@@ -21,16 +21,12 @@
       }
     });
 
-    const area = (cfg.serviceArea || "Texas").trim();
     document.querySelectorAll("[data-config-area]").forEach((el) => {
-      el.textContent = area;
-    });
-    document.querySelectorAll("[data-config-area-line]").forEach((el) => {
-      el.textContent = "Service area: " + area + ", USA";
+      el.textContent = cfg.serviceArea || "Texas";
     });
 
     document.querySelectorAll("[data-config-company]").forEach((el) => {
-      el.textContent = (cfg.companyName || "The Favorite Cleaner").trim();
+      el.textContent = cfg.companyName || "The Favorite Cleaner";
     });
 
     const socialMap = {

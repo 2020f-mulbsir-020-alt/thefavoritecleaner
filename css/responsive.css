@@ -294,22 +294,13 @@
 
   .logo {
     width: auto;
+    max-width: 118px;
     height: 2.2rem;
   }
 
   .logo img {
     height: 2.2rem !important;
     max-height: 2.2rem;
-    max-width: min(140px, 48vw);
-  }
-
-  .site-footer .logo {
-    height: 2.85rem;
-  }
-
-  .site-footer .logo img {
-    height: 2.85rem !important;
-    max-height: 2.85rem;
   }
 
   .display-xl {

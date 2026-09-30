@@ -30,18 +30,22 @@ node scripts/build-pages.js
 All site-wide settings live in one object:
 
 ```js
-window.SITE_CONFIG = {
+const SITE_CONFIG = {
   companyName: "The Favorite Cleaner",
+  tagline: "Clean Beyond Expectations.",
   email: "contact@thefavoritecleaner.com",
   website: "https://www.thefavoritecleaner.com",
   serviceArea: "Texas",
-  phoneNumber: "",            // add real phone to show call buttons
-  whatsappNumber: "",         // add real WhatsApp number when ready
-  bookingUrl: "",             // optional external booking link
-  formEndpoint: "",           // Formspree / Web3Forms URL for live form delivery
-  businessHours: "Monday–Saturday: 8:00 AM – 6:00 PM (Central Time)",
+  phoneNumber: "",
+  whatsappNumber: "",
+  bookingUrl: "",
+  formEndpoint: "",
+  instagramUrl: "https://www.instagram.com/thefavoritecleaner",
+  facebookUrl: "https://www.facebook.com/thefavoritecleaner",
+  linkedinUrl: "https://www.linkedin.com/company/thefavoritecleaner",
   showTestimonials: false,
-  // ...social URLs and other fields
+  businessHours: "",
+  instagramFeedEndpoint: "/api/instagram"
 };
 ```
 
@@ -134,7 +138,7 @@ Local imagery lives under `assets/images/`:
 | `about/` | About / intro photography |
 | `services/` | Service cards and service heroes |
 | `gallery/` | Gallery grid |
-| `before-after/` | Before/after comparison slider images |
+| `before-after/` | Comparison slider placeholders |
 
 Prefer WebP (with JPG fallback). Keep explicit widths/heights in HTML. After replacing source files you can re-run:
 
@@ -144,7 +148,7 @@ npm run optimize-images
 
 Update image paths in `scripts/build-pages.js` if filenames change, then rebuild pages.
 
-**Before/after section:** demonstration comparison images are installed. Swap in authentic project photos when available.
+**Before/after section:** current images are clearly labeled placeholders. Replace with authentic project photos before presenting comparisons as real results.
 
 ---
 
@@ -192,7 +196,7 @@ node scripts/build-pages.js
 
 Also update `sitemap.xml` if you add pages.
 
-Structured data includes `LocalBusiness` / `CleaningService`, opening hours, and homepage FAQ schema. Do not invent street address, phone, ratings, or reviews.
+Structured data includes `LocalBusiness` / `CleaningService` and homepage FAQ schema. Do not add street address, phone, ratings, or opening hours unless real data is confirmed.
 
 ---
 
@@ -201,17 +205,6 @@ Structured data includes `LocalBusiness` / `CleaningService`, opening hours, and
 `showTestimonials` is `false` by default. The testimonials section stays hidden until authentic reviews are added in the HTML and the flag is set to `true`. Do not invent reviews.
 
 ---
-
-## Launch checklist
-
-Before go-live:
-
-1. Confirm email, hours, and service area in `js/config.js`.
-2. Add `phoneNumber` / `whatsappNumber` when available.
-3. Set `formEndpoint` (Formspree/Web3Forms) so booking submissions are delivered without relying on mailto.
-4. Connect the domain and enable HTTPS.
-5. Submit `sitemap.xml` in Google Search Console after launch.
-6. Keep testimonials off until real reviews are approved.
 
 ## Deploy
 

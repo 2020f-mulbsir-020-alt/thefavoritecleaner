@@ -121,7 +121,7 @@ function footer() {
           <h3>Contact</h3>
           <ul class="footer-links">
             <li><a data-config-email="text" href="mailto:${EMAIL}">${EMAIL}</a></li>
-            <li><span data-config-area-line>Service area: Texas, USA</span></li>
+            <li>Service area: <span data-config-area>Texas</span>, USA</li>
             <li><span data-business-hours>Monday–Saturday: 8:00 AM – 6:00 PM (Central Time)</span></li>
             <li><a data-book-now data-book-fallback="contact.html#booking" href="contact.html#booking">Book a Cleaning</a></li>
           </ul>
@@ -184,16 +184,14 @@ function head({ title, description, path: pagePath, ogType = "website", schema =
   <meta property="og:title" content="${title}" />
   <meta property="og:description" content="${description}" />
   <meta property="og:url" content="${canonical}" />
-  <meta property="og:image" content="${SITE}/assets/brand/social-preview.jpg?v=20260930" />
+  <meta property="og:image" content="${SITE}/assets/brand/social-preview.jpg" />
   <meta property="og:site_name" content="The Favorite Cleaner" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="${title}" />
   <meta name="twitter:description" content="${description}" />
-  <meta name="twitter:image" content="${SITE}/assets/brand/social-preview.jpg?v=20260930" />
-  <link rel="icon" type="image/png" href="assets/brand/favicon.png?v=20260930" />
-  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png?v=20260930" />
-  <meta name="theme-color" content="#00183F" />
-  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:image" content="${SITE}/assets/brand/social-preview.jpg" />
+  <link rel="icon" type="image/png" href="assets/brand/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/brand/logo-mark.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
@@ -336,8 +334,8 @@ const localBusinessSchema = `
   "description": "Professional cleaning services for homes and businesses across Texas, delivered with reliability, consistency, and careful attention to detail.",
   "url": "${SITE}/",
   "email": "${EMAIL}",
-  "image": "${SITE}/assets/brand/social-preview.jpg?v=20260930",
-  "logo": "${SITE}/assets/brand/logo-mark.png?v=20260930",
+  "image": "${SITE}/assets/brand/social-preview.jpg",
+  "logo": "${SITE}/assets/brand/logo-dark.png",
   "areaServed": {
     "@type": "State",
     "name": "Texas"

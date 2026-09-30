@@ -3,7 +3,7 @@
  * Edit these values to update contact info, social links, and feature flags site-wide.
  * Leave phoneNumber / whatsappNumber / bookingUrl empty until real values are ready.
  */
-window.SITE_CONFIG = {
+const SITE_CONFIG = {
   companyName: "The Favorite Cleaner",
   tagline: "Clean Beyond Expectations.",
   supportingLine: "A Higher Standard of Clean.",
@@ -27,7 +27,9 @@ window.SITE_CONFIG = {
   instagramFeedEndpoint: "/api/instagram"
 };
 
-const SITE_CONFIG = window.SITE_CONFIG;
+if (typeof window !== "undefined") {
+  window.SITE_CONFIG = SITE_CONFIG;
+}
 
 if (typeof module !== "undefined" && module.exports) {
   module.exports = { SITE_CONFIG };
