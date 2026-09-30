@@ -333,6 +333,10 @@ const HOME_FAQS = [
     a: "Use the booking form fields for access notes, product preferences, and pets — or include details in your message. Preferences are confirmed before your appointment."
   },
   {
+    q: "Do you document cleaning with photos?",
+    a: "Yes. Before-and-after photography is part of how we show results and maintain quality as we grow. Share any privacy preferences when booking if certain areas should not be photographed."
+  },
+  {
     q: "How far in advance should a service be scheduled?",
     a: "Scheduling ahead is recommended, especially for deep cleans, move-related services, or preferred time windows. Availability can be discussed when you reach out; flexible options are always welcome."
   }
@@ -408,9 +412,9 @@ function buildHome() {
         <a class="btn btn--outline" href="services.html">Explore Services</a>
       </div>
       <div class="hero__trust hero-reveal hero-reveal-delay-4" aria-label="Brand qualities">
-        <span>Reliable</span><span class="divider" aria-hidden="true"></span>
-        <span>Detailed</span><span class="divider" aria-hidden="true"></span>
-        <span>Trusted</span>
+        <span>Photo-Documented</span><span class="divider" aria-hidden="true"></span>
+        <span>Recurring-Ready</span><span class="divider" aria-hidden="true"></span>
+        <span>Texas</span>
       </div>
     </div>
     <a class="scroll-indicator" href="#intro" aria-label="Scroll to introduction">
@@ -567,24 +571,59 @@ function buildHome() {
       ${baPanel("panel-kitchen", "tab-kitchen", false, "kitchen", "Messy kitchen before professional cleaning", "Spotless kitchen after professional cleaning")}
       ${baPanel("panel-bath", "tab-bath", true, "bathroom", "Dirty bathroom before professional cleaning", "Spotless bathroom after professional cleaning")}
       ${baPanel("panel-living", "tab-living", true, "living", "Cluttered living room before professional cleaning", "Neat living room after professional cleaning")}
-      <p class="ba-note">Drag the handle to compare before and after.</p>
+      <p class="ba-note">Drag the handle to compare before and after. Real results photos help clients book with confidence.</p>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="gallery-heading">
+  <section class="section" aria-labelledby="proof-heading">
     <div class="container">
       <div class="section__header reveal">
-        <p class="eyebrow">Our Work</p>
+        <p class="eyebrow">Photo Proof</p>
+        <h2 id="proof-heading" class="display-lg">Real Spaces. Real Results.</h2>
+        <span class="gold-line draw"></span>
+        <p class="lead" style="max-width:38rem">We use before-and-after photography to document quality, build trust, and keep standards consistent as the business grows.</p>
+      </div>
+      <div class="proof-rail">
+        <figure class="proof-rail__item reveal">
+          <img src="assets/images/before-after/kitchen-after.jpg" alt="Spotless kitchen after professional cleaning" width="1200" height="800" loading="lazy" />
+          <figcaption>Kitchen finish</figcaption>
+        </figure>
+        <figure class="proof-rail__item reveal reveal-delay-1">
+          <img src="assets/images/before-after/bathroom-after.jpg" alt="Fresh bathroom after detailed cleaning" width="1200" height="800" loading="lazy" />
+          <figcaption>Bathroom detail</figcaption>
+        </figure>
+        <figure class="proof-rail__item reveal reveal-delay-2">
+          <img src="assets/images/gallery/cleaner-work-1.jpg" alt="Professional cleaner detailing window shutters with protective gear" width="1200" height="800" loading="lazy" />
+          <figcaption>Team in action</figcaption>
+        </figure>
+        <figure class="proof-rail__item reveal reveal-delay-3">
+          <img src="assets/images/gallery/cleaner-work-2.jpg" alt="Professional vacuum clearing debris from carpet" width="1200" height="800" loading="lazy" />
+          <figcaption>Equipment at work</figcaption>
+        </figure>
+      </div>
+      <div class="text-center" style="margin-top:1.75rem">
+        <a class="btn btn--outline-navy" href="gallery.html">Browse Full Gallery ${ICONS.arrow}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--off-white" aria-labelledby="gallery-heading">
+    <div class="container">
+      <div class="section__header reveal">
+        <p class="eyebrow">Work Photos</p>
         <h2 id="gallery-heading" class="display-lg">Cleaning in Action</h2>
         <span class="gold-line draw"></span>
+        <p>Curated real work photos — updated as new results are added. Follow Instagram for the latest posts.</p>
       </div>
-      <div class="gallery-grid" data-instagram-feed>
+      <div class="gallery-grid" data-work-photos data-instagram-feed>
         ${galleryItem("assets/images/gallery/cleaner-work-1.jpg", "Professional cleaner attending to a residential interior", "Professional care")}
+        ${galleryItem("assets/images/gallery/cleaner-work-2.jpg", "Professional vacuum clearing debris from carpet", "Equipment in action")}
         ${galleryItem("assets/images/gallery/tools-1.jpg", "Organized cleaning tools and supplies", "Prepared tools")}
         ${galleryItem("assets/images/gallery/kitchen-1.jpg", "Bright clean kitchen interior", "Kitchen care")}
         ${galleryItem("assets/images/gallery/bathroom-1.jpg", "Fresh bathroom with clean finishes", "Bathroom detail")}
         ${galleryItem("assets/images/gallery/office-1.jpg", "Professional office environment", "Commercial spaces")}
         ${galleryItem("assets/images/gallery/living-1.jpg", "Styled living room with natural light", "Living spaces")}
+        ${galleryItem("assets/images/gallery/living-2.jpg", "Bright residential interior ready for guests", "Fresh interiors")}
         ${galleryItem("assets/images/gallery/moveout-1.jpg", "Open residential interior ready for turnover", "Move-out ready")}
         ${galleryItem("assets/images/gallery/commercial-1.jpg", "Modern commercial workspace", "Business environments")}
       </div>
@@ -674,11 +713,43 @@ function baPanel(id, tabId, hidden, key, beforeAlt, afterAlt) {
 }
 
 function galleryItem(src, alt, caption) {
+  const webp = src.replace(/\.jpg$/i, ".webp");
   return `
   <button type="button" class="gallery-item reveal" data-lightbox data-full="${src}" data-caption="${caption}" aria-label="View ${caption}">
-    <img src="${src}" alt="${alt}" width="1200" height="800" loading="lazy" />
+    <picture>
+      <source type="image/webp" srcset="${webp}" />
+      <img src="${src}" alt="${alt}" width="1200" height="800" loading="lazy" />
+    </picture>
     <span class="gallery-item__caption">${caption}</span>
   </button>`;
+}
+
+function photoStrip(items) {
+  if (!items || !items.length) return "";
+  return `
+  <section class="section section--off-white" aria-labelledby="svc-photos-heading">
+    <div class="container">
+      <div class="section__header reveal">
+        <p class="eyebrow">Real Work Photos</p>
+        <h2 id="svc-photos-heading" class="display-md">See This Service in Context</h2>
+        <span class="gold-line draw"></span>
+      </div>
+      <div class="proof-rail">
+        ${items
+          .map(
+            (item, i) => `
+        <figure class="proof-rail__item reveal${i ? ` reveal-delay-${Math.min(i, 3)}` : ""}">
+          <img src="${item.src}" alt="${item.alt}" width="1200" height="800" loading="lazy" />
+          <figcaption>${item.caption}</figcaption>
+        </figure>`
+          )
+          .join("")}
+      </div>
+      <div class="text-center" style="margin-top:1.5rem">
+        <a class="text-link" href="gallery.html">View more photos ${ICONS.arrow}</a>
+      </div>
+    </div>
+  </section>`;
 }
 
 function bookingForm() {
@@ -1038,7 +1109,7 @@ function buildServices() {
   });
 }
 
-function buildServicePage({ file, title, metaTitle, description, heroImg, intro, includes, suitable, related }) {
+function buildServicePage({ file, title, metaTitle, description, heroImg, intro, includes, suitable, related, photos }) {
   const faqs = [
     {
       q: `What does ${title.toLowerCase()} typically involve?`,
@@ -1046,7 +1117,11 @@ function buildServicePage({ file, title, metaTitle, description, heroImg, intro,
     },
     {
       q: "Can this service be customized?",
-      a: "Yes. Cleaning plans can be adjusted around focus areas, access needs, and preferred timing."
+      a: "Yes. Cleaning plans can be adjusted around focus areas, access needs, preferred products, and timing."
+    },
+    {
+      q: "Do you share photo updates for this service?",
+      a: "When appropriate, before-and-after photos help confirm results and keep quality consistent. Tell us if you prefer limited photography for privacy."
     },
     {
       q: "How do I request this service?",
@@ -1083,7 +1158,8 @@ function buildServicePage({ file, title, metaTitle, description, heroImg, intro,
       <p>Every space is unique. Share priorities, restricted areas, preferred products considerations, and access instructions so your plan can be tailored appropriately.</p>
     </div>
   </section>
-  <section class="section section--off-white" aria-labelledby="svc-faq">
+  ${photoStrip(photos)}
+  <section class="section${photos && photos.length ? "" : " section--off-white"}" aria-labelledby="svc-faq">
     <div class="container">
       <div class="section__header section__header--center reveal">
         <h2 id="svc-faq" class="display-md">Frequently Asked Questions</h2>

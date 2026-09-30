@@ -1,0 +1,57 @@
+{
+  "updated": "2026-10-01",
+  "source": "curated-site-assets",
+  "note": "Replace with live Instagram/API posts when formEndpoint + Instagram Graph API are connected. Keep this file as the static fallback for GitHub Pages.",
+  "posts": [
+    {
+      "media_url": "assets/images/gallery/cleaner-work-1.jpg",
+      "permalink": "gallery.html",
+      "caption": "Professional detail cleaning in progress"
+    },
+    {
+      "media_url": "assets/images/gallery/cleaner-work-2.jpg",
+      "permalink": "gallery.html",
+      "caption": "Modern equipment clearing carpet debris"
+    },
+    {
+      "media_url": "assets/images/before-after/kitchen-after.jpg",
+      "permalink": "index.html#ba-heading",
+      "caption": "Kitchen after professional cleaning"
+    },
+    {
+      "media_url": "assets/images/before-after/bathroom-after.jpg",
+      "permalink": "index.html#ba-heading",
+      "caption": "Bathroom after detailed cleaning"
+    },
+    {
+      "media_url": "assets/images/before-after/living-after.jpg",
+      "permalink": "index.html#ba-heading",
+      "caption": "Living space after refresh"
+    },
+    {
+      "media_url": "assets/images/gallery/kitchen-1.jpg",
+      "permalink": "gallery.html",
+      "caption": "Kitchen care results"
+    },
+    {
+      "media_url": "assets/images/gallery/bathroom-1.jpg",
+      "permalink": "gallery.html",
+      "caption": "Bathroom detail finish"
+    },
+    {
+      "media_url": "assets/images/gallery/tools-1.jpg",
+      "permalink": "gallery.html",
+      "caption": "Prepared professional tools"
+    },
+    {
+      "media_url": "assets/images/gallery/living-2.jpg",
+      "permalink": "gallery.html",
+      "caption": "Bright residential interior"
+    },
+    {
+      "media_url": "assets/images/about/team-work.jpg",
+      "permalink": "about.html",
+      "caption": "Careful surface and fixture care"
+    }
+  ]
+}

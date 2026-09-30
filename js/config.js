@@ -2,6 +2,12 @@
  * The Favorite Cleaner - Site Configuration
  * Edit these values to update contact info, social links, and feature flags site-wide.
  * Leave phoneNumber / whatsappNumber / bookingUrl empty until real values are ready.
+ *
+ * 2026 growth notes:
+ * - workPhotosEndpoint powers the live photo grid (static JSON now; swap for API later)
+ * - instagramFeedEndpoint overrides work photos when a serverless Instagram proxy exists
+ * - formEndpoint unlocks hosted form submissions (Formspree / Basin / custom API)
+ * - googleBusinessUrl / reviewUrl support local SEO and review flywheels when ready
  */
 const SITE_CONFIG = {
   companyName: "The Favorite Cleaner",
@@ -19,12 +25,18 @@ const SITE_CONFIG = {
   instagramUrl: "https://www.instagram.com/thefavoritecleaner",
   facebookUrl: "https://www.facebook.com/thefavoritecleaner",
   linkedinUrl: "https://www.linkedin.com/company/thefavoritecleaner",
+  googleBusinessUrl: "",
+  reviewUrl: "",
   showTestimonials: false,
+  photoProofEnabled: true,
   businessHours: "Monday–Saturday: 8:00 AM – 6:00 PM (Central Time)",
   responseTime: "We typically respond within 1 business day.",
   paymentNote:
     "Pricing is confirmed before service. Payment instructions are shared with your booking confirmation or invoice.",
-  instagramFeedEndpoint: "/api/instagram"
+  /* Leave empty until a serverless Instagram proxy is live. */
+  instagramFeedEndpoint: "",
+  /* Curated real work photos — scalable swap-in for live social/API feeds. */
+  workPhotosEndpoint: "data/work-photos.json"
 };
 
 if (typeof window !== "undefined") {

@@ -375,37 +375,117 @@
     requestAnimationFrame(() => hero.classList.add("is-loaded"));
   }
 
-  /* ---- Instagram feed placeholder -------------------------------------- */
-  function initInstagramFeed() {
-    const feed = document.querySelector("[data-instagram-feed]");
-    if (!feed || !cfg.instagramFeedEndpoint) return;
+  /* ---- Live work photos / Instagram feed ------------------------------- */
+  function renderPhotoFeed(feed, posts) {
+    if (!feed || !Array.isArray(posts) || !posts.length) return;
+    feed.innerHTML = "";
+    posts.slice(0, 10).forEach((post) => {
+      const el = document.createElement("a");
+      el.href = post.permalink || cfg.instagramUrl || "gallery.html";
+      if (/^https?:\/\//i.test(el.href) && el.href.indexOf(location.origin) !== 0) {
+        el.target = "_blank";
+        el.rel = "noopener noreferrer";
+      }
+      el.className = "gallery-item reveal";
+      el.setAttribute(
+        "aria-label",
+        post.caption ? post.caption.slice(0, 80) : "Cleaning work photo"
+      );
+      const img = document.createElement("img");
+      img.src = post.media_url;
+      img.alt = post.caption
+        ? post.caption.slice(0, 120)
+        : "Real cleaning work photo from The Favorite Cleaner";
+      img.loading = "lazy";
+      img.width = 600;
+      img.height = 600;
+      el.appendChild(img);
+      if (post.caption) {
+        const cap = document.createElement("span");
+        cap.className = "gallery-item__caption";
+        cap.textContent = post.caption;
+        el.appendChild(cap);
+      }
+      feed.appendChild(el);
+    });
+  }
 
-    // Attempt secure serverless endpoint; fall back silently to curated gallery.
-    fetch(cfg.instagramFeedEndpoint)
-      .then((res) => (res.ok ? res.json() : Promise.reject()))
-      .then((data) => {
-        if (!data || !Array.isArray(data.posts) || !data.posts.length) return;
-        feed.innerHTML = "";
-        data.posts.slice(0, 8).forEach((post) => {
-          const a = document.createElement("a");
-          a.href = post.permalink || cfg.instagramUrl;
-          a.target = "_blank";
-          a.rel = "noopener noreferrer";
-          a.className = "gallery-item";
-          a.setAttribute("aria-label", post.caption ? post.caption.slice(0, 80) : "Instagram post");
-          const img = document.createElement("img");
-          img.src = post.media_url;
-          img.alt = post.caption ? post.caption.slice(0, 120) : "Instagram photo from The Favorite Cleaner";
-          img.loading = "lazy";
-          img.width = 600;
-          img.height = 600;
-          a.appendChild(img);
-          feed.appendChild(a);
+  function initPhotoFeeds() {
+    const feeds = document.querySelectorAll("[data-instagram-feed], [data-work-photos]");
+    if (!feeds.length) return;
+
+    const igEndpoint = (cfg.instagramFeedEndpoint || "").trim();
+    const workEndpoint = (cfg.workPhotosEndpoint || "data/work-photos.json").trim();
+
+    const loadWork = () =>
+      fetch(workEndpoint)
+        .then((res) => (res.ok ? res.json() : Promise.reject()))
+        .then((data) => {
+          const posts = data && Array.isArray(data.posts) ? data.posts : [];
+          feeds.forEach((feed) => renderPhotoFeed(feed, posts));
+        })
+        .catch(() => {
+          /* Keep curated HTML gallery already in the page */
         });
-      })
-      .catch(() => {
-        /* Keep curated local gallery */
+
+    if (igEndpoint) {
+      fetch(igEndpoint)
+        .then((res) => (res.ok ? res.json() : Promise.reject()))
+        .then((data) => {
+          if (!data || !Array.isArray(data.posts) || !data.posts.length) throw new Error("empty");
+          feeds.forEach((feed) => renderPhotoFeed(feed, data.posts));
+        })
+        .catch(loadWork);
+    } else {
+      loadWork();
+    }
+  }
+
+  /* ---- UTM / campaign attribution (scalable lead tracking) ------------- */
+  function initLeadAttribution() {
+    const params = new URLSearchParams(window.location.search);
+    const keys = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "gclid", "fbclid"];
+    const stored = {};
+    let hasNew = false;
+
+    keys.forEach((key) => {
+      const val = params.get(key);
+      if (val) {
+        stored[key] = val;
+        hasNew = true;
+      }
+    });
+
+    if (hasNew) {
+      try {
+        sessionStorage.setItem("tfc_lead_attribution", JSON.stringify(stored));
+      } catch (_) {
+        /* ignore */
+      }
+    }
+
+    let attribution = stored;
+    if (!hasNew) {
+      try {
+        attribution = JSON.parse(sessionStorage.getItem("tfc_lead_attribution") || "{}");
+      } catch (_) {
+        attribution = {};
+      }
+    }
+
+    document.querySelectorAll("[data-contact-form]").forEach((form) => {
+      Object.entries(attribution).forEach(([key, value]) => {
+        if (!value) return;
+        let input = form.querySelector(`input[name="${key}"]`);
+        if (!input) {
+          input = document.createElement("input");
+          input.type = "hidden";
+          input.name = key;
+          form.appendChild(input);
+        }
+        input.value = String(value);
       });
+    });
   }
 
   document.addEventListener("DOMContentLoaded", () => {
@@ -419,6 +499,7 @@
     initParallax();
     initFloating();
     initHero();
-    initInstagramFeed();
+    initPhotoFeeds();
+    initLeadAttribution();
   });
 })();
