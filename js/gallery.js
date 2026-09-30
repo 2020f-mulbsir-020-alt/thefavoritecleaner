@@ -139,10 +139,20 @@
 
     let dragging = false;
 
+    function syncTrackWidth() {
+      root.style.setProperty("--ba-track-width", root.offsetWidth + "px");
+    }
+
     function setPosition(clientX) {
       const rect = root.getBoundingClientRect();
       let pct = ((clientX - rect.left) / rect.width) * 100;
-      pct = Math.max(5, Math.min(95, pct));
+      pct = Math.max(8, Math.min(92, pct));
+      wrap.style.width = pct + "%";
+      handle.style.left = pct + "%";
+      btn.setAttribute("aria-valuenow", String(Math.round(pct)));
+    }
+
+    function applyPct(pct) {
       wrap.style.width = pct + "%";
       handle.style.left = pct + "%";
       btn.setAttribute("aria-valuenow", String(Math.round(pct)));
@@ -152,6 +162,7 @@
       dragging = true;
       root.setPointerCapture?.(e.pointerId);
       setPosition(e.clientX);
+      e.preventDefault();
     }
 
     function onPointerMove(e) {
@@ -166,15 +177,15 @@
     btn.addEventListener("pointerdown", onPointerDown);
     root.addEventListener("pointerdown", (e) => {
       if (e.target === btn || btn.contains(e.target)) return;
-      setPosition(e.clientX);
       dragging = true;
+      setPosition(e.clientX);
     });
     window.addEventListener("pointermove", onPointerMove);
     window.addEventListener("pointerup", onPointerUp);
 
     btn.setAttribute("role", "slider");
-    btn.setAttribute("aria-valuemin", "5");
-    btn.setAttribute("aria-valuemax", "95");
+    btn.setAttribute("aria-valuemin", "8");
+    btn.setAttribute("aria-valuemax", "92");
     btn.setAttribute("aria-valuenow", "50");
     btn.setAttribute("aria-label", "Compare before and after");
     btn.setAttribute("tabindex", "0");
@@ -183,27 +194,30 @@
       const now = Number(btn.getAttribute("aria-valuenow") || 50);
       if (e.key === "ArrowLeft") {
         e.preventDefault();
-        const pct = Math.max(5, now - 5);
-        wrap.style.width = pct + "%";
-        handle.style.left = pct + "%";
-        btn.setAttribute("aria-valuenow", String(pct));
+        applyPct(Math.max(8, now - 5));
       }
       if (e.key === "ArrowRight") {
         e.preventDefault();
-        const pct = Math.min(95, now + 5);
-        wrap.style.width = pct + "%";
-        handle.style.left = pct + "%";
-        btn.setAttribute("aria-valuenow", String(pct));
+        applyPct(Math.min(92, now + 5));
+      }
+      if (e.key === "Home") {
+        e.preventDefault();
+        applyPct(8);
+      }
+      if (e.key === "End") {
+        e.preventDefault();
+        applyPct(92);
       }
     });
 
-    // Keep before image full-bleed width synced
-    const beforeImg = wrap.querySelector("img");
-    const syncWidth = () => {
-      if (beforeImg) beforeImg.style.width = root.offsetWidth + "px";
-    };
-    syncWidth();
-    window.addEventListener("resize", syncWidth);
+    syncTrackWidth();
+    window.addEventListener("resize", syncTrackWidth);
+    if ("ResizeObserver" in window) {
+      new ResizeObserver(syncTrackWidth).observe(root);
+    }
+
+    // Start slightly left so both sides are obvious on load
+    applyPct(48);
   }
 
   document.addEventListener("DOMContentLoaded", () => {

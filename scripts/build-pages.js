@@ -45,8 +45,8 @@ function header(opts = {}) {
   <header${forceSolid} role="banner">
     <div class="header-inner">
       <a class="logo" href="index.html" aria-label="The Favorite Cleaner home">
-        <img class="logo-light" src="assets/brand/logo-light.png" width="210" height="98" alt="The Favorite Cleaner" />
-        <img class="logo-dark" src="assets/brand/logo-dark.png" width="210" height="98" alt="The Favorite Cleaner" />
+        <img class="logo-light" src="assets/brand/logo-light.png" width="152" height="71" alt="The Favorite Cleaner" decoding="async" />
+        <img class="logo-dark" src="assets/brand/logo-dark.png" width="152" height="71" alt="The Favorite Cleaner" decoding="async" />
       </a>
       <nav class="nav" id="primary-nav" aria-label="Primary">
         <ul class="nav-list">
@@ -90,7 +90,7 @@ function footer() {
       <div class="footer-grid">
         <div>
           <a class="logo" href="index.html" aria-label="The Favorite Cleaner home">
-            <img src="assets/brand/logo-light.png" width="200" height="93" alt="The Favorite Cleaner" />
+            <img class="logo-light" src="assets/brand/logo-light.png" width="152" height="71" alt="The Favorite Cleaner" decoding="async" />
           </a>
           <p>Professional cleaning for homes and businesses, delivered with quality, consistency, and careful attention to detail.</p>
           ${socialLinks()}
@@ -193,7 +193,7 @@ function head({ title, description, path: pagePath, ogType = "website", schema =
   <link rel="apple-touch-icon" href="assets/brand/logo-mark.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/responsive.css" />
   ${extraHead}
@@ -355,14 +355,14 @@ function buildHome() {
     <div class="hero__media parallax-media">
       <picture>
         <source type="image/webp" srcset="assets/images/hero/hero-main-1280.webp 1280w, assets/images/hero/hero-main.webp 1600w" sizes="100vw" />
-        <img src="assets/images/hero/hero-main.jpg" alt="Bright modern living space with refined interiors ready for premium cleaning care" width="2000" height="1333" fetchpriority="high" />
+        <img src="assets/images/hero/hero-main.jpg" alt="Professional cleaners in navy uniforms carefully cleaning a bright modern living room" width="2000" height="1125" fetchpriority="high" />
       </picture>
     </div>
     <div class="hero__overlay" aria-hidden="true"></div>
     <div class="hero__content">
       <p class="eyebrow hero-reveal">Premium Cleaning Services</p>
       <h1 id="hero-heading" class="display-xl hero-reveal hero-reveal-delay-1">Clean Beyond Expectations.</h1>
-      <p class="hero__copy hero-reveal hero-reveal-delay-2">Reliable, detail-focused cleaning for homes and businesses. Experience a higher standard of clean with service built around quality, consistency, and care.</p>
+      <p class="hero__copy hero-reveal hero-reveal-delay-2">Detail-focused cleaning for homes and businesses across Texas — delivered with consistency, care, and a higher standard of finish.</p>
       <div class="btn-group hero-reveal hero-reveal-delay-3">
         <a class="btn btn--gold" data-book-now data-book-fallback="contact.html#booking" href="contact.html#booking">Book a Cleaning ${ICONS.arrow}</a>
         <a class="btn btn--outline" href="services.html">Explore Services</a>
@@ -491,10 +491,10 @@ function buildHome() {
         <button class="ba-tab" role="tab" id="tab-bath" aria-selected="false" aria-controls="panel-bath">Bathroom Cleaning</button>
         <button class="ba-tab" role="tab" id="tab-living" aria-selected="false" aria-controls="panel-living">Living Space Cleaning</button>
       </div>
-      ${baPanel("panel-kitchen", "tab-kitchen", false, "kitchen", "Kitchen before cleaning placeholder", "Kitchen after cleaning placeholder")}
-      ${baPanel("panel-bath", "tab-bath", true, "bathroom", "Bathroom before cleaning placeholder", "Bathroom after cleaning placeholder")}
-      ${baPanel("panel-living", "tab-living", true, "living", "Living space before cleaning placeholder", "Living space after cleaning placeholder")}
-      <p class="ba-note">Placeholder comparison imagery — replace with authentic project photos when available.</p>
+      ${baPanel("panel-kitchen", "tab-kitchen", false, "kitchen", "Messy kitchen before professional cleaning", "Spotless kitchen after professional cleaning")}
+      ${baPanel("panel-bath", "tab-bath", true, "bathroom", "Dirty bathroom before professional cleaning", "Spotless bathroom after professional cleaning")}
+      ${baPanel("panel-living", "tab-living", true, "living", "Cluttered living room before professional cleaning", "Neat living room after professional cleaning")}
+      <p class="ba-note">Drag the handle to compare before and after.</p>
     </div>
   </section>
 

@@ -199,7 +199,7 @@
 
 @media (max-width: 768px) {
   :root {
-    --header-height: 5rem;
+    --header-height: 4.35rem;
     --container: calc(100% - 2rem);
   }
 
@@ -293,7 +293,13 @@
   }
 
   .logo {
-    width: 140px;
+    width: 112px;
+    height: 2.2rem;
+  }
+
+  .logo img {
+    height: 2.2rem !important;
+    max-height: 2.2rem;
   }
 
   .display-xl {
