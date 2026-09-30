@@ -30,7 +30,7 @@
     });
 
     document.querySelectorAll("[data-config-company]").forEach((el) => {
-      el.textContent = cfg.companyName || "The Favorite Cleaner";
+      el.textContent = (cfg.companyName || "The Favorite Cleaner").trim();
     });
 
     const socialMap = {
