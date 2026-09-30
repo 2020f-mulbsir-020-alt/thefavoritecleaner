@@ -185,13 +185,18 @@ function head({ title, description, path: pagePath, ogType = "website", schema =
   <meta property="og:description" content="${description}" />
   <meta property="og:url" content="${canonical}" />
   <meta property="og:image" content="${SITE}/assets/brand/social-preview.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="The Favorite Cleaner - Premium Cleaning Services" />
   <meta property="og:site_name" content="The Favorite Cleaner" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="${title}" />
   <meta name="twitter:description" content="${description}" />
   <meta name="twitter:image" content="${SITE}/assets/brand/social-preview.jpg" />
-  <link rel="icon" type="image/png" href="assets/brand/favicon.png" />
-  <link rel="apple-touch-icon" href="assets/brand/logo-mark.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/brand/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/brand/apple-touch-icon.png" />
+  <link rel="image_src" href="assets/brand/social-preview-square.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
@@ -334,8 +339,8 @@ const localBusinessSchema = `
   "description": "Professional cleaning services for homes and businesses across Texas, delivered with reliability, consistency, and careful attention to detail.",
   "url": "${SITE}/",
   "email": "${EMAIL}",
-  "image": "${SITE}/assets/brand/social-preview.jpg",
-  "logo": "${SITE}/assets/brand/logo-dark.png",
+  "image": "${SITE}/assets/brand/social-preview-square.jpg",
+  "logo": "${SITE}/assets/brand/logo-mark.png",
   "areaServed": {
     "@type": "State",
     "name": "Texas"
