@@ -191,7 +191,7 @@ function head({ title, description, path: pagePath, ogType = "website", schema =
   <meta name="twitter:description" content="${description}" />
   <meta name="twitter:image" content="${SITE}/assets/brand/social-preview.jpg" />
   <link rel="icon" type="image/png" href="assets/brand/favicon.png" />
-  <link rel="apple-touch-icon" href="assets/brand/logo-mark.png" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
@@ -335,7 +335,7 @@ const localBusinessSchema = `
   "url": "${SITE}/",
   "email": "${EMAIL}",
   "image": "${SITE}/assets/brand/social-preview.jpg",
-  "logo": "${SITE}/assets/brand/logo-dark.png",
+  "logo": "${SITE}/assets/brand/logo-mark.png",
   "areaServed": {
     "@type": "State",
     "name": "Texas"

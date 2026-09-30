@@ -74,35 +74,38 @@ async function main() {
   const whiteTrimmed = await processLogo(whitePng, "logo-light.png", 800);
   const blackTrimmed = await processLogo(blackPng, "logo-dark.png", 800);
 
-  // Square mark from black logo for favicon / apple touch
-  await sharp(blackTrimmed)
-    .resize({
-      width: 256,
-      height: 256,
-      fit: "contain",
-      background: { r: 0, g: 0, b: 0, alpha: 0 }
+  // Square search icons from black logo on white (readable in Google/browser tabs)
+  async function squareLogo(size, file, pad = 0.14) {
+    const inner = Math.round(size * (1 - pad * 2));
+    const logo = await sharp(blackTrimmed)
+      .resize({ width: inner, height: inner, fit: "inside" })
+      .png()
+      .toBuffer();
+    await sharp({
+      create: {
+        width: size,
+        height: size,
+        channels: 3,
+        background: { r: 255, g: 255, b: 255 }
+      }
     })
-    .png()
-    .toFile(path.join(outDir, "logo-mark.png"));
+      .composite([{ input: logo, gravity: "centre" }])
+      .png()
+      .toFile(path.join(outDir, file));
+  }
 
-  await sharp(blackTrimmed)
-    .resize({
-      width: 64,
-      height: 64,
-      fit: "contain",
-      background: { r: 0, g: 0, b: 0, alpha: 0 }
-    })
-    .png()
-    .toFile(path.join(outDir, "favicon.png"));
+  await squareLogo(64, "favicon.png", 0.12);
+  await squareLogo(180, "apple-touch-icon.png", 0.16);
+  await squareLogo(512, "logo-mark.png", 0.16);
 
-  // Social preview with exact white logo
-  const logoOg = await sharp(whiteTrimmed)
-    .resize({ width: 780, height: 260, fit: "inside" })
+  // Social / search preview: official black logo on white
+  const logoOg = await sharp(blackTrimmed)
+    .resize({ width: 900, height: 280, fit: "inside" })
     .png()
     .toBuffer();
 
-  const accent = Buffer.from(
-    '<svg xmlns="http://www.w3.org/2000/svg" width="8" height="630"><rect width="8" height="630" fill="#FFC50C"/></svg>'
+  const goldBar = Buffer.from(
+    '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="8"><rect width="1200" height="8" fill="#FFC50C"/></svg>'
   );
 
   await sharp({
@@ -110,14 +113,15 @@ async function main() {
       width: 1200,
       height: 630,
       channels: 3,
-      background: { r: 0, g: 24, b: 63 }
+      background: { r: 255, g: 255, b: 255 }
     }
   })
     .composite([
-      { input: accent, left: 0, top: 0 },
-      { input: logoOg, gravity: "centre" }
+      { input: logoOg, gravity: "centre" },
+      { input: goldBar, top: 0, left: 0 },
+      { input: goldBar, top: 622, left: 0 }
     ])
-    .jpeg({ quality: 92 })
+    .jpeg({ quality: 94, mozjpeg: true })
     .toFile(path.join(outDir, "social-preview.jpg"));
 
   // Archive source PSDs in project
