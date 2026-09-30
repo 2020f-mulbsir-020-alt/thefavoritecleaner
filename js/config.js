@@ -12,9 +12,11 @@ const SITE_CONFIG = {
   serviceArea: "Texas",
   serviceAreaDetail:
     "Professional cleaning for homes and businesses across Texas. Coverage for your location is confirmed when you inquire.",
+  /* Optional — leave blank until ready; UI hides empty phone/WhatsApp */
   phoneNumber: "",
   whatsappNumber: "",
   bookingUrl: "",
+  /* Optional Formspree/Web3Forms URL. Empty = mailto fallback on submit */
   formEndpoint: "",
   instagramUrl: "https://www.instagram.com/thefavoritecleaner",
   facebookUrl: "https://www.facebook.com/thefavoritecleaner",
@@ -26,6 +28,10 @@ const SITE_CONFIG = {
     "Pricing is confirmed before service. Payment instructions are shared with your booking confirmation or invoice.",
   instagramFeedEndpoint: "/api/instagram"
 };
+
+if (typeof window !== "undefined") {
+  window.SITE_CONFIG = SITE_CONFIG;
+}
 
 if (typeof module !== "undefined" && module.exports) {
   module.exports = { SITE_CONFIG };

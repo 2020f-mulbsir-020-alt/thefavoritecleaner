@@ -176,6 +176,7 @@ function head({ title, description, path: pagePath, ogType = "website", schema =
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#002157" />
   <title>${title}</title>
   <meta name="description" content="${description}" />
   <link rel="canonical" href="${canonical}" />
@@ -335,7 +336,7 @@ const localBusinessSchema = `
   "url": "${SITE}/",
   "email": "${EMAIL}",
   "image": "${SITE}/assets/brand/social-preview.jpg",
-  "logo": "${SITE}/assets/brand/logo-mark.png",
+  "logo": "${SITE}/assets/brand/logo-dark.png",
   "areaServed": {
     "@type": "State",
     "name": "Texas"
@@ -521,7 +522,7 @@ function buildHome() {
       ${baPanel("panel-kitchen", "tab-kitchen", false, "kitchen", "Messy kitchen before professional cleaning", "Spotless kitchen after professional cleaning")}
       ${baPanel("panel-bath", "tab-bath", true, "bathroom", "Dirty bathroom before professional cleaning", "Spotless bathroom after professional cleaning")}
       ${baPanel("panel-living", "tab-living", true, "living", "Cluttered living room before professional cleaning", "Neat living room after professional cleaning")}
-      <p class="ba-note">Drag the handle to compare before and after.</p>
+      <p class="ba-note">Demonstration comparison — drag the handle to compare before and after.</p>
     </div>
   </section>
 

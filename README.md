@@ -44,12 +44,23 @@ const SITE_CONFIG = {
   facebookUrl: "https://www.facebook.com/thefavoritecleaner",
   linkedinUrl: "https://www.linkedin.com/company/thefavoritecleaner",
   showTestimonials: false,
-  businessHours: "",
+  businessHours: "Monday–Saturday: 8:00 AM – 6:00 PM (Central Time)",
+  responseTime: "We typically respond within 1 business day.",
+  formEndpoint: "",
   instagramFeedEndpoint: "/api/instagram"
 };
 ```
 
 Buttons and links that depend on these values update automatically via `js/main.js`.
+
+### Launch checklist
+
+1. Confirm email, hours, and service area in `js/config.js`
+2. Add `phoneNumber` / `whatsappNumber` when ready (optional)
+3. Set `formEndpoint` (Formspree/Web3Forms) for one-click form delivery — otherwise mailto fallback is used
+4. Deploy the project root to Netlify, Vercel, or GitHub Pages
+5. Point DNS for `www.thefavoritecleaner.com` (see `CNAME`)
+6. Submit `sitemap.xml` in Google Search Console after go-live
 
 ---
 
@@ -138,7 +149,7 @@ Local imagery lives under `assets/images/`:
 | `about/` | About / intro photography |
 | `services/` | Service cards and service heroes |
 | `gallery/` | Gallery grid |
-| `before-after/` | Comparison slider placeholders |
+| `before-after/` | Comparison slider pairs |
 
 Prefer WebP (with JPG fallback). Keep explicit widths/heights in HTML. After replacing source files you can re-run:
 
@@ -148,7 +159,7 @@ npm run optimize-images
 
 Update image paths in `scripts/build-pages.js` if filenames change, then rebuild pages.
 
-**Before/after section:** current images are clearly labeled placeholders. Replace with authentic project photos before presenting comparisons as real results.
+**Before/after section:** demonstration comparison imagery is installed. Replace with authentic project photos when available.
 
 ---
 
@@ -196,7 +207,7 @@ node scripts/build-pages.js
 
 Also update `sitemap.xml` if you add pages.
 
-Structured data includes `LocalBusiness` / `CleaningService` and homepage FAQ schema. Do not add street address, phone, ratings, or opening hours unless real data is confirmed.
+Structured data includes `LocalBusiness` / `CleaningService`, business hours, and homepage FAQ schema. Do not add street address, phone, or review ratings unless real data is confirmed.
 
 ---
 
