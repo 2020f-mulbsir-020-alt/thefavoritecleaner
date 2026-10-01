@@ -35,7 +35,7 @@ const SITE_CONFIG = {
   tagline: "Clean Beyond Expectations.",
   email: "contact@thefavoritecleaner.com",
   website: "https://thefavoritecleaner.com",
-  serviceArea: "Texas",
+  serviceArea: "USA",
   phoneNumber: "",
   whatsappNumber: "",
   bookingUrl: "",

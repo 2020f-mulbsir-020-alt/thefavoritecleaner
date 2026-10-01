@@ -62,7 +62,7 @@ async function main() {
   <circle cx="180" cy="255" r="10" fill="#FFC50C"/>
   <text x="290" y="260" font-family="Georgia, 'Times New Roman', serif" font-size="64" font-weight="600" fill="#FFFFFF">The Favorite Cleaner</text>
   <text x="290" y="330" font-family="Arial, Helvetica, sans-serif" font-size="32" fill="#FFC50C">Clean Beyond Expectations.</text>
-  <text x="290" y="390" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#F8F7F3" opacity="0.85">Premium cleaning services · Texas</text>
+  <text x="290" y="390" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#F8F7F3" opacity="0.85">Premium cleaning services · USA</text>
 </svg>`;
 
   await sharp(Buffer.from(previewSvg))

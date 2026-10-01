@@ -121,8 +121,8 @@ function footer() {
           <h3>Contact</h3>
           <ul class="footer-links">
             <li><a data-config-email="text" href="mailto:${EMAIL}">${EMAIL}</a></li>
-            <li>Service area: <span data-config-area>Texas</span>, USA</li>
-            <li><span data-business-hours>Monday-Saturday: 8:00 AM - 6:00 PM (Central Time)</span></li>
+            <li>Service area: <span data-config-area>USA</span></li>
+            <li><span data-business-hours>Monday-Saturday: 8:00 AM - 6:00 PM</span></li>
             <li><a data-book-now href="#booking">Book a Cleaning</a></li>
           </ul>
         </div>
@@ -362,14 +362,14 @@ const localBusinessSchema = `
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "CleaningService"],
   "name": "The Favorite Cleaner",
-  "description": "The Favorite Cleaner provides residential and commercial cleaning across Texas. Clear pricing before service, careful detail, and dependable follow-through.",
+  "description": "The Favorite Cleaner provides residential and commercial cleaning across the USA. Clear pricing before service, careful detail, and dependable follow-through.",
   "url": "${SITE}/",
   "email": "${EMAIL}",
   "image": "${SITE}/assets/brand/social-preview-square.jpg",
   "logo": "${SITE}/assets/brand/logo-mark.png",
   "areaServed": {
-    "@type": "State",
-    "name": "Texas"
+    "@type": "Country",
+    "name": "United States"
   },
   "openingHoursSpecification": [
     {
@@ -421,7 +421,7 @@ function buildHome() {
     <div class="hero__content">
       <p class="hero__brand hero-reveal">The Favorite Cleaner</p>
       <h1 id="hero-heading" class="display-xl hero-reveal hero-reveal-delay-1">Clean Beyond Expectations.</h1>
-      <p class="hero__copy hero-reveal hero-reveal-delay-2">Professional cleaning for Texas homes and businesses, with careful detail, clear communication, and a finish you’ll notice when you walk back in.</p>
+      <p class="hero__copy hero-reveal hero-reveal-delay-2">Professional cleaning for homes and businesses, with careful detail, clear communication, and a finish you’ll notice when you walk back in.</p>
       <div class="btn-group hero-reveal hero-reveal-delay-3">
         <a class="btn btn--gold btn--pulse" data-book-now href="#booking">Book Now ${ICONS.arrow}</a>
         <a class="btn btn--outline" href="#difference">Why We’re Different</a>
@@ -713,7 +713,7 @@ function buildHome() {
     meta: {
       title: "The Favorite Cleaner | Cleaning for Homes and Businesses",
       description:
-        "Book residential and commercial cleaning across Texas with The Favorite Cleaner. Clear pricing before service, careful detail, and a simple Book Now form.",
+        "Book residential and commercial cleaning across the USA with The Favorite Cleaner. Clear pricing before service, careful detail, and a simple Book Now form.",
       path: "index.html",
       schema: localBusinessSchema + faqSchema,
       extraHead: `<link rel="preload" as="image" href="assets/images/hero/hero-main.jpg" fetchpriority="high" />`
@@ -918,7 +918,7 @@ function bookingForm({ formId = "booking", idPrefix = "book" } = {}) {
       </div>
       <div class="form-field form-field--full">
         <label for="${id("location")}">City, Address, or ZIP <span class="optional">(optional)</span></label>
-        <input id="${id("location")}" name="location" type="text" autocomplete="address-level2" placeholder="City, ZIP, or full address in Texas" />
+        <input id="${id("location")}" name="location" type="text" autocomplete="address-level2" placeholder="City, ZIP, or full address in the USA" />
       </div>
       <div class="form-field form-field--full">
         <label for="${id("priorities")}">What Matters Most for This Clean? <span class="optional">(optional)</span></label>
@@ -964,8 +964,8 @@ function bookingListenPanel() {
     </ul>
     <div class="book-aside__meta">
       <p><strong>Email</strong><br /><a data-config-email="text" href="mailto:${EMAIL}">${EMAIL}</a></p>
-      <p><strong>Hours</strong><br /><span data-business-hours>Monday-Saturday: 8:00 AM - 6:00 PM (Central Time)</span></p>
-      <p><strong>Area</strong><br /><span data-config-area>Texas</span>, USA. Coverage confirmed when you inquire.</p>
+      <p><strong>Hours</strong><br /><span data-business-hours>Monday-Saturday: 8:00 AM - 6:00 PM</span></p>
+      <p><strong>Area</strong><br /><span data-config-area>USA</span>. Coverage confirmed when you inquire.</p>
     </div>
   </aside>`;
 }
@@ -1030,7 +1030,7 @@ function buildAbout() {
         </article>
         <article class="value-card reveal reveal-delay-1">
           <h3>Vision</h3>
-          <p>Become the cleaning company customers confidently choose and recommend across Texas.</p>
+          <p>Become the cleaning company customers confidently choose and recommend across the USA.</p>
         </article>
         <article class="value-card reveal reveal-delay-2">
           <h3>Values</h3>
@@ -1083,11 +1083,11 @@ function buildAbout() {
         </article>
         <article class="value-card reveal reveal-delay-1">
           <h3>Service Area</h3>
-          <p data-area-detail>Professional cleaning for homes and businesses across Texas. Coverage for your location is confirmed when you inquire.</p>
+          <p data-area-detail>Professional cleaning for homes and businesses across the USA. Coverage for your location is confirmed when you inquire.</p>
         </article>
         <article class="value-card reveal reveal-delay-2">
           <h3>Business Hours</h3>
-          <p data-business-hours>Monday-Saturday: 8:00 AM - 6:00 PM (Central Time)</p>
+          <p data-business-hours>Monday-Saturday: 8:00 AM - 6:00 PM</p>
           <p data-response-time style="margin-top:0.65rem">We typically respond within 1 business day.</p>
         </article>
       </div>
@@ -1099,7 +1099,7 @@ function buildAbout() {
     meta: {
       title: "About | The Favorite Cleaner",
       description:
-        "Learn about The Favorite Cleaner’s mission, values, service standards, and commitment to premium cleaning for homes and businesses across Texas.",
+        "Learn about The Favorite Cleaner’s mission, values, service standards, and commitment to premium cleaning for homes and businesses across the USA.",
       path: "about.html",
       schema: localBusinessSchema
     },
@@ -1374,12 +1374,12 @@ function buildContact() {
           </div>
           <div class="contact-meta__item">
             <h3>Service Area</h3>
-            <p><span data-config-area>Texas</span>, USA</p>
-            <p data-area-detail style="margin-top:0.4rem">Professional cleaning for homes and businesses across Texas. Coverage for your location is confirmed when you inquire.</p>
+            <p><span data-config-area>USA</span></p>
+            <p data-area-detail style="margin-top:0.4rem">Professional cleaning for homes and businesses across the USA. Coverage for your location is confirmed when you inquire.</p>
           </div>
           <div class="contact-meta__item">
             <h3>Business Hours</h3>
-            <p data-business-hours>Monday-Saturday: 8:00 AM - 6:00 PM (Central Time)</p>
+            <p data-business-hours>Monday-Saturday: 8:00 AM - 6:00 PM</p>
           </div>
           <div class="contact-meta__item">
             <h3>Response Time</h3>
@@ -1459,7 +1459,7 @@ function buildContact() {
     meta: {
       title: "Contact & Book | The Favorite Cleaner",
       description:
-        "Contact The Favorite Cleaner to book residential or commercial cleaning across Texas. Email contact@thefavoritecleaner.com. Hours Monday-Saturday 8 AM-6 PM CT.",
+        "Contact The Favorite Cleaner to book residential or commercial cleaning across the USA. Email contact@thefavoritecleaner.com. Hours Monday-Saturday 8 AM-6 PM.",
       path: "contact.html",
       schema: localBusinessSchema
     },
@@ -1486,7 +1486,7 @@ function buildLegal(file, title, metaTitle, bodyHtml) {
   `;
   const description =
     file === "terms.html"
-      ? "Customer Terms & Conditions for The Favorite Cleaner cleaning services in Texas."
+      ? "Customer Terms & Conditions for The Favorite Cleaner cleaning services in the USA."
       : `${title} for The Favorite Cleaner website.`;
   return pageShell({
     meta: {
@@ -1553,7 +1553,7 @@ const pages = {
     title: "Residential Cleaning",
     metaTitle: "Residential Cleaning | The Favorite Cleaner",
     description:
-      "Professional residential cleaning for homes and apartments across Texas. Detail-focused, respectful, and tailored to your space.",
+      "Professional residential cleaning for homes and apartments across the USA. Detail-focused, respectful, and tailored to your space.",
     heroImg: "assets/images/services/residential.jpg",
     intro:
       "Residential cleaning from The Favorite Cleaner is designed to keep living spaces fresh, comfortable, and beautifully maintained. Whether you need ongoing care or a one-time refresh, we approach every home with respect and careful attention.",
@@ -1577,7 +1577,7 @@ const pages = {
     title: "Commercial Cleaning",
     metaTitle: "Commercial Cleaning | The Favorite Cleaner",
     description:
-      "Dependable commercial and office cleaning that supports professional, welcoming business environments across Texas.",
+      "Dependable commercial and office cleaning that supports professional, welcoming business environments across the USA.",
     heroImg: "assets/images/services/commercial.jpg",
     intro:
       "Commercial cleaning supports the impression your business makes every day. We provide dependable cleaning solutions designed for offices and professional environments that need to stay welcoming and well kept.",
@@ -1704,7 +1704,7 @@ const pages = {
     "Terms & Conditions",
     "Terms & Conditions | The Favorite Cleaner",
     `
-    <p>These Terms &amp; Conditions ("Terms") govern cleaning services provided by The Favorite Cleaner ("we," "us," or "our") to customers ("you" or "customer") in Texas, and use of our website. By requesting, booking, or receiving our services, or by using thefavoritecleaner.com, you agree to these Terms.</p>
+    <p>These Terms &amp; Conditions ("Terms") govern cleaning services provided by The Favorite Cleaner ("we," "us," or "our") to customers ("you" or "customer") in the USA, and use of our website. By requesting, booking, or receiving our services, or by using thefavoritecleaner.com, you agree to these Terms.</p>
 
     <h2>1. Services</h2>
     <p>We provide professional residential and commercial cleaning, including recurring cleaning, deep cleaning, move-in/move-out cleaning, and customized plans as discussed with you. Website descriptions are general. The scope of work, areas included, timing, and pricing for your job are confirmed when your booking is accepted.</p>
@@ -1761,7 +1761,7 @@ const pages = {
       <li>Third-party products, finishes, or surfaces that react poorly to standard professional cleaning methods when manufacturer care instructions were not disclosed</li>
       <li>Indirect, incidental, or consequential damages</li>
     </ul>
-    <p>To the fullest extent permitted by law, our total liability related to any service visit is limited to the amount you paid for that visit. Nothing in these Terms limits liability that cannot be limited under Texas law.</p>
+    <p>To the fullest extent permitted by law, our total liability related to any service visit is limited to the amount you paid for that visit. Nothing in these Terms limits liability that cannot be limited under applicable United States law.</p>
 
     <h2>9. Keys, Codes &amp; Security</h2>
     <p>If you provide keys, lockboxes, or access codes, you authorize us to use them solely to perform the scheduled service. We will handle access credentials with care. You remain responsible for updating codes after service if required by your building or personal preference. Lost-key situations will be handled case by case in good faith.</p>
@@ -1782,7 +1782,7 @@ const pages = {
     <p>We may update these Terms from time to time. The "Last updated" date at the top of this page shows the latest revision. Continued use of our services or website after changes means you accept the updated Terms. Material changes affecting an existing confirmed booking will be communicated when practical.</p>
 
     <h2>15. Governing Law</h2>
-    <p>These Terms are governed by the laws of the State of Texas, without regard to conflict-of-law rules. Any dispute arising from our services or these Terms will be handled in courts located in Texas, unless applicable law requires otherwise.</p>
+    <p>These Terms are governed by the laws of the United States, without regard to conflict-of-law rules. Any dispute arising from our services or these Terms will be handled in courts located in the USA, unless applicable law requires otherwise.</p>
 
     <h2>16. Contact</h2>
     <p>Questions about these Terms or your cleaning service may be sent to <a href="mailto:${EMAIL}">${EMAIL}</a>.</p>

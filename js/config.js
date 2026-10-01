@@ -9,9 +9,9 @@ const SITE_CONFIG = {
   supportingLine: "Professional cleaning done with care.",
   email: "contact@thefavoritecleaner.com",
   website: "https://thefavoritecleaner.com",
-  serviceArea: "Texas",
+  serviceArea: "USA",
   serviceAreaDetail:
-    "Professional cleaning for homes and businesses across Texas. Coverage for your location is confirmed when you inquire.",
+    "Professional cleaning for homes and businesses across the USA. Coverage for your location is confirmed when you inquire.",
   phoneNumber: "",
   whatsappNumber: "",
   bookingUrl: "",
@@ -20,7 +20,7 @@ const SITE_CONFIG = {
   facebookUrl: "https://www.facebook.com/thefavoritecleaner",
   linkedinUrl: "https://www.linkedin.com/company/thefavoritecleaner",
   showTestimonials: false,
-  businessHours: "Monday-Saturday: 8:00 AM - 6:00 PM (Central Time)",
+  businessHours: "Monday-Saturday: 8:00 AM - 6:00 PM",
   responseTime: "We typically respond within 1 business day.",
   paymentNote:
     "Pricing is confirmed before service. Payment instructions are shared with your booking confirmation or invoice.",

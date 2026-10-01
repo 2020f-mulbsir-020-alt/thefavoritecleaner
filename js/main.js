@@ -22,7 +22,7 @@
     });
 
     document.querySelectorAll("[data-config-area]").forEach((el) => {
-      el.textContent = cfg.serviceArea || "Texas";
+      el.textContent = cfg.serviceArea || "USA";
     });
 
     document.querySelectorAll("[data-config-company]").forEach((el) => {
