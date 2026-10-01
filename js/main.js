@@ -83,7 +83,7 @@
           el.rel = "noopener noreferrer";
         }
       } else {
-        el.href = el.dataset.bookFallback || "contact.html#booking";
+        el.href = el.dataset.bookFallback || "index.html#booking";
         el.removeAttribute("target");
         el.removeAttribute("rel");
       }

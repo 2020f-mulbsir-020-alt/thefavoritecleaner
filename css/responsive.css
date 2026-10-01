@@ -5,7 +5,8 @@
 @media (max-width: 1200px) {
   .benefits-grid,
   .care-grid,
-  .why-grid {
+  .why-grid,
+  .hunt-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.75rem 1.5rem;
   }
@@ -156,11 +157,13 @@
     padding: 0 0 2rem 3.25rem;
   }
 
-  .contact-layout {
+  .contact-layout,
+  .book-layout {
     grid-template-columns: 1fr;
   }
 
-  .contact-aside {
+  .contact-aside,
+  .book-aside {
     position: static;
   }
 
@@ -210,6 +213,7 @@
   .care-grid,
   .why-grid,
   .difference-grid,
+  .hunt-grid,
   .values-grid,
   .service-group__list,
   .related-services,

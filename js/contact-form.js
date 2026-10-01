@@ -14,8 +14,12 @@
     const success = form.querySelector(".form-message--success");
     const error = form.querySelector(".form-message--error");
     const submitBtn = form.querySelector('[type="submit"]');
+    const pagePathField = form.querySelector("[data-page-path]");
 
     form.setAttribute("novalidate", "");
+    if (pagePathField) {
+      pagePathField.value = window.location.pathname.split("/").pop() || "index.html";
+    }
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -48,7 +52,7 @@
             },
             body: JSON.stringify({
               ...payload,
-              _subject: "New cleaning inquiry — The Favorite Cleaner",
+              _subject: "Book Now — The Favorite Cleaner",
               company: cfg.companyName || "The Favorite Cleaner"
             })
           });
@@ -56,16 +60,22 @@
           if (!res.ok) throw new Error("Request failed");
           form.reset();
           clearErrors(form);
-          show(success, "Thank you. Your message has been sent. We will be in touch soon.");
+          if (pagePathField) {
+            pagePathField.value = window.location.pathname.split("/").pop() || "index.html";
+          }
+          show(
+            success,
+            "Thank you — we received your details and will follow up with a clear plan, usually within 1 business day."
+          );
         } else {
           // Graceful mailto fallback — no secrets exposed
           const email = cfg.email || "contact@thefavoritecleaner.com";
-          const subject = encodeURIComponent("Cleaning Inquiry — The Favorite Cleaner");
+          const subject = encodeURIComponent("Book Now — The Favorite Cleaner");
           const body = encodeURIComponent(formatMailtoBody(payload));
           window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
           show(
             success,
-            "Your email app should open with your inquiry. If it does not, please email " + email + " directly."
+            "Your email app should open with your full request. If it does not, please email " + email + " directly."
           );
         }
       } catch (err) {
@@ -78,7 +88,7 @@
       } finally {
         if (submitBtn) {
           submitBtn.disabled = false;
-          submitBtn.textContent = submitBtn.dataset.originalText || "Submit Request";
+          submitBtn.textContent = submitBtn.dataset.originalText || "Book Now — Send My Request";
         }
       }
     });
@@ -105,29 +115,40 @@
 
   function formatMailtoBody(payload) {
     const lines = [
-      "New cleaning inquiry",
-      "-------------------",
+      "Book Now — cleaning inquiry",
+      "--------------------------",
       `Name: ${payload.name || ""}`,
       `Email: ${payload.email || ""}`,
       `Phone: ${payload.phone || ""}`,
       `Preferred Contact: ${payload.preferredContact || ""}`,
+      `Best Time to Reach: ${payload.callbackWindow || ""}`,
       `Property Type: ${payload.propertyType || ""}`,
       `Service Needed: ${payload.service || ""}`,
+      `Urgency: ${payload.urgency || ""}`,
       `Preferred Date: ${payload.preferredDate || ""}`,
       `Preferred Time: ${payload.preferredTime || ""}`,
       `Property Size: ${payload.propertySize || ""}`,
       `Frequency: ${payload.frequency || ""}`,
       `Pets: ${payload.pets || ""}`,
       `Product Preference: ${payload.productPreference || ""}`,
-      `Address / ZIP: ${payload.location || ""}`,
+      `How Found Us: ${payload.hearAbout || ""}`,
+      `Referrer: ${payload.referralName || ""}`,
+      `City / Address / ZIP: ${payload.location || ""}`,
+      `Form Location: ${payload.formLocation || ""}`,
+      `Page: ${payload.pagePath || ""}`,
       `UTM Source: ${payload.utm_source || ""}`,
       `UTM Medium: ${payload.utm_medium || ""}`,
       `UTM Campaign: ${payload.utm_campaign || ""}`,
+      `UTM Content: ${payload.utm_content || ""}`,
+      `UTM Term: ${payload.utm_term || ""}`,
+      "",
+      "What Matters Most:",
+      payload.priorities || "",
       "",
       "Access & Arrival Notes:",
       payload.accessNotes || "",
       "",
-      "Message:",
+      "Anything Else:",
       payload.message || ""
     ];
     return lines.join("\n");
