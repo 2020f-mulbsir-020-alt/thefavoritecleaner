@@ -204,8 +204,8 @@ function head({ title, description, path: pagePath, ogType = "website", schema =
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
-  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/styles.css?v=20261001b" />
+  <link rel="stylesheet" href="css/responsive.css?v=20261001b" />
   <link rel="prefetch" href="about.html" />
   <link rel="prefetch" href="services.html" />
   <link rel="prefetch" href="gallery.html" />
@@ -221,18 +221,17 @@ function head({ title, description, path: pagePath, ogType = "website", schema =
 }
 
 function scripts(extra = []) {
-  const base = [
-    '<script src="js/config.js" defer></script>',
-    '<script src="js/contact-form.js" defer></script>',
-    '<script src="js/main.js" defer></script>'
-  ];
-  const seen = new Set(["js/config.js", "js/contact-form.js", "js/main.js"]);
-  const extras = extra.filter((s) => {
-    if (seen.has(s)) return false;
-    seen.add(s);
-    return true;
+  const v = "20261001b";
+  const baseFiles = ["js/config.js", "js/contact-form.js", "js/main.js"];
+  const seen = new Set(baseFiles);
+  const tags = baseFiles.map((src) => `<script src="${src}?v=${v}" defer></script>`);
+  extra.forEach((s) => {
+    const file = String(s).split("?")[0];
+    if (seen.has(file)) return;
+    seen.add(file);
+    tags.push(`<script src="${file}?v=${v}" defer></script>`);
   });
-  return [...base, ...extras.map((s) => `<script src="${s}" defer></script>`)].join("\n  ");
+  return tags.join("\n  ");
 }
 
 function pageShell({ meta, bodyClass = "", solidHeader = false, content, extraScripts = [] }) {
