@@ -6,7 +6,7 @@
 const SITE_CONFIG = {
   companyName: "The Favorite Cleaner",
   tagline: "Clean Beyond Expectations.",
-  supportingLine: "The premium cleaning standard clients prefer.",
+  supportingLine: "Professional cleaning done with care.",
   email: "contact@thefavoritecleaner.com",
   website: "https://thefavoritecleaner.com",
   serviceArea: "Texas",
@@ -20,7 +20,7 @@ const SITE_CONFIG = {
   facebookUrl: "https://www.facebook.com/thefavoritecleaner",
   linkedinUrl: "https://www.linkedin.com/company/thefavoritecleaner",
   showTestimonials: false,
-  businessHours: "Monday–Saturday: 8:00 AM – 6:00 PM (Central Time)",
+  businessHours: "Monday-Saturday: 8:00 AM - 6:00 PM (Central Time)",
   responseTime: "We typically respond within 1 business day.",
   paymentNote:
     "Pricing is confirmed before service. Payment instructions are shared with your booking confirmation or invoice.",

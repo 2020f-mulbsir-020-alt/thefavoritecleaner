@@ -1,6 +1,6 @@
 /**
  * Downloads and optimizes royalty-free cleaning photography into assets/images.
- * Sources: Unsplash (license: Unsplash License — free for commercial use).
+ * Sources: Unsplash (license: Unsplash License - free for commercial use).
  */
 const sharp = require("sharp");
 const fs = require("fs");

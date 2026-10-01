@@ -52,7 +52,7 @@
             },
             body: JSON.stringify({
               ...payload,
-              _subject: "Book Now — The Favorite Cleaner",
+              _subject: "Book Now - The Favorite Cleaner",
               company: cfg.companyName || "The Favorite Cleaner"
             })
           });
@@ -65,12 +65,12 @@
           }
           show(
             success,
-            "Thank you — we received your details and will follow up with a clear plan, usually within 1 business day."
+            "Thank you - we received your details and will follow up with a clear plan, usually within 1 business day."
           );
         } else {
-          // Graceful mailto fallback — no secrets exposed
+          // Graceful mailto fallback - no secrets exposed
           const email = cfg.email || "contact@thefavoritecleaner.com";
-          const subject = encodeURIComponent("Book Now — The Favorite Cleaner");
+          const subject = encodeURIComponent("Book Now - The Favorite Cleaner");
           const body = encodeURIComponent(formatMailtoBody(payload));
           window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
           show(
@@ -88,7 +88,7 @@
       } finally {
         if (submitBtn) {
           submitBtn.disabled = false;
-          submitBtn.textContent = submitBtn.dataset.originalText || "Book Now — Send My Request";
+          submitBtn.textContent = submitBtn.dataset.originalText || "Send My Booking Request";
         }
       }
     });
@@ -115,7 +115,7 @@
 
   function formatMailtoBody(payload) {
     const lines = [
-      "Book Now — cleaning inquiry",
+      "Book Now - cleaning inquiry",
       "--------------------------",
       `Name: ${payload.name || ""}`,
       `Email: ${payload.email || ""}`,

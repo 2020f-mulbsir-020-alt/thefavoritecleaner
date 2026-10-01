@@ -1,4 +1,4 @@
-# The Favorite Cleaner — Website
+# The Favorite Cleaner - Website
 
 Premium static website for **The Favorite Cleaner** (`https://thefavoritecleaner.com`).
 
@@ -166,13 +166,13 @@ Uses `sharp` to create JPG + WebP outputs and responsive width variants. Aim for
 
 Official logos are exported from the brand PSD files into:
 
-- `assets/brand/logo-dark.png` — black logo for light backgrounds  
-- `assets/brand/logo-light.png` — white logo for navy / dark backgrounds  
-- `assets/brand/logo-mark.png` — square mark  
+- `assets/brand/logo-dark.png` - black logo for light backgrounds  
+- `assets/brand/logo-light.png` - white logo for navy / dark backgrounds  
+- `assets/brand/logo-mark.png` - square mark  
 - `assets/brand/favicon.png`  
-- `assets/brand/social-preview.jpg` — Open Graph / Twitter image  
+- `assets/brand/social-preview.jpg` - Open Graph / Twitter image  
 
-Original PSD sources (`TFC Black.psd`, `TFC White.psd`) and `Profile For FB.jpg` are stored in `assets/brand/` for reference only — **do not load PSD files in the browser**.
+Original PSD sources (`TFC Black.psd`, `TFC White.psd`) and `Profile For FB.jpg` are stored in `assets/brand/` for reference only - **do not load PSD files in the browser**.
 
 Export replacements at the same aspect ratio. Do not stretch or recolor logos in CSS.
 
@@ -259,7 +259,7 @@ Important:
 1. **Change the `www` CNAME** from `thefavoritecleaner.com` → `2020f-mulbsir-020-alt.github.io`
 2. Remove any extra `A` / `AAAA` / `CNAME` records on `www` besides that one CNAME
 3. Do not point `www` at the apex domain if you want HTTPS on GitHub Pages
-4. Wait 15–60 minutes for DNS to update (sometimes up to 24 hours)
+4. Wait 15-60 minutes for DNS to update (sometimes up to 24 hours)
 
 ### Then enable HTTPS in GitHub
 
@@ -276,7 +276,7 @@ nslookup www.thefavoritecleaner.com
 # Should show: canonical name = 2020f-mulbsir-020-alt.github.io
 ```
 
-Then open `https://www.thefavoritecleaner.com` — the padlock should appear.
+Then open `https://www.thefavoritecleaner.com` - the padlock should appear.
 
 Repo `CNAME` file should remain:
 
