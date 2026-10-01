@@ -9,10 +9,6 @@
     gap: 1.75rem 1.5rem;
   }
 
-  .proof-rail {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .gallery-grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -211,13 +207,26 @@
   .services-grid,
   .benefits-grid,
   .care-grid,
-  .proof-rail,
   .values-grid,
   .service-group__list,
   .related-services,
   .form-grid,
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+
+  .diff-row {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .diff-row--head {
+    display: none;
+  }
+
+  .hero__brand,
+  .hero h1.hero__brand {
+    max-width: 11ch;
   }
 
   .gallery-grid {

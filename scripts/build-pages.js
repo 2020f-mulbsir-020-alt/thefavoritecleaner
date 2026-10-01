@@ -92,7 +92,7 @@ function footer() {
           <a class="logo" href="index.html" aria-label="The Favorite Cleaner home">
             <img class="logo-light" src="assets/brand/logo-light.png" width="152" height="71" alt="The Favorite Cleaner" decoding="async" />
           </a>
-          <p>Professional cleaning for homes and businesses, delivered with quality, consistency, and careful attention to detail.</p>
+          <p>The modern Texas cleaning brand clients choose for detail, clarity, and a finish that feels unmistakably Favorite.</p>
           ${socialLinks()}
         </div>
         <div class="footer-col">
@@ -155,13 +155,15 @@ function ctaBand() {
   return `
   <section class="section section--navy cta-band" aria-labelledby="cta-heading">
     <div class="cta-band__line" aria-hidden="true"></div>
+    <div class="cta-band__glow" aria-hidden="true"></div>
     <div class="container cta-band__content">
-      <p class="eyebrow">Get Started</p>
-      <h2 id="cta-heading" class="display-lg">Ready for a Space That Feels Fresh?</h2>
+      <p class="eyebrow">Your Next Favorite Clean</p>
+      <h2 id="cta-heading" class="display-lg">Stop Settling for Ordinary Cleaning.</h2>
       <span class="gold-line gold-line--center draw"></span>
-      <p class="lead">Share a few details about your home or business — we’ll follow up with a clear plan and pricing before anything is locked in.</p>
+      <p class="lead">Request a plan built around your space, preferences, and schedule — then feel the Favorite difference.</p>
       <div class="btn-group" style="justify-content:center;margin-top:1.75rem">
-        <a class="btn btn--gold" data-book-now data-book-fallback="contact.html#booking" href="contact.html#booking">Book Now ${ICONS.arrow}</a>
+        <a class="btn btn--gold btn--shine" data-book-now data-book-fallback="contact.html#booking" href="contact.html#booking">Book The Favorite Cleaner ${ICONS.arrow}</a>
+        <a class="btn btn--outline" href="contact.html">Ask a Question</a>
       </div>
       <a class="cta-email" data-config-email="text" href="mailto:${EMAIL}">${EMAIL}</a>
     </div>
@@ -333,10 +335,6 @@ const HOME_FAQS = [
     a: "Use the booking form fields for access notes, product preferences, and pets — or include details in your message. Preferences are confirmed before your appointment."
   },
   {
-    q: "Do you document cleaning with photos?",
-    a: "Yes. Before-and-after photography is part of how we show results and maintain quality as we grow. Share any privacy preferences when booking if certain areas should not be photographed."
-  },
-  {
     q: "How far in advance should a service be scheduled?",
     a: "Scheduling ahead is recommended, especially for deep cleans, move-related services, or preferred time windows. Availability can be discussed when you reach out; flexible options are always welcome."
   }
@@ -348,7 +346,7 @@ const localBusinessSchema = `
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "CleaningService"],
   "name": "The Favorite Cleaner",
-  "description": "Professional cleaning services for homes and businesses across Texas, delivered with reliability, consistency, and careful attention to detail.",
+  "description": "The Favorite Cleaner — premium Texas cleaning for homes and businesses. Detail-first results, clear pricing before you commit, and client-led service plans.",
   "url": "${SITE}/",
   "email": "${EMAIL}",
   "image": "${SITE}/assets/brand/social-preview-square.jpg",
@@ -403,18 +401,19 @@ function buildHome() {
       </picture>
     </div>
     <div class="hero__overlay" aria-hidden="true"></div>
+    <div class="hero__shine" aria-hidden="true"></div>
     <div class="hero__content">
-      <p class="eyebrow hero-reveal">Premium Cleaning Services</p>
-      <h1 id="hero-heading" class="display-xl hero-reveal hero-reveal-delay-1">Clean Beyond Expectations.</h1>
-      <p class="hero__copy hero-reveal hero-reveal-delay-2">Professional cleaning for Texas homes and businesses — clear communication, careful work, and a finish you can feel.</p>
+      <h1 id="hero-heading" class="hero__brand hero-reveal">The Favorite Cleaner</h1>
+      <p class="hero__tagline hero-reveal hero-reveal-delay-1">Clean Beyond Expectations.</p>
+      <p class="hero__copy hero-reveal hero-reveal-delay-2">The modern Texas cleaning brand for clients who want more than a quick wipe — detail, clarity, and a finish that feels unmistakably Favorite.</p>
       <div class="btn-group hero-reveal hero-reveal-delay-3">
-        <a class="btn btn--gold" data-book-now data-book-fallback="contact.html#booking" href="contact.html#booking">Book a Cleaning ${ICONS.arrow}</a>
-        <a class="btn btn--outline" href="services.html">Explore Services</a>
+        <a class="btn btn--gold btn--shine" data-book-now data-book-fallback="contact.html#booking" href="contact.html#booking">Book Your Favorite Clean ${ICONS.arrow}</a>
+        <a class="btn btn--outline" href="#difference">See Why We’re Different</a>
       </div>
-      <div class="hero__trust hero-reveal hero-reveal-delay-4" aria-label="Brand qualities">
-        <span>Photo Proof</span><span class="divider" aria-hidden="true"></span>
-        <span>Flexible Plans</span><span class="divider" aria-hidden="true"></span>
-        <span>Serving Texas</span>
+      <div class="hero__trust hero-reveal hero-reveal-delay-4" aria-label="Brand promise">
+        <span>Detail First</span><span class="divider" aria-hidden="true"></span>
+        <span>Clear Pricing</span><span class="divider" aria-hidden="true"></span>
+        <span>Client-Led Plans</span>
       </div>
     </div>
     <a class="scroll-indicator" href="#intro" aria-label="Scroll to introduction">
@@ -426,11 +425,11 @@ function buildHome() {
   <section class="section" id="intro" aria-labelledby="intro-heading">
     <div class="container split">
       <div class="reveal">
-        <p class="eyebrow">Our Approach</p>
-        <h2 id="intro-heading" class="display-lg">More Than Clean. Exceptionally Cared For.</h2>
+        <p class="eyebrow">The Favorite Standard</p>
+        <h2 id="intro-heading" class="display-lg">Not Just Cleaner. Clearly Better.</h2>
         <span class="gold-line draw"></span>
-        <p class="lead">The Favorite Cleaner provides professional cleaning services designed to create spotless, fresh, and welcoming spaces. Every service is delivered with careful attention, dependable communication, and respect for the property.</p>
-        <a class="text-link" href="about.html">Discover Our Approach ${ICONS.arrow}</a>
+        <p class="lead">Most cleaning feels rushed and forgettable. The Favorite Cleaner is built for clients who want a polished result, respectful service, and a plan that matches how they actually live and work.</p>
+        <a class="text-link" href="about.html">Meet the Brand ${ICONS.arrow}</a>
       </div>
       <div class="split__media reveal reveal-delay-2 parallax-media">
         <picture>
@@ -444,8 +443,8 @@ function buildHome() {
   <section class="section section--off-white" aria-labelledby="services-heading">
     <div class="container">
       <div class="section__header reveal">
-        <p class="eyebrow">What We Offer</p>
-        <h2 id="services-heading" class="display-lg">Cleaning Services Designed Around Every Space</h2>
+        <p class="eyebrow">Signature Services</p>
+        <h2 id="services-heading" class="display-lg">Cleaning Built to Win Your Loyalty</h2>
         <span class="gold-line draw"></span>
       </div>
       <div class="services-grid">
@@ -462,31 +461,67 @@ function buildHome() {
   <section class="section section--navy" aria-labelledby="why-heading">
     <div class="container">
       <div class="section__header section__header--center reveal">
-        <p class="eyebrow">Why Choose Us</p>
-        <h2 id="why-heading" class="display-lg">A Higher Standard in Every Detail</h2>
+        <p class="eyebrow">Why Clients Choose Favorite</p>
+        <h2 id="why-heading" class="display-lg">The Advantage You Feel After Day One</h2>
         <span class="gold-line gold-line--center draw"></span>
       </div>
       <div class="benefits-grid">
         <article class="benefit reveal">
           <div class="benefit__icon">${ICONS.shield}</div>
-          <h3>Reliable Service</h3>
-          <p>Clear communication, dependable scheduling, and follow-through you can count on.</p>
+          <h3>Clarity You Can Trust</h3>
+          <p>Scope, timing, and pricing confirmed before service — so you book with confidence, not guesswork.</p>
         </article>
         <article class="benefit reveal reveal-delay-1">
           <div class="benefit__icon">${ICONS.spark}</div>
-          <h3>Detail-Focused Cleaning</h3>
-          <p>Careful attention to the areas that shape how a space looks and feels.</p>
+          <h3>Finish-First Detail</h3>
+          <p>We clean for how a space looks and feels — edges, surfaces, and the details others rush past.</p>
         </article>
         <article class="benefit reveal reveal-delay-2">
           <div class="benefit__icon">${ICONS.heart}</div>
-          <h3>Respectful Care</h3>
-          <p>Homes, offices, pets, and personal preferences are treated with genuine care.</p>
+          <h3>Preference-Led Care</h3>
+          <p>Pets, products, access, and priorities shape the plan. Your home or office stays yours.</p>
         </article>
         <article class="benefit reveal reveal-delay-3">
           <div class="benefit__icon">${ICONS.refresh}</div>
-          <h3>Consistent Quality</h3>
-          <p>Professional standards on every visit — one-time or recurring.</p>
+          <h3>Consistency That Compounds</h3>
+          <p>One visit impresses. Recurring Favorite service keeps your space at a higher standard week after week.</p>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="difference" aria-labelledby="diff-heading">
+    <div class="container">
+      <div class="section__header section__header--center reveal">
+        <p class="eyebrow">The Favorite Difference</p>
+        <h2 id="diff-heading" class="display-lg">Ordinary Cleaning vs. The Favorite Cleaner</h2>
+        <span class="gold-line gold-line--center draw"></span>
+        <p class="lead" style="max-width:36rem;margin:1rem auto 0">When clients compare options, the choice becomes clear — we compete on clarity, care, and a finish worth remembering.</p>
+      </div>
+      <div class="diff-table reveal" role="table" aria-label="How The Favorite Cleaner compares to ordinary cleaning">
+        <div class="diff-row diff-row--head" role="row">
+          <div role="columnheader">Ordinary Cleaning</div>
+          <div role="columnheader">The Favorite Cleaner</div>
+        </div>
+        <div class="diff-row" role="row">
+          <div role="cell"><span class="diff-label">Typical approach</span>Rushed checklist, uneven finish</div>
+          <div role="cell"><span class="diff-label">Favorite approach</span>Detail-first clean with a polished result</div>
+        </div>
+        <div class="diff-row" role="row">
+          <div role="cell"><span class="diff-label">Typical approach</span>Vague quotes and surprise add-ons</div>
+          <div role="cell"><span class="diff-label">Favorite approach</span>Pricing confirmed before you commit</div>
+        </div>
+        <div class="diff-row" role="row">
+          <div role="cell"><span class="diff-label">Typical approach</span>One-size visits that ignore preferences</div>
+          <div role="cell"><span class="diff-label">Favorite approach</span>Plans shaped around pets, products, and priorities</div>
+        </div>
+        <div class="diff-row" role="row">
+          <div role="cell"><span class="diff-label">Typical approach</span>Hard to reach after the job</div>
+          <div role="cell"><span class="diff-label">Favorite approach</span>Clear follow-up and 24-hour satisfaction care</div>
+        </div>
+      </div>
+      <div class="text-center" style="margin-top:2.25rem">
+        <a class="btn btn--gold btn--shine" data-book-now data-book-fallback="contact.html#booking" href="contact.html#booking">Choose The Favorite Cleaner ${ICONS.arrow}</a>
       </div>
     </div>
   </section>
@@ -494,10 +529,10 @@ function buildHome() {
   <section class="section section--off-white" aria-labelledby="care-heading">
     <div class="container">
       <div class="section__header section__header--center reveal">
-        <p class="eyebrow">Client Care</p>
-        <h2 id="care-heading" class="display-lg">Built to Accommodate You</h2>
+        <p class="eyebrow">Client Experience</p>
+        <h2 id="care-heading" class="display-lg">Designed to Keep You Coming Back</h2>
         <span class="gold-line gold-line--center draw"></span>
-        <p class="lead" style="max-width:36rem;margin:1rem auto 0">We run a sustainable cleaning business by keeping expectations clear, honoring preferences, and making it easy to book with confidence.</p>
+        <p class="lead" style="max-width:36rem;margin:1rem auto 0">A sustainable cleaning brand earns loyalty through clear expectations, flexible scheduling, and service that respects your life.</p>
       </div>
       <div class="care-grid">
         <article class="care-point reveal">
@@ -571,59 +606,24 @@ function buildHome() {
       ${baPanel("panel-kitchen", "tab-kitchen", false, "kitchen", "Messy kitchen before professional cleaning", "Spotless kitchen after professional cleaning")}
       ${baPanel("panel-bath", "tab-bath", true, "bathroom", "Dirty bathroom before professional cleaning", "Spotless bathroom after professional cleaning")}
       ${baPanel("panel-living", "tab-living", true, "living", "Cluttered living room before professional cleaning", "Neat living room after professional cleaning")}
-      <p class="ba-note">Drag the handle to compare before and after. Real results photos help clients book with confidence.</p>
+      <p class="ba-note">Drag the handle to compare before and after.</p>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="proof-heading">
+  <section class="section" aria-labelledby="gallery-heading">
     <div class="container">
       <div class="section__header reveal">
-        <p class="eyebrow">Photo Proof</p>
-        <h2 id="proof-heading" class="display-lg">Real Spaces. Real Results.</h2>
-        <span class="gold-line draw"></span>
-        <p class="lead" style="max-width:38rem">See real kitchens, bathrooms, and team work — honest results that make it easier to book with confidence.</p>
-      </div>
-      <div class="proof-rail">
-        <figure class="proof-rail__item reveal">
-          <img src="assets/images/before-after/kitchen-after.jpg" alt="Spotless kitchen after professional cleaning" width="1200" height="800" loading="lazy" />
-          <figcaption>Kitchen finish</figcaption>
-        </figure>
-        <figure class="proof-rail__item reveal reveal-delay-1">
-          <img src="assets/images/before-after/bathroom-after.jpg" alt="Fresh bathroom after detailed cleaning" width="1200" height="800" loading="lazy" />
-          <figcaption>Bathroom detail</figcaption>
-        </figure>
-        <figure class="proof-rail__item reveal reveal-delay-2">
-          <img src="assets/images/gallery/cleaner-work-1.jpg" alt="Professional cleaner detailing window shutters with protective gear" width="1200" height="800" loading="lazy" />
-          <figcaption>Team in action</figcaption>
-        </figure>
-        <figure class="proof-rail__item reveal reveal-delay-3">
-          <img src="assets/images/gallery/cleaner-work-2.jpg" alt="Professional vacuum clearing debris from carpet" width="1200" height="800" loading="lazy" />
-          <figcaption>Equipment at work</figcaption>
-        </figure>
-      </div>
-      <div class="text-center" style="margin-top:1.75rem">
-        <a class="btn btn--outline-navy" href="gallery.html">Browse Full Gallery ${ICONS.arrow}</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--off-white" aria-labelledby="gallery-heading">
-    <div class="container">
-      <div class="section__header reveal">
-        <p class="eyebrow">Work Photos</p>
+        <p class="eyebrow">Our Work</p>
         <h2 id="gallery-heading" class="display-lg">Cleaning in Action</h2>
         <span class="gold-line draw"></span>
-        <p>Curated real work photos — refreshed as new results come in. Follow Instagram for the latest.</p>
       </div>
-      <div class="gallery-grid" data-work-photos data-instagram-feed>
+      <div class="gallery-grid" data-instagram-feed>
         ${galleryItem("assets/images/gallery/cleaner-work-1.jpg", "Professional cleaner attending to a residential interior", "Professional care")}
-        ${galleryItem("assets/images/gallery/cleaner-work-2.jpg", "Professional vacuum clearing debris from carpet", "Equipment in action")}
         ${galleryItem("assets/images/gallery/tools-1.jpg", "Organized cleaning tools and supplies", "Prepared tools")}
         ${galleryItem("assets/images/gallery/kitchen-1.jpg", "Bright clean kitchen interior", "Kitchen care")}
         ${galleryItem("assets/images/gallery/bathroom-1.jpg", "Fresh bathroom with clean finishes", "Bathroom detail")}
         ${galleryItem("assets/images/gallery/office-1.jpg", "Professional office environment", "Commercial spaces")}
         ${galleryItem("assets/images/gallery/living-1.jpg", "Styled living room with natural light", "Living spaces")}
-        ${galleryItem("assets/images/gallery/living-2.jpg", "Bright residential interior ready for guests", "Fresh interiors")}
         ${galleryItem("assets/images/gallery/moveout-1.jpg", "Open residential interior ready for turnover", "Move-out ready")}
         ${galleryItem("assets/images/gallery/commercial-1.jpg", "Modern commercial workspace", "Business environments")}
       </div>
@@ -663,9 +663,9 @@ function buildHome() {
 
   return pageShell({
     meta: {
-      title: "The Favorite Cleaner | Premium Cleaning Services",
+      title: "The Favorite Cleaner | Premium Cleaning That Wins Loyalty",
       description:
-        "Professional cleaning services for homes and businesses, delivered with reliability, consistency, and careful attention to detail.",
+        "The Favorite Cleaner — Texas premium cleaning for homes and businesses. Detail-first results, clear pricing before you commit, and plans built around your preferences.",
       path: "index.html",
       schema: localBusinessSchema + faqSchema,
       extraHead: `<link rel="preload" as="image" href="assets/images/hero/hero-main.jpg" fetchpriority="high" />`
@@ -713,43 +713,11 @@ function baPanel(id, tabId, hidden, key, beforeAlt, afterAlt) {
 }
 
 function galleryItem(src, alt, caption) {
-  const webp = src.replace(/\.jpg$/i, ".webp");
   return `
   <button type="button" class="gallery-item reveal" data-lightbox data-full="${src}" data-caption="${caption}" aria-label="View ${caption}">
-    <picture>
-      <source type="image/webp" srcset="${webp}" />
-      <img src="${src}" alt="${alt}" width="1200" height="800" loading="lazy" />
-    </picture>
+    <img src="${src}" alt="${alt}" width="1200" height="800" loading="lazy" />
     <span class="gallery-item__caption">${caption}</span>
   </button>`;
-}
-
-function photoStrip(items) {
-  if (!items || !items.length) return "";
-  return `
-  <section class="section section--off-white" aria-labelledby="svc-photos-heading">
-    <div class="container">
-      <div class="section__header reveal">
-        <p class="eyebrow">Real Work Photos</p>
-        <h2 id="svc-photos-heading" class="display-md">See This Service in Context</h2>
-        <span class="gold-line draw"></span>
-      </div>
-      <div class="proof-rail">
-        ${items
-          .map(
-            (item, i) => `
-        <figure class="proof-rail__item reveal${i ? ` reveal-delay-${Math.min(i, 3)}` : ""}">
-          <img src="${item.src}" alt="${item.alt}" width="1200" height="800" loading="lazy" />
-          <figcaption>${item.caption}</figcaption>
-        </figure>`
-          )
-          .join("")}
-      </div>
-      <div class="text-center" style="margin-top:1.5rem">
-        <a class="text-link" href="gallery.html">View more photos ${ICONS.arrow}</a>
-      </div>
-    </div>
-  </section>`;
 }
 
 function bookingForm() {
@@ -891,7 +859,7 @@ function buildAbout() {
   const content = `
   ${pageHero({
     title: "About The Favorite Cleaner",
-    copy: "A higher standard of clean, built on professionalism, integrity, and dependable service.",
+    copy: "The brand clients choose when ordinary cleaning is no longer enough — professionalism, integrity, and a finish worth recommending.",
     image: "assets/images/about/about-hero.jpg",
     crumbs: [
       { label: "Home", href: "index.html" },
@@ -902,12 +870,12 @@ function buildAbout() {
     <div class="container split">
       <div class="reveal">
         <p class="eyebrow">Our Story</p>
-        <h2 id="story-heading" class="display-lg">Built Around Care, Consistency, and Trust</h2>
+        <h2 id="story-heading" class="display-lg">Built to Be the Cleaning Brand Clients Prefer</h2>
         <span class="gold-line draw"></span>
         <div class="prose">
-          <p>The Favorite Cleaner provides reliable and professional cleaning services for homes and businesses. Our mission is to create spotless, fresh, and welcoming spaces while giving customers more time and peace of mind.</p>
-          <p>We focus on quality, consistency, and attention to detail. Every property is treated with care and respect, and every service is tailored to the customer’s cleaning needs.</p>
-          <p>Built on professionalism, integrity, and dependable service, The Favorite Cleaner aims to become the cleaning company customers confidently choose and recommend.</p>
+          <p>The Favorite Cleaner exists for homes and businesses that want more than a quick pass — spotless, welcoming spaces with clear communication and real respect for the property.</p>
+          <p>We compete on what clients actually remember: a detailed finish, confirmed pricing, preferences honored, and service that feels consistent every visit.</p>
+          <p>Our goal is simple and ambitious — become the cleaning company Texas clients confidently choose, keep, and recommend.</p>
         </div>
       </div>
       <div class="split__media reveal reveal-delay-2">
@@ -929,7 +897,7 @@ function buildAbout() {
         </article>
         <article class="value-card reveal reveal-delay-1">
           <h3>Vision</h3>
-          <p>Become the cleaning company customers confidently choose and recommend across Texas.</p>
+          <p>Be the preferred cleaning brand across Texas — the name clients think of when they want the Favorite standard.</p>
         </article>
         <article class="value-card reveal reveal-delay-2">
           <h3>Values</h3>
@@ -944,8 +912,8 @@ function buildAbout() {
       <h2 id="philosophy-heading" class="display-lg reveal">A Customer-First Approach to Quality</h2>
       <span class="gold-line draw"></span>
       <div class="prose reveal">
-        <p>We believe a premium clean is about more than appearance. It is about how a space feels — ordered, refreshed, and thoughtfully cared for.</p>
-        <p>Our commitment to quality means listening carefully, communicating clearly, and applying professional standards with respect for every property and preference.</p>
+        <p>We believe a premium clean is about more than appearance. It is about how a space feels — ordered, refreshed, and unmistakably cared for.</p>
+        <p>That is how we earn preference: listen carefully, confirm clearly, and deliver a standard clients compare against everyone else.</p>
         <ul>
           <li>Plans tailored to each home or business</li>
           <li>Clear communication before and after service</li>
@@ -1095,34 +1063,6 @@ function buildServices() {
       </div>
     </div>
   </section>
-  <section class="section section--off-white" aria-labelledby="moments-heading">
-    <div class="container">
-      <div class="section__header reveal">
-        <p class="eyebrow">Photo Moments</p>
-        <h2 id="moments-heading" class="display-lg">Every Service Has a Visual Story</h2>
-        <span class="gold-line draw"></span>
-        <p>Kitchen, bathroom, office, and turnover photos help clients choose faster — and help us scale quality with documented results.</p>
-      </div>
-      <div class="proof-rail">
-        <figure class="proof-rail__item reveal">
-          <img src="assets/images/services/kitchen.jpg" alt="Kitchen prepared for professional cleaning" width="1200" height="800" loading="lazy" />
-          <figcaption>Kitchen cleaning</figcaption>
-        </figure>
-        <figure class="proof-rail__item reveal reveal-delay-1">
-          <img src="assets/images/services/bathroom.jpg" alt="Bathroom prepared for detailed cleaning" width="1200" height="800" loading="lazy" />
-          <figcaption>Bathroom cleaning</figcaption>
-        </figure>
-        <figure class="proof-rail__item reveal reveal-delay-2">
-          <img src="assets/images/services/office.jpg" alt="Office environment for commercial cleaning" width="1200" height="800" loading="lazy" />
-          <figcaption>Office cleaning</figcaption>
-        </figure>
-        <figure class="proof-rail__item reveal reveal-delay-3">
-          <img src="assets/images/about/team-work.jpg" alt="Professional cleaner maintaining polished interiors" width="1200" height="800" loading="lazy" />
-          <figcaption>Detail standards</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
   ${ctaBand()}
   `;
   return pageShell({
@@ -1137,7 +1077,7 @@ function buildServices() {
   });
 }
 
-function buildServicePage({ file, title, metaTitle, description, heroImg, intro, includes, suitable, related, photos }) {
+function buildServicePage({ file, title, metaTitle, description, heroImg, intro, includes, suitable, related }) {
   const faqs = [
     {
       q: `What does ${title.toLowerCase()} typically involve?`,
@@ -1145,11 +1085,7 @@ function buildServicePage({ file, title, metaTitle, description, heroImg, intro,
     },
     {
       q: "Can this service be customized?",
-      a: "Yes. Cleaning plans can be adjusted around focus areas, access needs, preferred products, and timing."
-    },
-    {
-      q: "Do you share photo updates for this service?",
-      a: "When appropriate, before-and-after photos help confirm results and keep quality consistent. Tell us if you prefer limited photography for privacy."
+      a: "Yes. Cleaning plans can be adjusted around focus areas, access needs, and preferred timing."
     },
     {
       q: "How do I request this service?",
@@ -1186,8 +1122,7 @@ function buildServicePage({ file, title, metaTitle, description, heroImg, intro,
       <p>Every space is unique. Share priorities, restricted areas, preferred products considerations, and access instructions so your plan can be tailored appropriately.</p>
     </div>
   </section>
-  ${photoStrip(photos)}
-  <section class="section${photos && photos.length ? "" : " section--off-white"}" aria-labelledby="svc-faq">
+  <section class="section section--off-white" aria-labelledby="svc-faq">
     <div class="container">
       <div class="section__header section__header--center reveal">
         <h2 id="svc-faq" class="display-md">Frequently Asked Questions</h2>
@@ -1234,7 +1169,7 @@ function buildGallery() {
   const content = `
   ${pageHero({
     title: "Gallery",
-    copy: "Real work photos, tools, and before-and-after results — updated as new jobs are documented.",
+    copy: "A look at the spaces, tools, and professional care behind our work.",
     image: "assets/images/gallery/living-2.jpg",
     crumbs: [
       { label: "Home", href: "index.html" },
@@ -1243,62 +1178,20 @@ function buildGallery() {
   })}
   <section class="section">
     <div class="container">
-      <div class="section__header reveal">
-        <p class="eyebrow">Live Work Gallery</p>
-        <h2 class="display-lg">Cleaning Moments Worth Showing</h2>
-        <span class="gold-line draw"></span>
-        <p>These photos power our marketing flywheel: proof for clients, content for social, and quality checks for a scalable team.</p>
-      </div>
-      <div class="gallery-grid" data-work-photos data-instagram-feed>
+      <div class="gallery-grid">
         ${galleryItem("assets/images/gallery/cleaner-work-1.jpg", "Professional cleaner at work", "Professional cleaners working")}
-        ${galleryItem("assets/images/gallery/cleaner-work-2.jpg", "Vacuum clearing debris from carpet", "Equipment in action")}
         ${galleryItem("assets/images/gallery/tools-1.jpg", "Cleaning tools arranged neatly", "Cleaning tools")}
         ${galleryItem("assets/images/gallery/kitchen-1.jpg", "Clean modern kitchen", "Kitchens")}
         ${galleryItem("assets/images/gallery/bathroom-1.jpg", "Clean bathroom", "Bathrooms")}
         ${galleryItem("assets/images/gallery/office-1.jpg", "Office interior", "Offices")}
         ${galleryItem("assets/images/gallery/living-1.jpg", "Fresh living space", "Living spaces")}
-        ${galleryItem("assets/images/gallery/living-2.jpg", "Bright residential interior", "Fresh interiors")}
         ${galleryItem("assets/images/gallery/moveout-1.jpg", "Move-out ready interior", "Move-out cleaning")}
         ${galleryItem("assets/images/gallery/commercial-1.jpg", "Commercial environment", "Commercial environments")}
+        ${galleryItem("assets/images/gallery/cleaner-work-2.jpg", "Detailed cleaning in progress", "Detail work")}
+        ${galleryItem("assets/images/gallery/living-2.jpg", "Bright residential interior", "Fresh interiors")}
       </div>
-    </div>
-  </section>
-  <section class="section section--off-white" aria-labelledby="results-heading">
-    <div class="container">
-      <div class="section__header reveal">
-        <p class="eyebrow">Results Library</p>
-        <h2 id="results-heading" class="display-lg">Before &amp; After Highlights</h2>
-        <span class="gold-line draw"></span>
-      </div>
-      <div class="proof-rail">
-        <figure class="proof-rail__item reveal">
-          <img src="assets/images/before-after/kitchen-before.jpg" alt="Messy kitchen before professional cleaning" width="1200" height="800" loading="lazy" />
-          <figcaption>Kitchen before</figcaption>
-        </figure>
-        <figure class="proof-rail__item reveal reveal-delay-1">
-          <img src="assets/images/before-after/kitchen-after.jpg" alt="Spotless kitchen after professional cleaning" width="1200" height="800" loading="lazy" />
-          <figcaption>Kitchen after</figcaption>
-        </figure>
-        <figure class="proof-rail__item reveal reveal-delay-2">
-          <img src="assets/images/before-after/bathroom-before.jpg" alt="Dirty bathroom before professional cleaning" width="1200" height="800" loading="lazy" />
-          <figcaption>Bathroom before</figcaption>
-        </figure>
-        <figure class="proof-rail__item reveal reveal-delay-3">
-          <img src="assets/images/before-after/bathroom-after.jpg" alt="Spotless bathroom after professional cleaning" width="1200" height="800" loading="lazy" />
-          <figcaption>Bathroom after</figcaption>
-        </figure>
-        <figure class="proof-rail__item reveal">
-          <img src="assets/images/before-after/living-before.jpg" alt="Cluttered living room before professional cleaning" width="1200" height="800" loading="lazy" />
-          <figcaption>Living before</figcaption>
-        </figure>
-        <figure class="proof-rail__item reveal reveal-delay-1">
-          <img src="assets/images/before-after/living-after.jpg" alt="Neat living room after professional cleaning" width="1200" height="800" loading="lazy" />
-          <figcaption>Living after</figcaption>
-        </figure>
-      </div>
-      <div class="text-center" style="margin-top:2rem">
-        <a class="btn btn--gold" href="contact.html#booking">Book From What You See ${ICONS.arrow}</a>
-        <a class="btn btn--outline-navy" data-social="instagram" href="https://www.instagram.com/thefavoritecleaner" target="_blank" rel="noopener noreferrer" style="margin-left:0.75rem">${ICONS.instagram} Instagram</a>
+      <div class="text-center" style="margin-top:2.5rem">
+        <a class="btn btn--gold" data-social="instagram" href="https://www.instagram.com/thefavoritecleaner" target="_blank" rel="noopener noreferrer">${ICONS.instagram} Follow on Instagram</a>
       </div>
     </div>
   </section>
@@ -1540,12 +1433,6 @@ const pages = {
     ],
     suitable:
       "Ideal for homeowners, renters, and families who want dependable cleaning support without compromising the feel of their space.",
-    photos: [
-      { src: "assets/images/gallery/living-1.jpg", alt: "Fresh living room after residential cleaning", caption: "Living spaces" },
-      { src: "assets/images/gallery/kitchen-1.jpg", alt: "Bright clean kitchen interior", caption: "Kitchen care" },
-      { src: "assets/images/gallery/cleaner-work-2.jpg", alt: "Vacuum cleaning carpet in a home", caption: "Floor care" },
-      { src: "assets/images/before-after/living-after.jpg", alt: "Neat living room after professional cleaning", caption: "After results" }
-    ],
     related: [
       relatedCommon[1],
       relatedCommon[2],
@@ -1570,12 +1457,6 @@ const pages = {
     ],
     suitable:
       "Well suited for offices, professional suites, and commercial spaces seeking consistent, discreet cleaning support.",
-    photos: [
-      { src: "assets/images/gallery/office-1.jpg", alt: "Professional office ready for commercial cleaning", caption: "Offices" },
-      { src: "assets/images/gallery/commercial-1.jpg", alt: "Modern commercial workspace", caption: "Business spaces" },
-      { src: "assets/images/services/office.jpg", alt: "Office interior maintained for clients and teams", caption: "Workplaces" },
-      { src: "assets/images/gallery/tools-1.jpg", alt: "Organized professional cleaning tools", caption: "Ready to work" }
-    ],
     related: [
       relatedCommon[0],
       relatedCommon[2],
@@ -1600,12 +1481,6 @@ const pages = {
     ],
     suitable:
       "A strong choice for seasonal resets, pre-event preparation, or spaces that have gone longer between thorough cleanings.",
-    photos: [
-      { src: "assets/images/gallery/cleaner-work-1.jpg", alt: "Cleaner detailing shutters during deep cleaning", caption: "Detail work" },
-      { src: "assets/images/before-after/kitchen-after.jpg", alt: "Kitchen after deep cleaning", caption: "Kitchen reset" },
-      { src: "assets/images/before-after/bathroom-after.jpg", alt: "Bathroom after deep cleaning", caption: "Bathroom reset" },
-      { src: "assets/images/services/bathroom.jpg", alt: "Bathroom prepared for detailed cleaning", caption: "Focus areas" }
-    ],
     related: [
       relatedCommon[0],
       { href: "move-in-move-out.html", img: "assets/images/services/move-in-out.jpg", title: "Move-In / Move-Out" },
@@ -1630,12 +1505,6 @@ const pages = {
     ],
     suitable:
       "Helpful for homeowners, renters, landlords, and property managers managing transitions or turnovers.",
-    photos: [
-      { src: "assets/images/gallery/moveout-1.jpg", alt: "Open home ready for move-out cleaning", caption: "Turnover ready" },
-      { src: "assets/images/services/move-in-out.jpg", alt: "Bright empty home interior", caption: "Empty-home focus" },
-      { src: "assets/images/before-after/kitchen-after.jpg", alt: "Kitchen cleaned for move-in or move-out", caption: "Kitchen ready" },
-      { src: "assets/images/gallery/living-2.jpg", alt: "Bright residential interior after cleaning", caption: "Fresh start" }
-    ],
     related: [
       relatedCommon[2],
       relatedCommon[0],
@@ -1658,11 +1527,9 @@ const pages = {
       <li>Name and contact details (email address, phone number)</li>
       <li>Property type, size, address or ZIP code, and service preferences</li>
       <li>Preferred dates, times, frequency, and special instructions</li>
-      <li>Access notes, product preferences, pets, and other message content you choose to share</li>
-      <li>Optional marketing attribution data (such as campaign source parameters) that help us understand how you found us</li>
+      <li>Access notes, product preferences, and other message content you choose to share</li>
     </ul>
     <p>Our hosting provider may also collect standard technical logs such as IP address, browser type, and page requests for security and reliability.</p>
-    <p>When we photograph work results for quality and marketing, we do so only for the areas and purposes you approve. Tell us if certain spaces should not be photographed.</p>
 
     <h2>How We Use Information</h2>
     <p>We use inquiry and booking information to:</p>
