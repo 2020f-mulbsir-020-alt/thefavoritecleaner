@@ -695,9 +695,9 @@ strong {
 }
 
 .hero__brand {
-  margin: 0 0 0.65rem;
+  margin: 0 0 0.8rem;
   font-family: var(--font-display);
-  font-size: clamp(1.05rem, 0.9rem + 0.7vw, 1.45rem);
+  font-size: clamp(1.2rem, 1rem + 0.85vw, 1.7rem);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -710,7 +710,7 @@ strong {
   z-index: 2;
   width: var(--container);
   margin: 0 auto;
-  padding: calc(var(--header-height) + 1.5rem) 0 5rem;
+  padding: calc(var(--header-height) + 1.75rem) 0 5.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -728,16 +728,17 @@ strong {
 .hero h1#hero-heading {
   color: #ffffff;
   max-width: 12ch;
-  margin-bottom: 1rem;
-  font-size: clamp(2.85rem, 1.85rem + 3.9vw, 5.15rem);
+  margin-bottom: 1.15rem;
+  font-size: clamp(3.25rem, 2.1rem + 4.4vw, 5.85rem);
+  line-height: 1.05;
   text-shadow: 0 2px 18px rgba(0, 24, 63, 0.35);
 }
 
 .hero__copy {
-  max-width: 34rem;
+  max-width: 36rem;
   color: rgba(255, 255, 255, 0.95);
-  margin-bottom: 1.75rem;
-  font-size: clamp(1.05rem, 0.98rem + 0.3vw, 1.18rem);
+  margin-bottom: 2rem;
+  font-size: clamp(1.12rem, 1.02rem + 0.4vw, 1.32rem);
   line-height: 1.65;
   text-shadow: 0 1px 14px rgba(0, 24, 63, 0.45);
 }
@@ -1265,6 +1266,12 @@ strong {
 /* Before / After ---------------------------------------------------------- */
 .hero .btn-group {
   justify-content: flex-start;
+}
+
+.hero .btn-group .btn {
+  min-height: 52px;
+  padding: 0.9rem 1.7rem;
+  font-size: 0.95rem;
 }
 
 .ba-tabs {
