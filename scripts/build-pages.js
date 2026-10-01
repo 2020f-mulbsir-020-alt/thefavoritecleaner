@@ -700,7 +700,7 @@ function buildHome() {
       <div class="book-layout">
         ${bookingListenPanel()}
         <div class="reveal reveal-delay-1">
-          ${bookingForm({ formId: "booking", idPrefix: "home" })}
+          ${bookingForm({ formId: "booking-form", idPrefix: "home" })}
         </div>
       </div>
     </div>
@@ -1384,7 +1384,7 @@ function buildContact() {
       <div class="reveal reveal-delay-1">
         <h2 class="display-md" style="margin-bottom:1rem">Book Now Form</h2>
         <p style="margin-bottom:1.25rem;color:var(--text-secondary)">Share the full picture — timing, priorities, pets, products, and access. We use every detail so you feel heard and fully informed before you commit.</p>
-        ${bookingForm({ formId: "booking", idPrefix: "contact" })}
+        ${bookingForm({ formId: "booking-form", idPrefix: "contact" })}
       </div>
     </div>
   </section>
