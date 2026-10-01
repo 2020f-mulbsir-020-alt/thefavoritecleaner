@@ -204,8 +204,8 @@ function head({ title, description, path: pagePath, ogType = "website", schema =
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=20261001b" />
-  <link rel="stylesheet" href="css/responsive.css?v=20261001b" />
+  <link rel="stylesheet" href="css/styles.css?v=20261001c" />
+  <link rel="stylesheet" href="css/responsive.css?v=20261001c" />
   <link rel="prefetch" href="about.html" />
   <link rel="prefetch" href="services.html" />
   <link rel="prefetch" href="gallery.html" />
@@ -221,7 +221,7 @@ function head({ title, description, path: pagePath, ogType = "website", schema =
 }
 
 function scripts(extra = []) {
-  const v = "20261001b";
+  const v = "20261001c";
   const baseFiles = ["js/config.js", "js/contact-form.js", "js/main.js"];
   const seen = new Set(baseFiles);
   const tags = baseFiles.map((src) => `<script src="${src}?v=${v}" defer></script>`);
@@ -420,10 +420,9 @@ function buildHome() {
     <div class="hero__overlay" aria-hidden="true"></div>
     <div class="hero__ambient" aria-hidden="true"></div>
     <div class="hero__content">
-      <p class="hero__brand hero-reveal">The Favorite Cleaner</p>
-      <h1 id="hero-heading" class="display-xl hero-reveal hero-reveal-delay-1">Clean Beyond Expectations.</h1>
-      <p class="hero__copy hero-reveal hero-reveal-delay-2">Professional cleaning for homes and businesses, with careful detail, clear communication, and a finish you’ll notice when you walk back in.</p>
-      <div class="btn-group hero-reveal hero-reveal-delay-3">
+      <h1 id="hero-heading" class="display-xl hero-reveal">Clean Beyond Expectations.</h1>
+      <p class="hero__copy hero-reveal hero-reveal-delay-1">Professional cleaning for homes and businesses, with careful detail, clear communication, and a finish you’ll notice when you walk back in.</p>
+      <div class="btn-group hero-reveal hero-reveal-delay-2">
         <a class="btn btn--gold btn--pulse" data-book-now href="book.html">Book Now ${ICONS.arrow}</a>
         <a class="btn btn--outline" href="#difference">Why We’re Different</a>
       </div>
