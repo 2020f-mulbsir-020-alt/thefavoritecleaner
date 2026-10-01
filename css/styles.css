@@ -391,10 +391,18 @@ strong {
 .site-header {
   position: fixed;
   inset: 0 0 auto;
-  z-index: 1000;
+  z-index: 5000;
   height: var(--header-height);
+  pointer-events: none;
   transition: background var(--transition), box-shadow var(--transition),
     backdrop-filter var(--transition);
+}
+
+.site-header .header-inner,
+.site-header .header-inner a,
+.site-header .header-inner button,
+.site-header .nav {
+  pointer-events: auto;
 }
 
 .site-header.is-scrolled,
@@ -438,6 +446,8 @@ strong {
   height: 2.55rem;
   flex-shrink: 0;
   line-height: 0;
+  cursor: pointer;
+  z-index: 2;
 }
 
 .logo img {
@@ -449,11 +459,11 @@ strong {
   max-height: 2.55rem;
   object-fit: contain;
   object-position: left center;
+  pointer-events: none;
 }
 
 .logo-dark {
   opacity: 0;
-  pointer-events: none;
 }
 
 .site-header.is-scrolled-light .logo-light {
@@ -462,7 +472,6 @@ strong {
 
 .site-header.is-scrolled-light .logo-dark {
   opacity: 1;
-  pointer-events: auto;
 }
 
 .site-header.is-solid .logo-light,
@@ -473,7 +482,6 @@ strong {
 .site-header.is-solid .logo-dark,
 .site-header.is-scrolled .logo-dark {
   opacity: 0;
-  pointer-events: none;
 }
 
 .nav {
@@ -646,6 +654,7 @@ strong {
   position: absolute;
   inset: 0;
   z-index: 0;
+  pointer-events: none;
 }
 
 .hero__media img,
@@ -679,6 +688,7 @@ strong {
     ),
     linear-gradient(180deg, rgba(0, 24, 63, 0.25) 0%, transparent 42%, rgba(0, 24, 63, 0.5) 100%);
   z-index: 1;
+  pointer-events: none;
 }
 
 .hero__ambient {
@@ -851,6 +861,7 @@ strong {
 .page-hero__media {
   position: absolute;
   inset: 0;
+  pointer-events: none;
 }
 
 .page-hero__media img {
@@ -862,6 +873,7 @@ strong {
 .page-hero__overlay {
   position: absolute;
   inset: 0;
+  pointer-events: none;
   background: linear-gradient(
     100deg,
     rgba(0, 24, 63, 0.88) 0%,
@@ -1509,7 +1521,7 @@ strong {
 .lightbox {
   position: fixed;
   inset: 0;
-  z-index: 2000;
+  z-index: 6000;
   background: rgba(0, 24, 63, 0.92);
   display: flex;
   align-items: center;
@@ -1517,12 +1529,14 @@ strong {
   padding: 2rem;
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   transition: opacity var(--transition), visibility var(--transition);
 }
 
 .lightbox.is-open {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 
 .lightbox__inner {

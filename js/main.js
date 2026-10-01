@@ -178,7 +178,7 @@
 
     document.querySelectorAll(".nav-list > li > .nav-link").forEach((link) => {
       const raw = link.getAttribute("href") || "";
-      const href = raw.split("#")[0].toLowerCase();
+      const href = raw.split("#")[0].toLowerCase().replace(/^\//, "");
       const hasHash = raw.includes("#");
       link.removeAttribute("aria-current");
 
