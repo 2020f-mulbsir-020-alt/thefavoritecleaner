@@ -68,13 +68,13 @@ function header(opts = {}) {
           <li><a class="nav-link" href="contact.html">Contact</a></li>
         </ul>
         <div class="nav-mobile-extras">
-          <a class="btn btn--gold" data-book-now href="#booking">Book Now</a>
+          <a class="btn btn--gold" data-book-now href="book.html">Book Now</a>
           ${socialLinks()}
         </div>
       </nav>
       <div class="header-actions">
         ${socialLinks("social-links--header-desktop")}
-        <a class="btn btn--gold" data-book-now href="#booking">Book Now</a>
+        <a class="btn btn--gold" data-book-now href="book.html">Book Now</a>
         <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
           ${ICONS.menu}
         </button>
@@ -123,7 +123,7 @@ function footer() {
             <li><a data-config-email="text" href="mailto:${EMAIL}">${EMAIL}</a></li>
             <li>Service area: <span data-config-area>USA</span></li>
             <li><span data-business-hours>Monday-Saturday: 8:00 AM - 6:00 PM</span></li>
-            <li><a data-book-now href="#booking">Book a Cleaning</a></li>
+            <li><a data-book-now href="book.html">Book a Cleaning</a></li>
           </ul>
         </div>
       </div>
@@ -138,7 +138,7 @@ function footer() {
   </footer>
 
   <div class="floating-ui" aria-label="Quick actions">
-    <a class="fab fab--desktop-book" data-book-now href="#booking">Book Now</a>
+    <a class="fab fab--desktop-book" data-book-now href="book.html">Book Now</a>
     <a class="fab fab--icon fab--secondary is-hidden-config" data-requires-phone href="#" aria-label="Call us"><span class="sr-only" data-phone-label></span>${ICONS.phone}</a>
     <a class="fab fab--icon fab--secondary is-hidden-config" data-requires-whatsapp href="#" aria-label="Chat on WhatsApp"><span aria-hidden="true">WA</span></a>
     <a class="fab fab--icon fab--secondary" href="mailto:${EMAIL}" data-config-email aria-label="Email The Favorite Cleaner">${ICONS.mail}</a>
@@ -147,10 +147,8 @@ function footer() {
 
   <div class="mobile-contact-bar" role="navigation" aria-label="Mobile contact">
     <a class="mcb-email" href="mailto:${EMAIL}" data-config-email>${ICONS.mail} Email</a>
-    <a class="mcb-book" data-book-now href="#booking">Book Now</a>
-  </div>
-
-  ${bookingModal()}`;
+    <a class="mcb-book" data-book-now href="book.html">Book Now</a>
+  </div>`;
 }
 
 function ctaBand() {
@@ -163,7 +161,7 @@ function ctaBand() {
       <span class="gold-line gold-line--center draw"></span>
       <p class="lead">Tell us about your place. We’ll confirm the plan, timing, and pricing, then show up ready to do the job right.</p>
       <div class="btn-group" style="justify-content:center;margin-top:1.75rem">
-        <a class="btn btn--gold btn--pulse" data-book-now href="#booking">Book Now ${ICONS.arrow}</a>
+        <a class="btn btn--gold btn--pulse" data-book-now href="book.html">Book Now ${ICONS.arrow}</a>
         <a class="btn btn--outline" href="gallery.html">See the Finish</a>
       </div>
       <a class="cta-email" data-config-email="text" href="mailto:${EMAIL}">${EMAIL}</a>
@@ -209,6 +207,7 @@ function head({ title, description, path: pagePath, ogType = "website", schema =
   <link rel="prefetch" href="services.html" />
   <link rel="prefetch" href="gallery.html" />
   <link rel="prefetch" href="contact.html" />
+  <link rel="prefetch" href="book.html" />
   <link rel="prefetch" href="residential-cleaning.html" />
   <link rel="prefetch" href="commercial-cleaning.html" />
   <link rel="prefetch" href="deep-cleaning.html" />
@@ -423,7 +422,7 @@ function buildHome() {
       <h1 id="hero-heading" class="display-xl hero-reveal hero-reveal-delay-1">Clean Beyond Expectations.</h1>
       <p class="hero__copy hero-reveal hero-reveal-delay-2">Professional cleaning for homes and businesses, with careful detail, clear communication, and a finish you’ll notice when you walk back in.</p>
       <div class="btn-group hero-reveal hero-reveal-delay-3">
-        <a class="btn btn--gold btn--pulse" data-book-now href="#booking">Book Now ${ICONS.arrow}</a>
+        <a class="btn btn--gold btn--pulse" data-book-now href="book.html">Book Now ${ICONS.arrow}</a>
         <a class="btn btn--outline" href="#difference">Why We’re Different</a>
       </div>
     </div>
@@ -703,7 +702,7 @@ function buildHome() {
       </div>
       <div class="hunt-cta reveal">
         <p>Want to get on the calendar? Press Book Now and we’ll take it from there.</p>
-        <a class="btn btn--gold" data-book-now href="#booking">Book Now ${ICONS.arrow}</a>
+        <a class="btn btn--gold" data-book-now href="book.html">Book Now ${ICONS.arrow}</a>
       </div>
     </div>
   </section>
@@ -776,182 +775,132 @@ function galleryItem(src, alt, caption) {
   </button>`;
 }
 
-function bookingForm({ formId = "booking", idPrefix = "book" } = {}) {
+function bookingForm({ formId = "booking-form", idPrefix = "book" } = {}) {
   const id = (name) => `${idPrefix}-${name}`;
   return `
-  <form class="form-card" data-contact-form id="${formId}" novalidate>
+  <form class="form-card form-card--easy" data-contact-form id="${formId}" novalidate>
     <input type="hidden" name="formLocation" value="${formId}" />
     <input type="hidden" name="pagePath" value="" data-page-path />
-    <div class="form-grid">
-      <div class="form-field">
-        <label for="${id("name")}">Full Name <span aria-hidden="true">*</span></label>
-        <input id="${id("name")}" name="name" type="text" autocomplete="name" required />
-        <span class="field-error"></span>
-      </div>
-      <div class="form-field">
-        <label for="${id("email")}">Email Address <span aria-hidden="true">*</span></label>
-        <input id="${id("email")}" name="email" type="email" autocomplete="email" required />
-        <span class="field-error"></span>
-      </div>
-      <div class="form-field">
-        <label for="${id("phone")}">Phone Number <span class="optional">(optional)</span></label>
-        <input id="${id("phone")}" name="phone" type="tel" autocomplete="tel" />
-        <span class="field-error"></span>
-      </div>
-      <div class="form-field">
-        <label for="${id("preferredContact")}">Preferred Contact <span class="optional">(optional)</span></label>
-        <select id="${id("preferredContact")}" name="preferredContact">
-          <option value="">Select…</option>
-          <option>Email</option>
-          <option>Phone</option>
-          <option>Text / SMS if available</option>
-          <option>Either is fine</option>
-        </select>
-      </div>
-      <div class="form-field">
-        <label for="${id("propertyType")}">Property Type <span class="optional">(optional)</span></label>
-        <select id="${id("propertyType")}" name="propertyType">
-          <option value="">Select…</option>
-          <option>Home</option>
-          <option>Apartment</option>
-          <option>Office</option>
-          <option>Commercial Space</option>
-          <option>Rental / Airbnb</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="form-field">
-        <label for="${id("service")}">Service Needed <span aria-hidden="true">*</span></label>
-        <select id="${id("service")}" name="service" required>
-          <option value="">Select…</option>
-          <option>Residential Cleaning</option>
-          <option>Commercial Cleaning</option>
-          <option>Deep Cleaning</option>
-          <option>Move-In Cleaning</option>
-          <option>Move-Out Cleaning</option>
-          <option>Recurring Cleaning</option>
-          <option>Customized Cleaning</option>
-          <option>Other</option>
-        </select>
-        <span class="field-error"></span>
-      </div>
-      <div class="form-field">
-        <label for="${id("urgency")}">How Soon Do You Need Us? <span class="optional">(optional)</span></label>
-        <select id="${id("urgency")}" name="urgency">
-          <option value="">Select…</option>
-          <option>As soon as possible</option>
-          <option>This week</option>
-          <option>Within 2 weeks</option>
-          <option>Planning ahead / flexible</option>
-        </select>
-      </div>
-      <div class="form-field">
-        <label for="${id("preferredDate")}">Preferred Date <span class="optional">(optional)</span></label>
-        <input id="${id("preferredDate")}" name="preferredDate" type="date" />
-      </div>
-      <div class="form-field">
-        <label for="${id("preferredTime")}">Preferred Time <span class="optional">(optional)</span></label>
-        <select id="${id("preferredTime")}" name="preferredTime">
-          <option value="">Select…</option>
-          <option>Morning</option>
-          <option>Afternoon</option>
-          <option>Evening</option>
-          <option>Flexible</option>
-        </select>
-      </div>
-      <div class="form-field">
-        <label for="${id("callbackWindow")}">Best Time to Reach You <span class="optional">(optional)</span></label>
-        <select id="${id("callbackWindow")}" name="callbackWindow">
-          <option value="">Select…</option>
-          <option>Morning</option>
-          <option>Afternoon</option>
-          <option>Evening</option>
-          <option>Anytime during business hours</option>
-        </select>
-      </div>
-      <div class="form-field">
-        <label for="${id("propertySize")}">Property Size <span class="optional">(optional)</span></label>
-        <input id="${id("propertySize")}" name="propertySize" type="text" placeholder="e.g., 2 bed / 1,400 sq ft" />
-      </div>
-      <div class="form-field">
-        <label for="${id("frequency")}">Service Frequency <span class="optional">(optional)</span></label>
-        <select id="${id("frequency")}" name="frequency">
-          <option value="">Select…</option>
-          <option>One-time</option>
-          <option>Weekly</option>
-          <option>Biweekly</option>
-          <option>Monthly</option>
-          <option>Custom</option>
-        </select>
-      </div>
-      <div class="form-field">
-        <label for="${id("pets")}">Pets on Site <span class="optional">(optional)</span></label>
-        <select id="${id("pets")}" name="pets">
-          <option value="">Select…</option>
-          <option>No pets</option>
-          <option>Dog(s)</option>
-          <option>Cat(s)</option>
-          <option>Other / multiple</option>
-          <option>Will secure during visit</option>
-        </select>
-      </div>
-      <div class="form-field">
-        <label for="${id("productPreference")}">Product Preference <span class="optional">(optional)</span></label>
-        <select id="${id("productPreference")}" name="productPreference">
-          <option value="">Select…</option>
-          <option>Standard professional supplies</option>
-          <option>Fragrance-free preferred</option>
-          <option>Gentler / sensitive-friendly preferred</option>
-          <option>Client-provided products</option>
-          <option>Other (note in message)</option>
-        </select>
-      </div>
-      <div class="form-field">
-        <label for="${id("hearAbout")}">How Did You Find Us? <span class="optional">(optional)</span></label>
-        <select id="${id("hearAbout")}" name="hearAbout">
-          <option value="">Select…</option>
-          <option>Google / Search</option>
-          <option>Instagram</option>
-          <option>Facebook</option>
-          <option>LinkedIn</option>
-          <option>Friend or family referral</option>
-          <option>Returning client</option>
-          <option>Saw our work / flyer</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="form-field">
-        <label for="${id("referralName")}">Referrer Name <span class="optional">(optional)</span></label>
-        <input id="${id("referralName")}" name="referralName" type="text" placeholder="If someone referred you" />
-      </div>
-      <div class="form-field form-field--full">
-        <label for="${id("location")}">City, Address, or ZIP <span class="optional">(optional)</span></label>
-        <input id="${id("location")}" name="location" type="text" autocomplete="address-level2" placeholder="City, ZIP, or full address in the USA" />
-      </div>
-      <div class="form-field form-field--full">
-        <label for="${id("priorities")}">What Matters Most for This Clean? <span class="optional">(optional)</span></label>
-        <textarea id="${id("priorities")}" name="priorities" rows="3" placeholder="Kitchen reset, bathrooms, guest-ready living areas, office reception, move-out checklist…"></textarea>
-      </div>
-      <div class="form-field form-field--full">
-        <label for="${id("accessNotes")}">Access &amp; Arrival Notes <span class="optional">(optional)</span></label>
-        <textarea id="${id("accessNotes")}" name="accessNotes" rows="3" placeholder="Gate code, parking, lockbox, building rules, or best arrival window."></textarea>
-      </div>
-      <div class="form-field form-field--full">
-        <label for="${id("message")}">Anything Else We Should Know? <span class="optional">(optional)</span></label>
-        <textarea id="${id("message")}" name="message" rows="4" placeholder="Allergies, delicate surfaces, areas to avoid, or how we can make this easier for you."></textarea>
-      </div>
-      <div class="checkbox-field">
-        <input id="${id("consent")}" name="consent" type="checkbox" required />
-        <div>
-          <label for="${id("consent")}">I agree to the <a href="terms.html">Terms &amp; Conditions</a> and the processing of my information as described in the <a href="privacy-policy.html">Privacy Policy</a>. <span aria-hidden="true">*</span></label>
+
+    <div class="form-step">
+      <p class="form-step__label">1. Your contact</p>
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="${id("name")}">Full Name <span aria-hidden="true">*</span></label>
+          <input id="${id("name")}" name="name" type="text" autocomplete="name" required placeholder="Your full name" />
+          <span class="field-error"></span>
+        </div>
+        <div class="form-field">
+          <label for="${id("phone")}">Phone <span aria-hidden="true">*</span></label>
+          <input id="${id("phone")}" name="phone" type="tel" autocomplete="tel" required placeholder="Best number to reach you" />
+          <span class="field-error"></span>
+        </div>
+        <div class="form-field form-field--full">
+          <label for="${id("email")}">Email <span aria-hidden="true">*</span></label>
+          <input id="${id("email")}" name="email" type="email" autocomplete="email" required placeholder="you@email.com" />
           <span class="field-error"></span>
         </div>
       </div>
-      <div class="form-actions">
-        <button class="btn btn--gold btn--pulse" type="submit">Send My Booking Request ${ICONS.arrow}</button>
+    </div>
+
+    <div class="form-step">
+      <p class="form-step__label">2. What you need</p>
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="${id("service")}">Service Needed <span aria-hidden="true">*</span></label>
+          <select id="${id("service")}" name="service" required>
+            <option value="">Choose a service…</option>
+            <option>Residential Cleaning</option>
+            <option>Commercial Cleaning</option>
+            <option>Deep Cleaning</option>
+            <option>Move-In Cleaning</option>
+            <option>Move-Out Cleaning</option>
+            <option>Recurring Cleaning</option>
+            <option>Customized Cleaning</option>
+            <option>Other</option>
+          </select>
+          <span class="field-error"></span>
+        </div>
+        <div class="form-field">
+          <label for="${id("propertyType")}">Property Type</label>
+          <select id="${id("propertyType")}" name="propertyType">
+            <option value="">Optional</option>
+            <option>Home</option>
+            <option>Apartment</option>
+            <option>Office</option>
+            <option>Commercial Space</option>
+            <option>Rental / Airbnb</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-field form-field--full">
+          <label for="${id("location")}">City or ZIP</label>
+          <input id="${id("location")}" name="location" type="text" autocomplete="postal-code" placeholder="Where should we come?" />
+        </div>
       </div>
     </div>
-    <p class="form-reassure">We read every detail and usually reply within 1 business day. Scope and pricing are confirmed before service. Sending this form does not lock you into a booking.</p>
+
+    <div class="form-step">
+      <p class="form-step__label">3. Timing</p>
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="${id("urgency")}">How soon?</label>
+          <select id="${id("urgency")}" name="urgency">
+            <option value="">Optional</option>
+            <option>As soon as possible</option>
+            <option>This week</option>
+            <option>Within 2 weeks</option>
+            <option>Flexible</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="${id("preferredDate")}">Preferred Date</label>
+          <input id="${id("preferredDate")}" name="preferredDate" type="date" />
+        </div>
+        <div class="form-field">
+          <label for="${id("preferredTime")}">Preferred Time</label>
+          <select id="${id("preferredTime")}" name="preferredTime">
+            <option value="">Optional</option>
+            <option>Morning</option>
+            <option>Afternoon</option>
+            <option>Evening</option>
+            <option>Flexible</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="${id("pets")}">Pets?</label>
+          <select id="${id("pets")}" name="pets">
+            <option value="">Optional</option>
+            <option>No pets</option>
+            <option>Dog(s)</option>
+            <option>Cat(s)</option>
+            <option>Other / will secure during visit</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-step">
+      <p class="form-step__label">4. Extra details</p>
+      <div class="form-grid">
+        <div class="form-field form-field--full">
+          <label for="${id("message")}">Notes for us</label>
+          <textarea id="${id("message")}" name="message" rows="4" placeholder="Priority rooms, access notes, product preferences, or anything else that helps."></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="checkbox-field">
+      <input id="${id("consent")}" name="consent" type="checkbox" required />
+      <div>
+        <label for="${id("consent")}">I agree to the <a href="terms.html">Terms &amp; Conditions</a> and <a href="privacy-policy.html">Privacy Policy</a>. <span aria-hidden="true">*</span></label>
+        <span class="field-error"></span>
+      </div>
+    </div>
+    <div class="form-actions">
+      <button class="btn btn--gold btn--pulse" type="submit">Send Booking Request ${ICONS.arrow}</button>
+    </div>
+    <p class="form-reassure">Takes about 1 minute. We usually reply within 1 business day. Sending this does not lock you into a booking.</p>
     <div class="form-message form-message--success" role="status" aria-live="polite"></div>
     <div class="form-message form-message--error" role="alert" aria-live="assertive"></div>
   </form>`;
@@ -960,40 +909,63 @@ function bookingForm({ formId = "booking", idPrefix = "book" } = {}) {
 function bookingListenPanel() {
   return `
   <aside class="book-aside reveal">
-    <p class="eyebrow">A quick note</p>
-    <h2 class="display-md">We actually read what you send</h2>
+    <p class="eyebrow">Easy booking</p>
+    <h2 class="display-md">Fill this out and we’ll take it from there</h2>
     <span class="gold-line draw"></span>
-    <p>This isn’t a blank contact box. Share timing, priorities, pets, products, and access notes so we can reply with a plan that already fits.</p>
+    <p>Only a few required fields. Optional details help us reply faster with a clear plan and price.</p>
     <ul class="book-listen-list">
-      <li><strong>Heard:</strong> Your priorities shape the plan before we quote.</li>
-      <li><strong>Clear:</strong> Scope, timing, and pricing confirmed before you commit.</li>
-      <li><strong>Respectful:</strong> Homes, offices, pets, and privacy treated carefully.</li>
-      <li><strong>Responsive:</strong> Clear next steps, usually within 1 business day.</li>
+      <li><strong>1 minute:</strong> Name, phone, email, and service.</li>
+      <li><strong>Clear reply:</strong> Scope and pricing before you commit.</li>
+      <li><strong>Fast follow-up:</strong> Usually within 1 business day.</li>
+      <li><strong>USA service:</strong> Coverage confirmed when you inquire.</li>
     </ul>
     <div class="book-aside__meta">
       <p><strong>Email</strong><br /><a data-config-email="text" href="mailto:${EMAIL}">${EMAIL}</a></p>
       <p><strong>Hours</strong><br /><span data-business-hours>Monday-Saturday: 8:00 AM - 6:00 PM</span></p>
-      <p><strong>Area</strong><br /><span data-config-area>USA</span>. Coverage confirmed when you inquire.</p>
+      <p><strong>Area</strong><br /><span data-config-area>USA</span></p>
     </div>
   </aside>`;
 }
 
-function bookingModal() {
-  return `
-  <div class="booking-modal" id="booking" data-booking-modal hidden aria-hidden="true">
-    <div class="booking-modal__backdrop" data-booking-close tabindex="-1" aria-hidden="true"></div>
-    <div class="booking-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="booking-modal-heading">
-      <button class="booking-modal__close" type="button" data-booking-close aria-label="Close booking form">${ICONS.close}</button>
-      <div class="booking-modal__header">
-        <p class="eyebrow">Book Now</p>
-        <h2 id="booking-modal-heading" class="display-md">Tell us what you need</h2>
-        <p>Fill in as much as you can. The more we know, the faster we can put together a plan that fits.</p>
+function buildBook() {
+  const content = `
+  ${pageHero({
+    title: "Book Now",
+    copy: "A simple form. Tell us what you need and we’ll follow up with next steps.",
+    image: "assets/images/about/intro-interior.jpg",
+    crumbs: [
+      { label: "Home", href: "index.html" },
+      { label: "Book Now" }
+    ]
+  })}
+  <section class="section" id="booking" aria-labelledby="booking-heading">
+    <div class="container">
+      <div class="section__header reveal">
+        <p class="eyebrow">Booking</p>
+        <h2 id="booking-heading" class="display-lg">Request your cleaning</h2>
+        <span class="gold-line draw"></span>
+        <p class="lead" style="max-width:40rem;margin-top:1rem">Required fields are marked. Everything else is optional.</p>
       </div>
-      <div class="booking-modal__body">
-        ${bookingForm({ formId: "booking-form", idPrefix: "modal" })}
+      <div class="book-layout">
+        ${bookingListenPanel()}
+        <div class="reveal reveal-delay-1">
+          ${bookingForm({ formId: "booking-form", idPrefix: "book" })}
+        </div>
       </div>
     </div>
-  </div>`;
+  </section>
+  `;
+  return pageShell({
+    meta: {
+      title: "Book Now | The Favorite Cleaner",
+      description:
+        "Book cleaning with The Favorite Cleaner. Easy form for homes and businesses across the USA. Clear pricing before service.",
+      path: "book.html",
+      schema: localBusinessSchema
+    },
+    solidHeader: true,
+    content
+  });
 }
 
 function buildAbout() {
@@ -1173,14 +1145,14 @@ function buildServices() {
           <h3>Recurring Cleaning</h3>
           <p>Consistent weekly, biweekly, or customized schedules that keep spaces maintained over time.</p>
           <div class="service-group__list" style="margin-top:1rem">
-            <a data-book-now href="#booking">Request Recurring Service</a>
+            <a data-book-now href="book.html">Request Recurring Service</a>
           </div>
         </div>
         <div class="service-group reveal" id="customized">
           <h3>Customized Cleaning Plans</h3>
           <p>Flexible plans built around specific properties, priorities, and access requirements.</p>
           <div class="service-group__list" style="margin-top:1rem">
-            <a data-book-now href="#booking">Build a Custom Plan</a>
+            <a data-book-now href="book.html">Build a Custom Plan</a>
           </div>
         </div>
         <div class="service-group reveal" id="kitchen">
@@ -1353,8 +1325,8 @@ function buildGallery() {
 function buildContact() {
   const content = `
   ${pageHero({
-    title: "Contact & Booking",
-    copy: "Tell us about your space, preferences, and timing. We’ll follow up with a clear plan. No pressure to commit until details are confirmed.",
+    title: "Contact",
+    copy: "Questions, details, or ready to book? Reach us by email, or use the Book Now page for a quick request.",
     image: "assets/images/about/intro-interior.jpg",
     crumbs: [
       { label: "Home", href: "index.html" },
@@ -1365,9 +1337,9 @@ function buildContact() {
     <div class="container contact-layout">
       <aside class="contact-aside reveal">
         <p class="eyebrow">Reach Out</p>
-        <h2 class="display-md">Let’s Plan Your Clean</h2>
+        <h2 class="display-md">We’re here to help</h2>
         <span class="gold-line draw"></span>
-        <p>Share property details, preferred timing, and anything that helps us help you: pets, products, access, or priorities. We review every request and confirm next steps by email.</p>
+        <p>Email us anytime, or go to the Book Now page to send a cleaning request in about a minute.</p>
         <div class="contact-reassure">
           <p><strong>How we treat clients:</strong> pricing before service, flexible scheduling when possible, and a 24-hour satisfaction follow-up on agreed scope.</p>
         </div>
@@ -1408,9 +1380,10 @@ function buildContact() {
         </div>
       </aside>
       <div class="reveal reveal-delay-1" id="contact-booking">
-        <h2 class="display-md" style="margin-bottom:1rem">Send a booking request</h2>
-        <p style="margin-bottom:1.25rem;color:var(--text-secondary)">Share timing, priorities, pets, products, and access. You can also press Book Now in the header to open the booking popup from any page.</p>
-        ${bookingForm({ formId: "contact-booking-form", idPrefix: "contact" })}
+        <h2 class="display-md" style="margin-bottom:1rem">Ready to book?</h2>
+        <p style="margin-bottom:1.25rem;color:var(--text-secondary)">Use our easy Book Now page. It only takes about a minute.</p>
+        <a class="btn btn--gold btn--pulse" href="book.html">Go to Book Now ${ICONS.arrow}</a>
+        <p style="margin-top:1.5rem;color:var(--text-secondary)">Prefer email? Write to <a data-config-email="text" href="mailto:${EMAIL}">${EMAIL}</a>.</p>
       </div>
     </div>
   </section>
@@ -1522,7 +1495,7 @@ function build404() {
       <p>This page is not available. Return home or book a cleaning to continue.</p>
       <div class="btn-group" style="justify-content:center">
         <a class="btn btn--gold" href="index.html">Back to Home</a>
-        <a class="btn btn--outline" data-book-now href="#booking">Book Now</a>
+        <a class="btn btn--outline" data-book-now href="book.html">Book Now</a>
       </div>
     </div>
   </main>
@@ -1554,6 +1527,7 @@ const relatedCommon = [
 
 const pages = {
   "index.html": buildHome(),
+  "book.html": buildBook(),
   "about.html": buildAbout(),
   "services.html": buildServices(),
   "residential-cleaning.html": buildServicePage({

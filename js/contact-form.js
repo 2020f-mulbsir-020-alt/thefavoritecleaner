@@ -88,7 +88,7 @@
       } finally {
         if (submitBtn) {
           submitBtn.disabled = false;
-          submitBtn.textContent = submitBtn.dataset.originalText || "Send My Booking Request";
+          submitBtn.textContent = submitBtn.dataset.originalText || "Send Booking Request";
         }
       }
     });
@@ -118,37 +118,22 @@
       "Book Now - cleaning inquiry",
       "--------------------------",
       `Name: ${payload.name || ""}`,
-      `Email: ${payload.email || ""}`,
       `Phone: ${payload.phone || ""}`,
-      `Preferred Contact: ${payload.preferredContact || ""}`,
-      `Best Time to Reach: ${payload.callbackWindow || ""}`,
-      `Property Type: ${payload.propertyType || ""}`,
+      `Email: ${payload.email || ""}`,
       `Service Needed: ${payload.service || ""}`,
-      `Urgency: ${payload.urgency || ""}`,
+      `Property Type: ${payload.propertyType || ""}`,
+      `City / ZIP: ${payload.location || ""}`,
+      `How Soon: ${payload.urgency || ""}`,
       `Preferred Date: ${payload.preferredDate || ""}`,
       `Preferred Time: ${payload.preferredTime || ""}`,
-      `Property Size: ${payload.propertySize || ""}`,
-      `Frequency: ${payload.frequency || ""}`,
       `Pets: ${payload.pets || ""}`,
-      `Product Preference: ${payload.productPreference || ""}`,
-      `How Found Us: ${payload.hearAbout || ""}`,
-      `Referrer: ${payload.referralName || ""}`,
-      `City / Address / ZIP: ${payload.location || ""}`,
       `Form Location: ${payload.formLocation || ""}`,
       `Page: ${payload.pagePath || ""}`,
       `UTM Source: ${payload.utm_source || ""}`,
       `UTM Medium: ${payload.utm_medium || ""}`,
       `UTM Campaign: ${payload.utm_campaign || ""}`,
-      `UTM Content: ${payload.utm_content || ""}`,
-      `UTM Term: ${payload.utm_term || ""}`,
       "",
-      "What Matters Most:",
-      payload.priorities || "",
-      "",
-      "Access & Arrival Notes:",
-      payload.accessNotes || "",
-      "",
-      "Anything Else:",
+      "Notes:",
       payload.message || ""
     ];
     return lines.join("\n");
