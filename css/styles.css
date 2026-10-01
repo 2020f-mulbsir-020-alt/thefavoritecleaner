@@ -724,12 +724,13 @@ strong {
   color: var(--gold-primary);
 }
 
-.hero h1 {
-  color: var(--white);
+.hero h1,
+.hero h1#hero-heading {
+  color: #ffffff;
   max-width: 12ch;
   margin-bottom: 1rem;
   font-size: clamp(2.85rem, 1.85rem + 3.9vw, 5.15rem);
-  text-shadow: 0 2px 24px rgba(0, 24, 63, 0.4);
+  text-shadow: 0 2px 18px rgba(0, 24, 63, 0.35);
 }
 
 .hero__copy {
