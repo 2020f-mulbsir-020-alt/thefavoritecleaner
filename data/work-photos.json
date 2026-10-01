@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-01",
-  "source": "curated-site-assets",
-  "note": "Replace with live Instagram/API posts when formEndpoint + Instagram Graph API are connected. Keep this file as the static fallback for GitHub Pages.",
+  "source": "curated-hd-site-assets",
+  "note": "HD gallery fallback for GitHub Pages. Connect Instagram Graph API later via SITE_CONFIG.instagramFeedEndpoint if needed.",
   "posts": [
     {
       "media_url": "assets/images/gallery/cleaner-work-1.jpg",
@@ -11,22 +11,7 @@
     {
       "media_url": "assets/images/gallery/cleaner-work-2.jpg",
       "permalink": "gallery.html",
-      "caption": "Modern equipment clearing carpet debris"
-    },
-    {
-      "media_url": "assets/images/before-after/kitchen-after.jpg",
-      "permalink": "index.html#ba-heading",
-      "caption": "Kitchen after professional cleaning"
-    },
-    {
-      "media_url": "assets/images/before-after/bathroom-after.jpg",
-      "permalink": "index.html#ba-heading",
-      "caption": "Bathroom after detailed cleaning"
-    },
-    {
-      "media_url": "assets/images/before-after/living-after.jpg",
-      "permalink": "index.html#ba-heading",
-      "caption": "Living space after refresh"
+      "caption": "Team cleaning with modern equipment"
     },
     {
       "media_url": "assets/images/gallery/kitchen-1.jpg",
@@ -44,14 +29,39 @@
       "caption": "Prepared professional tools"
     },
     {
+      "media_url": "assets/images/gallery/living-1.jpg",
+      "permalink": "gallery.html",
+      "caption": "Living space refresh"
+    },
+    {
       "media_url": "assets/images/gallery/living-2.jpg",
       "permalink": "gallery.html",
       "caption": "Bright residential interior"
     },
     {
-      "media_url": "assets/images/about/team-work.jpg",
-      "permalink": "about.html",
-      "caption": "Careful surface and fixture care"
+      "media_url": "assets/images/gallery/office-1.jpg",
+      "permalink": "gallery.html",
+      "caption": "Office environment ready for work"
+    },
+    {
+      "media_url": "assets/images/gallery/commercial-1.jpg",
+      "permalink": "gallery.html",
+      "caption": "Commercial workspace finish"
+    },
+    {
+      "media_url": "assets/images/gallery/moveout-1.jpg",
+      "permalink": "gallery.html",
+      "caption": "Move-out ready space"
+    },
+    {
+      "media_url": "assets/images/before-after/kitchen-after.jpg",
+      "permalink": "index.html#ba-heading",
+      "caption": "Kitchen after professional cleaning"
+    },
+    {
+      "media_url": "assets/images/before-after/bathroom-after.jpg",
+      "permalink": "index.html#ba-heading",
+      "caption": "Bathroom after detailed cleaning"
     }
   ]
 }

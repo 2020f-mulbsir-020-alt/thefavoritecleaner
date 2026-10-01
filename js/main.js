@@ -375,31 +375,47 @@
     requestAnimationFrame(() => hero.classList.add("is-loaded"));
   }
 
-  /* ---- Live work photos / Instagram feed ------------------------------- */
+  /* ---- Work photos feed (optional enhancement; never blank the gallery) - */
   function renderPhotoFeed(feed, posts) {
-    if (!feed || !Array.isArray(posts) || !posts.length) return;
+    if (!feed || !Array.isArray(posts) || !posts.length) return false;
+    const valid = posts.filter((post) => post && post.media_url);
+    if (!valid.length) return false;
+
     feed.innerHTML = "";
-    posts.slice(0, 10).forEach((post) => {
+    valid.slice(0, 12).forEach((post) => {
       const el = document.createElement("a");
       el.href = post.permalink || cfg.instagramUrl || "gallery.html";
       if (/^https?:\/\//i.test(el.href) && el.href.indexOf(location.origin) !== 0) {
         el.target = "_blank";
         el.rel = "noopener noreferrer";
       }
-      el.className = "gallery-item reveal";
+      el.className = "gallery-item reveal is-visible";
       el.setAttribute(
         "aria-label",
         post.caption ? post.caption.slice(0, 80) : "Cleaning work photo"
       );
+
+      const picture = document.createElement("picture");
+      const src = String(post.media_url);
+      if (/\.jpe?g$/i.test(src)) {
+        const webp = src.replace(/\.jpe?g$/i, ".webp");
+        const source = document.createElement("source");
+        source.type = "image/webp";
+        source.srcset = webp;
+        picture.appendChild(source);
+      }
       const img = document.createElement("img");
-      img.src = post.media_url;
+      img.src = src;
       img.alt = post.caption
         ? post.caption.slice(0, 120)
-        : "Real cleaning work photo from The Favorite Cleaner";
+        : "Cleaning work photo from The Favorite Cleaner";
       img.loading = "lazy";
-      img.width = 600;
-      img.height = 600;
-      el.appendChild(img);
+      img.decoding = "async";
+      img.width = 1200;
+      img.height = 1200;
+      picture.appendChild(img);
+      el.appendChild(picture);
+
       if (post.caption) {
         const cap = document.createElement("span");
         cap.className = "gallery-item__caption";
@@ -408,6 +424,7 @@
       }
       feed.appendChild(el);
     });
+    return true;
   }
 
   function initPhotoFeeds() {
@@ -417,23 +434,44 @@
     const igEndpoint = (cfg.instagramFeedEndpoint || "").trim();
     const workEndpoint = (cfg.workPhotosEndpoint || "data/work-photos.json").trim();
 
-    const loadWork = () =>
-      fetch(workEndpoint)
-        .then((res) => (res.ok ? res.json() : Promise.reject()))
-        .then((data) => {
-          const posts = data && Array.isArray(data.posts) ? data.posts : [];
-          feeds.forEach((feed) => renderPhotoFeed(feed, posts));
-        })
-        .catch(() => {
-          /* Keep curated HTML gallery already in the page */
-        });
+    const ensureVisible = (feed) => {
+      feed.querySelectorAll(".gallery-item, .reveal").forEach((el) => {
+        el.classList.add("is-visible");
+      });
+    };
+
+    const loadWork = () => {
+      feeds.forEach((feed) => {
+        // Prefer curated HD markup already on the page so lightbox and visuals stay reliable.
+        if (feed.querySelector(".gallery-item img, .gallery-item picture")) {
+          ensureVisible(feed);
+          return;
+        }
+        if (!workEndpoint) {
+          ensureVisible(feed);
+          return;
+        }
+        fetch(workEndpoint)
+          .then((res) => (res.ok ? res.json() : Promise.reject()))
+          .then((data) => {
+            const posts = data && Array.isArray(data.posts) ? data.posts : [];
+            if (!renderPhotoFeed(feed, posts)) ensureVisible(feed);
+          })
+          .catch(() => ensureVisible(feed));
+      });
+      return Promise.resolve();
+    };
 
     if (igEndpoint) {
       fetch(igEndpoint)
         .then((res) => (res.ok ? res.json() : Promise.reject()))
         .then((data) => {
           if (!data || !Array.isArray(data.posts) || !data.posts.length) throw new Error("empty");
-          feeds.forEach((feed) => renderPhotoFeed(feed, data.posts));
+          let painted = false;
+          feeds.forEach((feed) => {
+            if (renderPhotoFeed(feed, data.posts)) painted = true;
+          });
+          if (!painted) throw new Error("empty");
         })
         .catch(loadWork);
     } else {

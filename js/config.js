@@ -24,7 +24,8 @@ const SITE_CONFIG = {
   responseTime: "We typically respond within 1 business day.",
   paymentNote:
     "Pricing is confirmed before service. Payment instructions are shared with your booking confirmation or invoice.",
-  instagramFeedEndpoint: "/api/instagram"
+  instagramFeedEndpoint: "",
+  workPhotosEndpoint: "data/work-photos.json"
 };
 
 if (typeof window !== "undefined") {

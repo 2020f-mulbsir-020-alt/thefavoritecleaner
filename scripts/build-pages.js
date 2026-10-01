@@ -628,15 +628,17 @@ function buildHome() {
         <h2 id="gallery-heading" class="display-lg">Cleaning in Action</h2>
         <span class="gold-line draw"></span>
       </div>
-      <div class="gallery-grid" data-instagram-feed>
+      <div class="gallery-grid" data-work-photos>
         ${galleryItem("assets/images/gallery/cleaner-work-1.jpg", "Professional cleaner attending to a residential interior", "Professional care")}
-        ${galleryItem("assets/images/gallery/tools-1.jpg", "Organized cleaning tools and supplies", "Prepared tools")}
+        ${galleryItem("assets/images/gallery/cleaner-work-2.jpg", "Professional cleaner using equipment on a carpeted space", "Team in action")}
         ${galleryItem("assets/images/gallery/kitchen-1.jpg", "Bright clean kitchen interior", "Kitchen care")}
         ${galleryItem("assets/images/gallery/bathroom-1.jpg", "Fresh bathroom with clean finishes", "Bathroom detail")}
-        ${galleryItem("assets/images/gallery/office-1.jpg", "Professional office environment", "Commercial spaces")}
+        ${galleryItem("assets/images/gallery/tools-1.jpg", "Organized cleaning tools and supplies", "Prepared tools")}
         ${galleryItem("assets/images/gallery/living-1.jpg", "Styled living room with natural light", "Living spaces")}
-        ${galleryItem("assets/images/gallery/moveout-1.jpg", "Open residential interior ready for turnover", "Move-out ready")}
+        ${galleryItem("assets/images/gallery/office-1.jpg", "Professional office environment", "Commercial spaces")}
         ${galleryItem("assets/images/gallery/commercial-1.jpg", "Modern commercial workspace", "Business environments")}
+        ${galleryItem("assets/images/gallery/moveout-1.jpg", "Open residential interior ready for turnover", "Move-out ready")}
+        ${galleryItem("assets/images/gallery/living-2.jpg", "Bright residential living area after cleaning", "Fresh interiors")}
       </div>
       <div class="text-center" style="margin-top:2rem">
         <a class="btn btn--outline-navy" data-social="instagram" href="https://www.instagram.com/thefavoritecleaner" target="_blank" rel="noopener noreferrer">${ICONS.instagram} Follow Our Work on Instagram</a>
@@ -745,9 +747,9 @@ function baPanel(id, tabId, hidden, key, beforeAlt, afterAlt) {
   return `
   <div class="ba-panel" id="${id}" role="tabpanel" aria-labelledby="${tabId}" ${hidden ? "hidden" : ""}>
     <div class="ba-slider" data-ba-slider>
-      <img class="ba-slider__img ba-slider__after" src="assets/images/before-after/${key}-after.jpg" alt="${afterAlt}" width="1200" height="800" />
+      <img class="ba-slider__img ba-slider__after" src="assets/images/before-after/${key}-after.jpg" alt="${afterAlt}" width="1600" height="1067" decoding="async" />
       <div class="ba-slider__before-wrap">
-        <img class="ba-slider__img" src="assets/images/before-after/${key}-before.jpg" alt="${beforeAlt}" width="1200" height="800" />
+        <img class="ba-slider__img" src="assets/images/before-after/${key}-before.jpg" alt="${beforeAlt}" width="1600" height="1067" decoding="async" />
       </div>
       <span class="ba-label ba-label--before">Before</span>
       <span class="ba-label ba-label--after">After</span>
@@ -761,9 +763,15 @@ function baPanel(id, tabId, hidden, key, beforeAlt, afterAlt) {
 }
 
 function galleryItem(src, alt, caption) {
+  const webp = src.replace(/\.jpe?g$/i, ".webp");
+  const webp960 = src.replace(/\.jpe?g$/i, "-960.webp");
+  const webp640 = src.replace(/\.jpe?g$/i, "-640.webp");
   return `
   <button type="button" class="gallery-item reveal" data-lightbox data-full="${src}" data-caption="${caption}" aria-label="View ${caption}">
-    <img src="${src}" alt="${alt}" width="1200" height="800" loading="lazy" />
+    <picture>
+      <source type="image/webp" srcset="${webp640} 640w, ${webp960} 960w, ${webp} 1400w" sizes="(max-width:768px) 50vw, 25vw" />
+      <img src="${src}" alt="${alt}" width="1400" height="1400" loading="lazy" decoding="async" />
+    </picture>
     <span class="gallery-item__caption">${caption}</span>
   </button>`;
 }
