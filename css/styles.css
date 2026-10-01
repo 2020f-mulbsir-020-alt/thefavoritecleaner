@@ -177,7 +177,10 @@ strong {
 }
 
 .section--off-white {
-  background: var(--off-white);
+  background:
+    radial-gradient(1200px 420px at 12% 0%, rgba(255, 197, 12, 0.07), transparent 55%),
+    radial-gradient(900px 380px at 88% 20%, rgba(0, 33, 87, 0.05), transparent 50%),
+    var(--off-white);
 }
 
 .section--surface {
@@ -286,11 +289,18 @@ strong {
 .btn--gold {
   background: var(--gold-primary);
   color: var(--navy-dark);
+  box-shadow: 0 8px 22px rgba(255, 197, 12, 0.28);
 }
 
 .btn--gold:hover {
   background: var(--gold-hover);
   color: var(--navy-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(255, 197, 12, 0.38);
+}
+
+.btn--gold:active {
+  transform: translateY(0);
 }
 
 .btn--outline {
@@ -676,9 +686,20 @@ strong {
 .hero h1 {
   color: var(--white);
   max-width: 12ch;
-  margin-bottom: 1rem;
+  margin-bottom: 0.35rem;
   font-size: clamp(2.85rem, 1.85rem + 3.9vw, 5.15rem);
   text-shadow: 0 2px 24px rgba(0, 24, 63, 0.4);
+}
+
+.hero h1::after {
+  content: "";
+  display: block;
+  width: 4.5rem;
+  height: 3px;
+  margin-top: 1rem;
+  margin-bottom: 0.35rem;
+  background: linear-gradient(90deg, var(--gold-primary), rgba(255, 197, 12, 0.15));
+  border-radius: 2px;
 }
 
 .hero__copy {
@@ -1000,8 +1021,9 @@ strong {
   align-items: center;
   justify-content: center;
   margin-bottom: 1rem;
-  color: var(--navy);
-  border: 1px solid rgba(11, 37, 69, 0.18);
+  color: var(--navy-primary);
+  border: 1px solid rgba(255, 197, 12, 0.55);
+  background: rgba(255, 197, 12, 0.1);
   border-radius: 50%;
 }
 
@@ -1252,9 +1274,10 @@ strong {
 
 .proof-rail__item {
   margin: 0;
+  position: relative;
   overflow: hidden;
   border-radius: var(--radius-sm);
-  background: var(--surface-light);
+  background: var(--navy-dark);
 }
 
 .proof-rail__item img {
@@ -1265,13 +1288,21 @@ strong {
 }
 
 .proof-rail__item:hover img {
-  transform: scale(1.04);
+  transform: scale(1.05);
 }
 
 .proof-rail__item figcaption {
-  padding: 0.75rem 0.9rem 0.95rem;
-  font-size: 0.92rem;
-  color: var(--text-secondary);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 2.25rem 0.95rem 0.9rem;
+  font-size: 0.9rem;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  background: linear-gradient(transparent, rgba(0, 24, 63, 0.82));
 }
 
 .gallery-grid {
@@ -1471,6 +1502,9 @@ strong {
   position: relative;
   overflow: hidden;
   text-align: center;
+  background:
+    radial-gradient(ellipse 70% 80% at 50% 120%, rgba(255, 197, 12, 0.16), transparent 55%),
+    var(--navy-primary);
 }
 
 .cta-band__line {

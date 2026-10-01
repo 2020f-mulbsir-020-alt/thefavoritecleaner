@@ -157,9 +157,9 @@ function ctaBand() {
     <div class="cta-band__line" aria-hidden="true"></div>
     <div class="container cta-band__content">
       <p class="eyebrow">Get Started</p>
-      <h2 id="cta-heading" class="display-lg">A Better Clean Starts Here.</h2>
+      <h2 id="cta-heading" class="display-lg">Ready for a Space That Feels Fresh?</h2>
       <span class="gold-line gold-line--center draw"></span>
-      <p class="lead">Tell us about the space and receive a cleaning plan designed around your needs.</p>
+      <p class="lead">Share a few details about your home or business — we’ll follow up with a clear plan and pricing before anything is locked in.</p>
       <div class="btn-group" style="justify-content:center;margin-top:1.75rem">
         <a class="btn btn--gold" data-book-now data-book-fallback="contact.html#booking" href="contact.html#booking">Book Now ${ICONS.arrow}</a>
       </div>
@@ -406,15 +406,15 @@ function buildHome() {
     <div class="hero__content">
       <p class="eyebrow hero-reveal">Premium Cleaning Services</p>
       <h1 id="hero-heading" class="display-xl hero-reveal hero-reveal-delay-1">Clean Beyond Expectations.</h1>
-      <p class="hero__copy hero-reveal hero-reveal-delay-2">Detail-focused cleaning for homes and businesses across Texas — delivered with consistency, care, and a higher standard of finish.</p>
+      <p class="hero__copy hero-reveal hero-reveal-delay-2">Professional cleaning for Texas homes and businesses — clear communication, careful work, and a finish you can feel.</p>
       <div class="btn-group hero-reveal hero-reveal-delay-3">
         <a class="btn btn--gold" data-book-now data-book-fallback="contact.html#booking" href="contact.html#booking">Book a Cleaning ${ICONS.arrow}</a>
         <a class="btn btn--outline" href="services.html">Explore Services</a>
       </div>
       <div class="hero__trust hero-reveal hero-reveal-delay-4" aria-label="Brand qualities">
-        <span>Photo-Documented</span><span class="divider" aria-hidden="true"></span>
-        <span>Recurring-Ready</span><span class="divider" aria-hidden="true"></span>
-        <span>Texas</span>
+        <span>Photo Proof</span><span class="divider" aria-hidden="true"></span>
+        <span>Flexible Plans</span><span class="divider" aria-hidden="true"></span>
+        <span>Serving Texas</span>
       </div>
     </div>
     <a class="scroll-indicator" href="#intro" aria-label="Scroll to introduction">
@@ -581,7 +581,7 @@ function buildHome() {
         <p class="eyebrow">Photo Proof</p>
         <h2 id="proof-heading" class="display-lg">Real Spaces. Real Results.</h2>
         <span class="gold-line draw"></span>
-        <p class="lead" style="max-width:38rem">We use before-and-after photography to document quality, build trust, and keep standards consistent as the business grows.</p>
+        <p class="lead" style="max-width:38rem">See real kitchens, bathrooms, and team work — honest results that make it easier to book with confidence.</p>
       </div>
       <div class="proof-rail">
         <figure class="proof-rail__item reveal">
@@ -613,7 +613,7 @@ function buildHome() {
         <p class="eyebrow">Work Photos</p>
         <h2 id="gallery-heading" class="display-lg">Cleaning in Action</h2>
         <span class="gold-line draw"></span>
-        <p>Curated real work photos — updated as new results are added. Follow Instagram for the latest posts.</p>
+        <p>Curated real work photos — refreshed as new results come in. Follow Instagram for the latest.</p>
       </div>
       <div class="gallery-grid" data-work-photos data-instagram-feed>
         ${galleryItem("assets/images/gallery/cleaner-work-1.jpg", "Professional cleaner attending to a residential interior", "Professional care")}
