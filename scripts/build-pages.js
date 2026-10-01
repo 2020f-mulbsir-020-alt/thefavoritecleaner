@@ -414,8 +414,8 @@ function buildHome() {
   <section class="hero" aria-labelledby="hero-heading">
     <div class="hero__media parallax-media">
       <picture>
-        <source type="image/webp" srcset="assets/images/hero/hero-main-1280.webp 1280w, assets/images/hero/hero-main.webp 1600w" sizes="100vw" />
-        <img src="assets/images/hero/hero-main.jpg" alt="Professional cleaners in navy uniforms carefully cleaning a bright modern living room" width="2000" height="1125" fetchpriority="high" />
+        <source type="image/webp" srcset="assets/images/hero/hero-main-960.webp 960w, assets/images/hero/hero-main-1280.webp 1280w, assets/images/hero/hero-main-1600.webp 1600w, assets/images/hero/hero-main-1920.webp 1920w, assets/images/hero/hero-main-2560.webp 2560w, assets/images/hero/hero-main-3200.webp 3200w" sizes="100vw" />
+        <img src="assets/images/hero/hero-main.jpg" alt="Professional cleaners in navy uniforms carefully cleaning a bright modern living room" width="3200" height="1800" fetchpriority="high" decoding="async" />
       </picture>
     </div>
     <div class="hero__overlay" aria-hidden="true"></div>
@@ -720,7 +720,7 @@ function buildHome() {
         "Book residential and commercial cleaning across the USA with The Favorite Cleaner. Clear pricing before service, careful detail, and a simple Book Now form.",
       path: "index.html",
       schema: localBusinessSchema + faqSchema,
-      extraHead: `<link rel="preload" as="image" href="assets/images/hero/hero-main.jpg" fetchpriority="high" />`
+      extraHead: `<link rel="preload" as="image" href="assets/images/hero/hero-main-1920.webp" type="image/webp" imagesrcset="assets/images/hero/hero-main-960.webp 960w, assets/images/hero/hero-main-1280.webp 1280w, assets/images/hero/hero-main-1600.webp 1600w, assets/images/hero/hero-main-1920.webp 1920w, assets/images/hero/hero-main-2560.webp 2560w, assets/images/hero/hero-main-3200.webp 3200w" imagesizes="100vw" fetchpriority="high" />`
     },
     content,
     extraScripts: ["js/gallery.js"]

@@ -12,8 +12,8 @@ const root = path.join(__dirname, "..", "assets", "images");
 
 const images = [
   // Hero
-  { file: "hero/hero-main.jpg", url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80", w: 2000, h: 1333 },
-  { file: "hero/hero-poster.jpg", url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=75", w: 1600, h: 1067 },
+  // Homepage hero is managed separately as branded UHD assets (hero-main-*.webp up to 3200w).
+  { file: "hero/hero-poster.jpg", url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80", w: 1920, h: 1080 },
   // Intro / about
   { file: "about/intro-interior.jpg", url: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1600&q=80", w: 1600, h: 1200 },
   { file: "about/about-hero.jpg", url: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1800&q=80", w: 1800, h: 1200 },
