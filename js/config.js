@@ -8,6 +8,8 @@ const SITE_CONFIG = {
   tagline: "Clean Beyond Expectations.",
   supportingLine: "Professional cleaning done with care.",
   email: "contact@thefavoritecleaner.com",
+  /** Opens Gmail compose for contact@… (use "mailto" for the device mail app). */
+  emailClient: "gmail",
   website: "https://thefavoritecleaner.com",
   serviceArea: "USA",
   serviceAreaDetail:
@@ -15,6 +17,7 @@ const SITE_CONFIG = {
   phoneNumber: "",
   whatsappNumber: "",
   bookingUrl: "",
+  /** Optional Formspree/Web3Forms URL. Empty = send via Gmail to contact@… */
   formEndpoint: "",
   instagramUrl: "https://www.instagram.com/thefavoritecleaner",
   facebookUrl: "https://www.facebook.com/thefavoritecleaner",

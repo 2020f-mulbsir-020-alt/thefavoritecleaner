@@ -84,15 +84,24 @@ The WhatsApp floating button appears only when this is set.
 
 ---
 
-## Connect the booking form
+## Connect the booking form (Gmail)
 
-1. Create a form endpoint with [Formspree](https://formspree.io/), [Web3Forms](https://web3forms.com/), or your own backend.
-2. Paste the public endpoint URL into `formEndpoint` in `js/config.js`.
-3. **Do not** put secret API keys in client-side JavaScript. For Web3Forms, use only the public access key intended for browsers, or proxy through a serverless function.
+By default, booking and email links open **Gmail** compose addressed to `contact@thefavoritecleaner.com`.
 
-If `formEndpoint` is empty, the form falls back to a `mailto:` draft addressed to `contact@thefavoritecleaner.com`.
+In `js/config.js`:
 
-Optional: set `bookingUrl` to an external scheduler. If empty, all **Book Now** buttons go to `contact.html#booking`.
+```js
+email: "contact@thefavoritecleaner.com",
+emailClient: "gmail",   // or "mailto" for the device mail app
+formEndpoint: "",       // optional Formspree / Web3Forms URL
+```
+
+1. Sign in to Gmail as (or forward to) `contact@thefavoritecleaner.com`.
+2. When a client submits **Book Now**, Gmail opens with the request pre-filled. They press **Send**.
+3. Optional: set `formEndpoint` (Formspree / Web3Forms) so submissions arrive in that inbox with no compose step.
+4. **Do not** put secret API keys in client-side JavaScript.
+
+Optional: set `bookingUrl` to an external scheduler. If empty, **Book Now** goes to `book.html`.
 
 ---
 

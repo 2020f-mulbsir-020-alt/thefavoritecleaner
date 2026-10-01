@@ -1,9 +1,31 @@
 /**
  * Contact / booking form validation and submission.
- * Uses SITE_CONFIG.formEndpoint when set; otherwise mailto fallback.
+ * Uses SITE_CONFIG.formEndpoint when set; otherwise opens Gmail compose
+ * to contact@thefavoritecleaner.com with the request pre-filled.
  */
 (function () {
   "use strict";
+
+  function contactEmail(cfg) {
+    return cfg.email || "contact@thefavoritecleaner.com";
+  }
+
+  function composeEmailUrl(cfg, subject, body) {
+    const email = contactEmail(cfg);
+    const client = String(cfg.emailClient || "gmail").toLowerCase();
+    if (client === "gmail") {
+      const params = new URLSearchParams({ view: "cm", fs: "1", to: email });
+      if (subject) params.set("su", subject);
+      if (body) params.set("body", body);
+      return "https://mail.google.com/mail/?" + params.toString();
+    }
+    let href = "mailto:" + email;
+    const parts = [];
+    if (subject) parts.push("subject=" + encodeURIComponent(subject));
+    if (body) parts.push("body=" + encodeURIComponent(body));
+    if (parts.length) href += "?" + parts.join("&");
+    return href;
+  }
 
   function initForms() {
     document.querySelectorAll("[data-contact-form]").forEach(setupForm);
@@ -35,6 +57,7 @@
       const data = new FormData(form);
       const payload = Object.fromEntries(data.entries());
       const endpoint = (cfg.formEndpoint || "").trim();
+      const email = contactEmail(cfg);
 
       if (submitBtn) {
         submitBtn.disabled = true;
@@ -68,22 +91,32 @@
             "Thank you - we received your details and will follow up with a clear plan, usually within 1 business day."
           );
         } else {
-          // Graceful mailto fallback - no secrets exposed
-          const email = cfg.email || "contact@thefavoritecleaner.com";
-          const subject = encodeURIComponent("Book Now - The Favorite Cleaner");
-          const body = encodeURIComponent(formatMailtoBody(payload));
-          window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
-          show(
-            success,
-            "Your email app should open with your full request. If it does not, please email " + email + " directly."
-          );
+          const subject = "Book Now - The Favorite Cleaner";
+          const body = formatMailtoBody(payload);
+          const href = composeEmailUrl(cfg, subject, body);
+          const useGmail = String(cfg.emailClient || "gmail").toLowerCase() === "gmail";
+          if (useGmail) {
+            window.open(href, "_blank", "noopener,noreferrer");
+            show(
+              success,
+              "Gmail is opening with your booking request to " +
+                email +
+                ". Sign in if needed, then press Send."
+            );
+          } else {
+            window.location.href = href;
+            show(
+              success,
+              "Your email app should open with your full request. If it does not, please email " +
+                email +
+                " directly."
+            );
+          }
         }
       } catch (err) {
         show(
           error,
-          "Something went wrong while sending. Please email " +
-            (cfg.email || "contact@thefavoritecleaner.com") +
-            " directly."
+          "Something went wrong while sending. Please email " + email + " directly."
         );
       } finally {
         if (submitBtn) {

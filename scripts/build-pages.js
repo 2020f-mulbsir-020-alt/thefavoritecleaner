@@ -8,6 +8,9 @@ const path = require("path");
 const ROOT = path.join(__dirname, "..");
 const SITE = "https://thefavoritecleaner.com";
 const EMAIL = "contact@thefavoritecleaner.com";
+/** Gmail compose URL for contact@… (links also rewritten by js/main.js). */
+const EMAIL_HREF =
+  "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(EMAIL);
 
 const ICONS = {
   chevron: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>`,
@@ -120,7 +123,7 @@ function footer() {
         <div class="footer-col">
           <h3>Contact</h3>
           <ul class="footer-links">
-            <li><a data-config-email="text" href="mailto:${EMAIL}">${EMAIL}</a></li>
+            <li><a data-config-email="text" href="${EMAIL_HREF}">${EMAIL}</a></li>
             <li>Service area: <span data-config-area>USA</span></li>
             <li><span data-business-hours>Monday-Saturday: 8:00 AM - 6:00 PM</span></li>
             <li><a data-book-now href="book.html">Book a Cleaning</a></li>
@@ -141,12 +144,12 @@ function footer() {
     <a class="fab fab--desktop-book" data-book-now href="book.html">Book Now</a>
     <a class="fab fab--icon fab--secondary is-hidden-config" data-requires-phone href="#" aria-label="Call us"><span class="sr-only" data-phone-label></span>${ICONS.phone}</a>
     <a class="fab fab--icon fab--secondary is-hidden-config" data-requires-whatsapp href="#" aria-label="Chat on WhatsApp"><span aria-hidden="true">WA</span></a>
-    <a class="fab fab--icon fab--secondary" href="mailto:${EMAIL}" data-config-email aria-label="Email The Favorite Cleaner">${ICONS.mail}</a>
+    <a class="fab fab--icon fab--secondary" href="${EMAIL_HREF}" data-config-email aria-label="Email The Favorite Cleaner">${ICONS.mail}</a>
     <a class="fab fab--icon fab--secondary" href="#top" data-back-to-top aria-label="Back to top">${ICONS.top}</a>
   </div>
 
   <div class="mobile-contact-bar" role="navigation" aria-label="Mobile contact">
-    <a class="mcb-email" href="mailto:${EMAIL}" data-config-email>${ICONS.mail} Email</a>
+    <a class="mcb-email" href="${EMAIL_HREF}" data-config-email>${ICONS.mail} Email</a>
     <a class="mcb-book" data-book-now href="book.html">Book Now</a>
   </div>`;
 }
@@ -164,7 +167,7 @@ function ctaBand() {
         <a class="btn btn--gold btn--pulse" data-book-now href="book.html">Book Now ${ICONS.arrow}</a>
         <a class="btn btn--outline" href="gallery.html">See the Finish</a>
       </div>
-      <a class="cta-email" data-config-email="text" href="mailto:${EMAIL}">${EMAIL}</a>
+      <a class="cta-email" data-config-email="text" href="${EMAIL_HREF}">${EMAIL}</a>
     </div>
   </section>`;
 }
@@ -920,7 +923,7 @@ function bookingListenPanel() {
       <li><strong>USA service:</strong> Coverage confirmed when you inquire.</li>
     </ul>
     <div class="book-aside__meta">
-      <p><strong>Email</strong><br /><a data-config-email="text" href="mailto:${EMAIL}">${EMAIL}</a></p>
+      <p><strong>Email</strong><br /><a data-config-email="text" href="${EMAIL_HREF}">${EMAIL}</a></p>
       <p><strong>Hours</strong><br /><span data-business-hours>Monday-Saturday: 8:00 AM - 6:00 PM</span></p>
       <p><strong>Area</strong><br /><span data-config-area>USA</span></p>
     </div>
@@ -1346,7 +1349,7 @@ function buildContact() {
         <div class="contact-meta">
           <div class="contact-meta__item">
             <h3>Email</h3>
-            <a data-config-email="text" href="mailto:${EMAIL}">${EMAIL}</a>
+            <a data-config-email="text" href="${EMAIL_HREF}">${EMAIL}</a>
           </div>
           <div class="contact-meta__item is-hidden-config" data-requires-phone>
             <h3>Phone</h3>
@@ -1383,7 +1386,7 @@ function buildContact() {
         <h2 class="display-md" style="margin-bottom:1rem">Ready to book?</h2>
         <p style="margin-bottom:1.25rem;color:var(--text-secondary)">Use our easy Book Now page. It only takes about a minute.</p>
         <a class="btn btn--gold btn--pulse" href="book.html">Go to Book Now ${ICONS.arrow}</a>
-        <p style="margin-top:1.5rem;color:var(--text-secondary)">Prefer email? Write to <a data-config-email="text" href="mailto:${EMAIL}">${EMAIL}</a>.</p>
+        <p style="margin-top:1.5rem;color:var(--text-secondary)">Prefer email? Write to <a data-config-email="text" href="${EMAIL_HREF}">${EMAIL}</a>.</p>
       </div>
     </div>
   </section>
@@ -1676,7 +1679,7 @@ const pages = {
 
     <h2>Your Choices</h2>
     <p>You may contact us to ask questions about your information, request updates, or ask us to remove inquiry details that are no longer needed for an active booking or required recordkeeping.</p>
-    <p>Email: <a href="mailto:${EMAIL}">${EMAIL}</a></p>
+    <p>Email: <a href="${EMAIL_HREF}">${EMAIL}</a></p>
 
     <h2>Updates</h2>
     <p>We may update this policy periodically. The “Last updated” date at the top of this page reflects the latest revision.</p>`
@@ -1767,7 +1770,7 @@ const pages = {
     <p>These Terms are governed by the laws of the United States, without regard to conflict-of-law rules. Any dispute arising from our services or these Terms will be handled in courts located in the USA, unless applicable law requires otherwise.</p>
 
     <h2>16. Contact</h2>
-    <p>Questions about these Terms or your cleaning service may be sent to <a href="mailto:${EMAIL}">${EMAIL}</a>.</p>
+    <p>Questions about these Terms or your cleaning service may be sent to <a href="${EMAIL_HREF}">${EMAIL}</a>.</p>
     <p><em>These Terms are provided for customer clarity and do not replace advice from a licensed attorney. Specific job confirmations may include additional written details.</em></p>`
   ),
   "404.html": build404()

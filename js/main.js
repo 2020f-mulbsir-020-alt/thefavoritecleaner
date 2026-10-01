@@ -7,12 +7,41 @@
   const cfg = window.SITE_CONFIG || {};
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* ---- Email helpers (Gmail-first) ------------------------------------- */
+  function contactEmail() {
+    return cfg.email || "contact@thefavoritecleaner.com";
+  }
+
+  function composeEmailUrl(subject, body) {
+    const email = contactEmail();
+    const client = String(cfg.emailClient || "gmail").toLowerCase();
+    if (client === "gmail") {
+      const params = new URLSearchParams({ view: "cm", fs: "1", to: email });
+      if (subject) params.set("su", subject);
+      if (body) params.set("body", body);
+      return "https://mail.google.com/mail/?" + params.toString();
+    }
+    let href = "mailto:" + email;
+    const parts = [];
+    if (subject) parts.push("subject=" + encodeURIComponent(subject));
+    if (body) parts.push("body=" + encodeURIComponent(body));
+    if (parts.length) href += "?" + parts.join("&");
+    return href;
+  }
+
   /* ---- Config binding -------------------------------------------------- */
   function bindConfig() {
     document.querySelectorAll("[data-config-email]").forEach((el) => {
-      const email = cfg.email || "contact@thefavoritecleaner.com";
+      const email = contactEmail();
       if (el.tagName === "A") {
-        el.href = "mailto:" + email;
+        el.href = composeEmailUrl();
+        if (String(cfg.emailClient || "gmail").toLowerCase() === "gmail") {
+          el.target = "_blank";
+          el.rel = "noopener noreferrer";
+        } else {
+          el.removeAttribute("target");
+          el.removeAttribute("rel");
+        }
         if (!el.textContent.trim() || el.dataset.configEmail === "text") {
           el.textContent = email;
         }
