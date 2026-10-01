@@ -1887,14 +1887,15 @@ strong {
   font-weight: 700;
   letter-spacing: 0.03em;
   text-decoration: none;
-  box-shadow: 0 10px 28px rgba(0, 24, 63, 0.22);
-  transition: background var(--transition), transform var(--transition);
+  box-shadow: 0 10px 28px rgba(255, 197, 12, 0.35), 0 10px 28px rgba(0, 24, 63, 0.18);
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 
 .fab:hover {
   background: var(--gold-hover);
   color: var(--navy-dark);
   transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(255, 197, 12, 0.42), 0 12px 28px rgba(0, 24, 63, 0.2);
 }
 
 .fab.is-visible {
