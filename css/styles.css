@@ -821,7 +821,7 @@ strong {
 /* Page hero (internal) ---------------------------------------------------- */
 .page-hero {
   position: relative;
-  min-height: clamp(320px, 48vh, 520px);
+  min-height: clamp(400px, 58vh, 640px);
   display: flex;
   align-items: flex-end;
   background: var(--navy-dark);
@@ -856,7 +856,7 @@ strong {
   z-index: 1;
   width: var(--container);
   margin: 0 auto;
-  padding: calc(var(--header-height) + 3rem) 0 3rem;
+  padding: calc(var(--header-height) + 3.75rem) 0 3.75rem;
   text-align: left;
   align-items: flex-start;
 }
@@ -864,11 +864,16 @@ strong {
 .page-hero h1 {
   color: var(--white);
   max-width: 16ch;
+  font-size: clamp(2.5rem, 1.7rem + 2.8vw, 4.1rem);
+  line-height: 1.08;
+  margin-bottom: 1rem;
 }
 
 .page-hero p {
-  max-width: 36rem;
-  color: rgba(255, 255, 255, 0.85);
+  max-width: 38rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(1.08rem, 1rem + 0.35vw, 1.28rem);
+  line-height: 1.65;
 }
 
 .breadcrumbs {
@@ -876,8 +881,8 @@ strong {
   flex-wrap: wrap;
   gap: 0.45rem;
   align-items: center;
-  margin-bottom: 1.25rem;
-  font-size: 0.85rem;
+  margin-bottom: 1.45rem;
+  font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.7);
 }
 
