@@ -618,10 +618,10 @@ strong {
 /* Hero -------------------------------------------------------------------- */
 .hero {
   position: relative;
-  min-height: 108vh;
-  min-height: 108svh;
+  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   color: var(--white);
   overflow: hidden;
   background: var(--navy-dark);
@@ -710,13 +710,13 @@ strong {
   z-index: 2;
   width: var(--container);
   margin: 0 auto;
-  padding: calc(var(--header-height) + 3rem) 0 5.5rem;
+  padding: calc(var(--header-height) + 1.5rem) 0 5rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: flex-start;
-  min-height: 108vh;
-  min-height: 108svh;
+  min-height: 100vh;
+  min-height: 100svh;
   text-align: left;
 }
 
@@ -1764,6 +1764,101 @@ strong {
 
 .book-aside__meta a:hover {
   color: var(--gold-hover);
+}
+
+/* Booking modal ----------------------------------------------------------- */
+body.booking-open {
+  overflow: hidden;
+}
+
+.booking-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.22s ease, visibility 0.22s ease;
+}
+
+.booking-modal[hidden] {
+  display: none !important;
+}
+
+.booking-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.booking-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 24, 63, 0.72);
+  backdrop-filter: blur(2px);
+}
+
+.booking-modal__dialog {
+  position: relative;
+  z-index: 1;
+  width: min(720px, 100%);
+  max-height: min(92vh, 920px);
+  overflow: auto;
+  background: var(--white);
+  border-radius: var(--radius-md);
+  box-shadow: 0 24px 80px rgba(0, 24, 63, 0.35);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  transform: translateY(12px);
+  transition: transform 0.22s ease;
+}
+
+.booking-modal.is-open .booking-modal__dialog {
+  transform: none;
+}
+
+.booking-modal__close {
+  position: sticky;
+  top: 0;
+  float: right;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--off-white);
+  color: var(--navy-primary);
+  border: 1px solid var(--border-light);
+  z-index: 2;
+}
+
+.booking-modal__close:hover {
+  background: var(--gold-primary);
+  color: var(--navy-dark);
+}
+
+.booking-modal__close svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.booking-modal__header {
+  clear: both;
+  margin-bottom: 1.25rem;
+  padding-right: 3rem;
+}
+
+.booking-modal__header p:last-child {
+  color: var(--text-secondary);
+  margin: 0.65rem 0 0;
+}
+
+.booking-modal__body .form-card {
+  box-shadow: none;
+  border: none;
+  padding: 0;
 }
 
 /* 2026 client hunt -------------------------------------------------------- */

@@ -237,7 +237,19 @@
   }
 
   .hero__content {
-    padding-bottom: 4.5rem;
+    padding: calc(var(--header-height) + 1rem) 0 4.5rem;
+    justify-content: center;
+  }
+
+  .booking-modal {
+    padding: 0.5rem;
+    align-items: flex-end;
+  }
+
+  .booking-modal__dialog {
+    max-height: 92vh;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    width: 100%;
   }
 
   .hero__trust {

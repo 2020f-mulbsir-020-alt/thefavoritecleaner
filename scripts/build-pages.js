@@ -68,13 +68,13 @@ function header(opts = {}) {
           <li><a class="nav-link" href="contact.html">Contact</a></li>
         </ul>
         <div class="nav-mobile-extras">
-          <a class="btn btn--gold" data-book-now data-book-fallback="index.html#booking" href="index.html#booking">Book Now</a>
+          <a class="btn btn--gold" data-book-now href="#booking">Book Now</a>
           ${socialLinks()}
         </div>
       </nav>
       <div class="header-actions">
         ${socialLinks("social-links--header-desktop")}
-        <a class="btn btn--gold" data-book-now data-book-fallback="index.html#booking" href="index.html#booking">Book Now</a>
+        <a class="btn btn--gold" data-book-now href="#booking">Book Now</a>
         <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
           ${ICONS.menu}
         </button>
@@ -123,7 +123,7 @@ function footer() {
             <li><a data-config-email="text" href="mailto:${EMAIL}">${EMAIL}</a></li>
             <li>Service area: <span data-config-area>Texas</span>, USA</li>
             <li><span data-business-hours>Monday-Saturday: 8:00 AM - 6:00 PM (Central Time)</span></li>
-            <li><a data-book-now data-book-fallback="index.html#booking" href="index.html#booking">Book a Cleaning</a></li>
+            <li><a data-book-now href="#booking">Book a Cleaning</a></li>
           </ul>
         </div>
       </div>
@@ -138,7 +138,7 @@ function footer() {
   </footer>
 
   <div class="floating-ui" aria-label="Quick actions">
-    <a class="fab fab--desktop-book" data-book-now data-book-fallback="index.html#booking" href="index.html#booking">Book Now</a>
+    <a class="fab fab--desktop-book" data-book-now href="#booking">Book Now</a>
     <a class="fab fab--icon fab--secondary is-hidden-config" data-requires-phone href="#" aria-label="Call us"><span class="sr-only" data-phone-label></span>${ICONS.phone}</a>
     <a class="fab fab--icon fab--secondary is-hidden-config" data-requires-whatsapp href="#" aria-label="Chat on WhatsApp"><span aria-hidden="true">WA</span></a>
     <a class="fab fab--icon fab--secondary" href="mailto:${EMAIL}" data-config-email aria-label="Email The Favorite Cleaner">${ICONS.mail}</a>
@@ -147,8 +147,10 @@ function footer() {
 
   <div class="mobile-contact-bar" role="navigation" aria-label="Mobile contact">
     <a class="mcb-email" href="mailto:${EMAIL}" data-config-email>${ICONS.mail} Email</a>
-    <a class="mcb-book" data-book-now data-book-fallback="index.html#booking" href="index.html#booking">Book Now</a>
-  </div>`;
+    <a class="mcb-book" data-book-now href="#booking">Book Now</a>
+  </div>
+
+  ${bookingModal()}`;
 }
 
 function ctaBand() {
@@ -161,7 +163,7 @@ function ctaBand() {
       <span class="gold-line gold-line--center draw"></span>
       <p class="lead">Tell us about your place. We’ll confirm the plan, timing, and pricing, then show up ready to do the job right.</p>
       <div class="btn-group" style="justify-content:center;margin-top:1.75rem">
-        <a class="btn btn--gold btn--pulse" data-book-now data-book-fallback="index.html#booking" href="index.html#booking">Book Now ${ICONS.arrow}</a>
+        <a class="btn btn--gold btn--pulse" data-book-now href="#booking">Book Now ${ICONS.arrow}</a>
         <a class="btn btn--outline" href="gallery.html">See the Finish</a>
       </div>
       <a class="cta-email" data-config-email="text" href="mailto:${EMAIL}">${EMAIL}</a>
@@ -203,6 +205,14 @@ function head({ title, description, path: pagePath, ogType = "website", schema =
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="prefetch" href="about.html" />
+  <link rel="prefetch" href="services.html" />
+  <link rel="prefetch" href="gallery.html" />
+  <link rel="prefetch" href="contact.html" />
+  <link rel="prefetch" href="residential-cleaning.html" />
+  <link rel="prefetch" href="commercial-cleaning.html" />
+  <link rel="prefetch" href="deep-cleaning.html" />
+  <link rel="prefetch" href="move-in-move-out.html" />
   ${extraHead}
   ${schema}
 </head>`;
@@ -211,9 +221,16 @@ function head({ title, description, path: pagePath, ogType = "website", schema =
 function scripts(extra = []) {
   const base = [
     '<script src="js/config.js" defer></script>',
+    '<script src="js/contact-form.js" defer></script>',
     '<script src="js/main.js" defer></script>'
   ];
-  return [...base, ...extra.map((s) => `<script src="${s}" defer></script>`)].join("\n  ");
+  const seen = new Set(["js/config.js", "js/contact-form.js", "js/main.js"]);
+  const extras = extra.filter((s) => {
+    if (seen.has(s)) return false;
+    seen.add(s);
+    return true;
+  });
+  return [...base, ...extras.map((s) => `<script src="${s}" defer></script>`)].join("\n  ");
 }
 
 function pageShell({ meta, bodyClass = "", solidHeader = false, content, extraScripts = [] }) {
@@ -406,7 +423,7 @@ function buildHome() {
       <h1 id="hero-heading" class="display-xl hero-reveal hero-reveal-delay-1">Clean Beyond Expectations.</h1>
       <p class="hero__copy hero-reveal hero-reveal-delay-2">Professional cleaning for Texas homes and businesses, with careful detail, clear communication, and a finish you’ll notice when you walk back in.</p>
       <div class="btn-group hero-reveal hero-reveal-delay-3">
-        <a class="btn btn--gold btn--pulse" href="#booking">Book Your Cleaning ${ICONS.arrow}</a>
+        <a class="btn btn--gold btn--pulse" data-book-now href="#booking">Book Now ${ICONS.arrow}</a>
         <a class="btn btn--outline" href="#difference">Why We’re Different</a>
       </div>
     </div>
@@ -683,25 +700,8 @@ function buildHome() {
         </article>
       </div>
       <div class="hunt-cta reveal">
-        <p>Want to get on the calendar? Start with the Book Now form and we’ll take it from there.</p>
-        <a class="btn btn--gold" href="#booking">Go to Book Now ${ICONS.arrow}</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="booking" aria-labelledby="booking-heading">
-    <div class="container">
-      <div class="section__header reveal">
-        <p class="eyebrow">Book Now</p>
-        <h2 id="booking-heading" class="display-lg">Tell us what you need</h2>
-        <span class="gold-line draw"></span>
-        <p class="lead" style="max-width:40rem;margin-top:1rem">Fill in as much as you can. The more we know, the faster we can put together a plan that fits.</p>
-      </div>
-      <div class="book-layout">
-        ${bookingListenPanel()}
-        <div class="reveal reveal-delay-1">
-          ${bookingForm({ formId: "booking-form", idPrefix: "home" })}
-        </div>
+        <p>Want to get on the calendar? Press Book Now and we’ll take it from there.</p>
+        <a class="btn btn--gold" data-book-now href="#booking">Book Now ${ICONS.arrow}</a>
       </div>
     </div>
   </section>
@@ -719,7 +719,7 @@ function buildHome() {
       extraHead: `<link rel="preload" as="image" href="assets/images/hero/hero-main.jpg" fetchpriority="high" />`
     },
     content,
-    extraScripts: ["js/gallery.js", "js/contact-form.js"]
+    extraScripts: ["js/gallery.js"]
   });
 }
 
@@ -970,6 +970,24 @@ function bookingListenPanel() {
   </aside>`;
 }
 
+function bookingModal() {
+  return `
+  <div class="booking-modal" id="booking" data-booking-modal hidden aria-hidden="true">
+    <div class="booking-modal__backdrop" data-booking-close tabindex="-1" aria-hidden="true"></div>
+    <div class="booking-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="booking-modal-heading">
+      <button class="booking-modal__close" type="button" data-booking-close aria-label="Close booking form">${ICONS.close}</button>
+      <div class="booking-modal__header">
+        <p class="eyebrow">Book Now</p>
+        <h2 id="booking-modal-heading" class="display-md">Tell us what you need</h2>
+        <p>Fill in as much as you can. The more we know, the faster we can put together a plan that fits.</p>
+      </div>
+      <div class="booking-modal__body">
+        ${bookingForm({ formId: "booking-form", idPrefix: "modal" })}
+      </div>
+    </div>
+  </div>`;
+}
+
 function buildAbout() {
   const content = `
   ${pageHero({
@@ -1147,14 +1165,14 @@ function buildServices() {
           <h3>Recurring Cleaning</h3>
           <p>Consistent weekly, biweekly, or customized schedules that keep spaces maintained over time.</p>
           <div class="service-group__list" style="margin-top:1rem">
-            <a href="index.html#booking">Request Recurring Service</a>
+            <a data-book-now href="#booking">Request Recurring Service</a>
           </div>
         </div>
         <div class="service-group reveal" id="customized">
           <h3>Customized Cleaning Plans</h3>
           <p>Flexible plans built around specific properties, priorities, and access requirements.</p>
           <div class="service-group__list" style="margin-top:1rem">
-            <a href="index.html#booking">Build a Custom Plan</a>
+            <a data-book-now href="#booking">Build a Custom Plan</a>
           </div>
         </div>
         <div class="service-group reveal" id="kitchen">
@@ -1381,10 +1399,10 @@ function buildContact() {
           </div>
         </div>
       </aside>
-      <div class="reveal reveal-delay-1" id="booking">
-        <h2 class="display-md" style="margin-bottom:1rem">Book Now Form</h2>
-        <p style="margin-bottom:1.25rem;color:var(--text-secondary)">Share timing, priorities, pets, products, and access. We use every detail so our reply already feels personal.</p>
-        ${bookingForm({ formId: "booking-form", idPrefix: "contact" })}
+      <div class="reveal reveal-delay-1" id="contact-booking">
+        <h2 class="display-md" style="margin-bottom:1rem">Send a booking request</h2>
+        <p style="margin-bottom:1.25rem;color:var(--text-secondary)">Share timing, priorities, pets, products, and access. You can also press Book Now in the header to open the booking popup from any page.</p>
+        ${bookingForm({ formId: "contact-booking-form", idPrefix: "contact" })}
       </div>
     </div>
   </section>
@@ -1447,7 +1465,7 @@ function buildContact() {
     },
     solidHeader: true,
     content,
-    extraScripts: ["js/contact-form.js"]
+    extraScripts: []
   });
 }
 
@@ -1496,7 +1514,7 @@ function build404() {
       <p>This page is not available. Return home or book a cleaning to continue.</p>
       <div class="btn-group" style="justify-content:center">
         <a class="btn btn--gold" href="index.html">Back to Home</a>
-        <a class="btn btn--outline" href="index.html#booking">Book Now</a>
+        <a class="btn btn--outline" data-book-now href="#booking">Book Now</a>
       </div>
     </div>
   </main>
