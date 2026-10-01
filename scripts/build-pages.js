@@ -92,7 +92,7 @@ function footer() {
           <a class="logo" href="index.html" aria-label="The Favorite Cleaner home">
             <img class="logo-light" src="assets/brand/logo-light.png" width="152" height="71" alt="The Favorite Cleaner" decoding="async" />
           </a>
-          <p>The modern Texas cleaning brand clients choose for detail, clarity, and a finish that feels unmistakably Favorite.</p>
+          <p>Professional cleaning for homes and businesses, delivered with quality, consistency, and careful attention to detail.</p>
           ${socialLinks()}
         </div>
         <div class="footer-col">
@@ -155,15 +155,14 @@ function ctaBand() {
   return `
   <section class="section section--navy cta-band" aria-labelledby="cta-heading">
     <div class="cta-band__line" aria-hidden="true"></div>
-    <div class="cta-band__glow" aria-hidden="true"></div>
     <div class="container cta-band__content">
-      <p class="eyebrow">Your Next Favorite Clean</p>
-      <h2 id="cta-heading" class="display-lg">Stop Settling for Ordinary Cleaning.</h2>
+      <p class="eyebrow">Ready When You Are</p>
+      <h2 id="cta-heading" class="display-lg">Become Someone’s Favorite Space.</h2>
       <span class="gold-line gold-line--center draw"></span>
-      <p class="lead">Request a plan built around your space, preferences, and schedule — then feel the Favorite difference.</p>
+      <p class="lead">Share your property details today. We’ll confirm scope, timing, and pricing — then deliver a clean that feels unmistakably premium.</p>
       <div class="btn-group" style="justify-content:center;margin-top:1.75rem">
-        <a class="btn btn--gold btn--shine" data-book-now data-book-fallback="contact.html#booking" href="contact.html#booking">Book The Favorite Cleaner ${ICONS.arrow}</a>
-        <a class="btn btn--outline" href="contact.html">Ask a Question</a>
+        <a class="btn btn--gold btn--pulse" data-book-now data-book-fallback="contact.html#booking" href="contact.html#booking">Book Your Cleaning ${ICONS.arrow}</a>
+        <a class="btn btn--outline" href="gallery.html">See the Finish</a>
       </div>
       <a class="cta-email" data-config-email="text" href="mailto:${EMAIL}">${EMAIL}</a>
     </div>
@@ -346,7 +345,7 @@ const localBusinessSchema = `
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "CleaningService"],
   "name": "The Favorite Cleaner",
-  "description": "The Favorite Cleaner — premium Texas cleaning for homes and businesses. Detail-first results, clear pricing before you commit, and client-led service plans.",
+  "description": "The Favorite Cleaner — premium residential and commercial cleaning across Texas. Detail-focused standards, clear pricing before service, and a finish clients prefer.",
   "url": "${SITE}/",
   "email": "${EMAIL}",
   "image": "${SITE}/assets/brand/social-preview-square.jpg",
@@ -401,19 +400,14 @@ function buildHome() {
       </picture>
     </div>
     <div class="hero__overlay" aria-hidden="true"></div>
-    <div class="hero__shine" aria-hidden="true"></div>
+    <div class="hero__ambient" aria-hidden="true"></div>
     <div class="hero__content">
-      <h1 id="hero-heading" class="hero__brand hero-reveal">The Favorite Cleaner</h1>
-      <p class="hero__tagline hero-reveal hero-reveal-delay-1">Clean Beyond Expectations.</p>
-      <p class="hero__copy hero-reveal hero-reveal-delay-2">The modern Texas cleaning brand for clients who want more than a quick wipe — detail, clarity, and a finish that feels unmistakably Favorite.</p>
+      <p class="hero__brand hero-reveal">The Favorite Cleaner</p>
+      <h1 id="hero-heading" class="display-xl hero-reveal hero-reveal-delay-1">Clean Beyond Expectations.</h1>
+      <p class="hero__copy hero-reveal hero-reveal-delay-2">The premium cleaning standard Texas homes and businesses choose when ordinary is no longer enough — meticulous detail, clear communication, and a finish that feels favored.</p>
       <div class="btn-group hero-reveal hero-reveal-delay-3">
-        <a class="btn btn--gold btn--shine" data-book-now data-book-fallback="contact.html#booking" href="contact.html#booking">Book Your Favorite Clean ${ICONS.arrow}</a>
-        <a class="btn btn--outline" href="#difference">See Why We’re Different</a>
-      </div>
-      <div class="hero__trust hero-reveal hero-reveal-delay-4" aria-label="Brand promise">
-        <span>Detail First</span><span class="divider" aria-hidden="true"></span>
-        <span>Clear Pricing</span><span class="divider" aria-hidden="true"></span>
-        <span>Client-Led Plans</span>
+        <a class="btn btn--gold btn--pulse" data-book-now data-book-fallback="contact.html#booking" href="contact.html#booking">Book Your Cleaning ${ICONS.arrow}</a>
+        <a class="btn btn--outline" href="#difference">Why We’re Different</a>
       </div>
     </div>
     <a class="scroll-indicator" href="#intro" aria-label="Scroll to introduction">
@@ -426,10 +420,10 @@ function buildHome() {
     <div class="container split">
       <div class="reveal">
         <p class="eyebrow">The Favorite Standard</p>
-        <h2 id="intro-heading" class="display-lg">Not Just Cleaner. Clearly Better.</h2>
+        <h2 id="intro-heading" class="display-lg">Not Just Cleaned. Preferred.</h2>
         <span class="gold-line draw"></span>
-        <p class="lead">Most cleaning feels rushed and forgettable. The Favorite Cleaner is built for clients who want a polished result, respectful service, and a plan that matches how they actually live and work.</p>
-        <a class="text-link" href="about.html">Meet the Brand ${ICONS.arrow}</a>
+        <p class="lead">Most cleaning gets the surface done. We engineer a finish clients notice — sharper edges, fresher air, spaces that feel cared for the moment you walk in. That is how The Favorite Cleaner becomes the name people recommend.</p>
+        <a class="text-link" href="about.html">Discover Our Approach ${ICONS.arrow}</a>
       </div>
       <div class="split__media reveal reveal-delay-2 parallax-media">
         <picture>
@@ -444,84 +438,83 @@ function buildHome() {
     <div class="container">
       <div class="section__header reveal">
         <p class="eyebrow">Signature Services</p>
-        <h2 id="services-heading" class="display-lg">Cleaning Built to Win Your Loyalty</h2>
+        <h2 id="services-heading" class="display-lg">Every Space. One Elevated Standard.</h2>
         <span class="gold-line draw"></span>
+        <p class="lead" style="max-width:38rem;margin-top:1rem">From daily living to high-traffic offices, we tailor the plan — and protect the finish that makes your space feel favorite.</p>
       </div>
       <div class="services-grid">
-        ${serviceCard("residential-cleaning.html", "assets/images/services/residential.jpg", "Residential living room prepared for professional home cleaning", "Residential Cleaning", "Professional care that keeps living spaces fresh, comfortable, and beautifully maintained.")}
-        ${serviceCard("commercial-cleaning.html", "assets/images/services/commercial.jpg", "Modern commercial office interior suited for professional cleaning", "Commercial Cleaning", "Dependable cleaning solutions that support professional, welcoming business environments.")}
-        ${serviceCard("deep-cleaning.html", "assets/images/services/deep-cleaning.jpg", "Organized professional cleaning supplies prepared for detailed service", "Deep Cleaning", "A detailed top-to-bottom clean for spaces requiring extra attention.")}
-        ${serviceCard("move-in-move-out.html", "assets/images/services/move-in-out.jpg", "Bright empty home interior ready for move-in or move-out cleaning", "Move-In and Move-Out Cleaning", "Thorough cleaning that helps make every transition easier.")}
-        ${serviceCard("services.html#recurring", "assets/images/services/recurring.jpg", "Elegant residential interior maintained with recurring cleaning care", "Recurring Cleaning", "Consistent weekly, biweekly, or customized cleaning support.")}
-        ${serviceCard("services.html#customized", "assets/images/services/customized.jpg", "Professional cleaner attending to detailed surface care", "Customized Cleaning", "Flexible cleaning plans built around specific properties and priorities.")}
+        ${serviceCard("residential-cleaning.html", "assets/images/services/residential.jpg", "Residential living room prepared for professional home cleaning", "Residential Cleaning", "Homes that feel fresh, calm, and beautifully maintained after every visit.")}
+        ${serviceCard("commercial-cleaning.html", "assets/images/services/commercial.jpg", "Modern commercial office interior suited for professional cleaning", "Commercial Cleaning", "Workspaces that impress clients and support teams with a polished environment.")}
+        ${serviceCard("deep-cleaning.html", "assets/images/services/deep-cleaning.jpg", "Organized professional cleaning supplies prepared for detailed service", "Deep Cleaning", "A top-to-bottom reset when your space needs more than maintenance.")}
+        ${serviceCard("move-in-move-out.html", "assets/images/services/move-in-out.jpg", "Bright empty home interior ready for move-in or move-out cleaning", "Move-In and Move-Out Cleaning", "Turnovers handled thoroughly so the next chapter starts spotless.")}
+        ${serviceCard("services.html#recurring", "assets/images/services/recurring.jpg", "Elegant residential interior maintained with recurring cleaning care", "Recurring Cleaning", "Weekly or biweekly consistency that keeps standards high without the scramble.")}
+        ${serviceCard("services.html#customized", "assets/images/services/customized.jpg", "Professional cleaner attending to detailed surface care", "Customized Cleaning", "Your priorities, your preferences, your plan — built around how you live or work.")}
       </div>
     </div>
   </section>
 
-  <section class="section section--navy" aria-labelledby="why-heading">
+  <section class="section section--navy" id="difference" aria-labelledby="difference-heading">
     <div class="container">
       <div class="section__header section__header--center reveal">
-        <p class="eyebrow">Why Clients Choose Favorite</p>
-        <h2 id="why-heading" class="display-lg">The Advantage You Feel After Day One</h2>
+        <p class="eyebrow">Why Clients Switch</p>
+        <h2 id="difference-heading" class="display-lg">Ordinary Cleaning Ends. Favorite Begins.</h2>
         <span class="gold-line gold-line--center draw"></span>
+        <p class="lead difference-lead">See what separates a rushed job from a brand built to be remembered.</p>
       </div>
-      <div class="benefits-grid">
-        <article class="benefit reveal">
-          <div class="benefit__icon">${ICONS.shield}</div>
-          <h3>Clarity You Can Trust</h3>
-          <p>Scope, timing, and pricing confirmed before service — so you book with confidence, not guesswork.</p>
-        </article>
-        <article class="benefit reveal reveal-delay-1">
-          <div class="benefit__icon">${ICONS.spark}</div>
-          <h3>Finish-First Detail</h3>
-          <p>We clean for how a space looks and feels — edges, surfaces, and the details others rush past.</p>
-        </article>
-        <article class="benefit reveal reveal-delay-2">
-          <div class="benefit__icon">${ICONS.heart}</div>
-          <h3>Preference-Led Care</h3>
-          <p>Pets, products, access, and priorities shape the plan. Your home or office stays yours.</p>
-        </article>
-        <article class="benefit reveal reveal-delay-3">
-          <div class="benefit__icon">${ICONS.refresh}</div>
-          <h3>Consistency That Compounds</h3>
-          <p>One visit impresses. Recurring Favorite service keeps your space at a higher standard week after week.</p>
-        </article>
+      <div class="difference-grid reveal">
+        <div class="difference-col">
+          <h3 class="difference-col__title">Typical Cleaning</h3>
+          <ul class="difference-list">
+            <li>Surface-level pass that looks fine until you look closer</li>
+            <li>Vague pricing and unclear scope until after the visit</li>
+            <li>One checklist for every home or office</li>
+            <li>Hard to reach once the team leaves</li>
+            <li>Inconsistent results from visit to visit</li>
+          </ul>
+        </div>
+        <div class="difference-col difference-col--favorite">
+          <p class="difference-col__badge">The Favorite Cleaner</p>
+          <h3 class="difference-col__title">The Elevated Standard</h3>
+          <ul class="difference-list">
+            <li>Detail-driven finish on the areas people notice first</li>
+            <li>Scope and pricing confirmed before you commit</li>
+            <li>Plans shaped around pets, products, access, and priorities</li>
+            <li>24-hour satisfaction follow-up on agreed scope</li>
+            <li>Reliable communication and consistent quality every visit</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="difference" aria-labelledby="diff-heading">
+  <section class="section" aria-labelledby="why-heading">
     <div class="container">
       <div class="section__header section__header--center reveal">
-        <p class="eyebrow">The Favorite Difference</p>
-        <h2 id="diff-heading" class="display-lg">Ordinary Cleaning vs. The Favorite Cleaner</h2>
+        <p class="eyebrow">Why Choose Us</p>
+        <h2 id="why-heading" class="display-lg">Built to Be the Brand Clients Prefer</h2>
         <span class="gold-line gold-line--center draw"></span>
-        <p class="lead" style="max-width:36rem;margin:1rem auto 0">When clients compare options, the choice becomes clear — we compete on clarity, care, and a finish worth remembering.</p>
       </div>
-      <div class="diff-table reveal" role="table" aria-label="How The Favorite Cleaner compares to ordinary cleaning">
-        <div class="diff-row diff-row--head" role="row">
-          <div role="columnheader">Ordinary Cleaning</div>
-          <div role="columnheader">The Favorite Cleaner</div>
-        </div>
-        <div class="diff-row" role="row">
-          <div role="cell"><span class="diff-label">Typical approach</span>Rushed checklist, uneven finish</div>
-          <div role="cell"><span class="diff-label">Favorite approach</span>Detail-first clean with a polished result</div>
-        </div>
-        <div class="diff-row" role="row">
-          <div role="cell"><span class="diff-label">Typical approach</span>Vague quotes and surprise add-ons</div>
-          <div role="cell"><span class="diff-label">Favorite approach</span>Pricing confirmed before you commit</div>
-        </div>
-        <div class="diff-row" role="row">
-          <div role="cell"><span class="diff-label">Typical approach</span>One-size visits that ignore preferences</div>
-          <div role="cell"><span class="diff-label">Favorite approach</span>Plans shaped around pets, products, and priorities</div>
-        </div>
-        <div class="diff-row" role="row">
-          <div role="cell"><span class="diff-label">Typical approach</span>Hard to reach after the job</div>
-          <div role="cell"><span class="diff-label">Favorite approach</span>Clear follow-up and 24-hour satisfaction care</div>
-        </div>
-      </div>
-      <div class="text-center" style="margin-top:2.25rem">
-        <a class="btn btn--gold btn--shine" data-book-now data-book-fallback="contact.html#booking" href="contact.html#booking">Choose The Favorite Cleaner ${ICONS.arrow}</a>
+      <div class="why-grid">
+        <article class="why-point reveal">
+          <span class="why-point__index">01</span>
+          <h3>Presence You Can Trust</h3>
+          <p>Professional arrival, respectful care of your property, and communication that keeps you informed — not guessing.</p>
+        </article>
+        <article class="why-point reveal reveal-delay-1">
+          <span class="why-point__index">02</span>
+          <h3>Finish Over Fast</h3>
+          <p>We optimize for how the space feels when you return: crisp surfaces, refined detail, and lasting freshness.</p>
+        </article>
+        <article class="why-point reveal reveal-delay-2">
+          <span class="why-point__index">03</span>
+          <h3>Clarity Before Commitment</h3>
+          <p>No mystery quotes. You know the plan and the price before service begins — sustainable for you and for us.</p>
+        </article>
+        <article class="why-point reveal reveal-delay-3">
+          <span class="why-point__index">04</span>
+          <h3>Loyalty by Design</h3>
+          <p>Preferences remembered, recurring standards held, and follow-through that turns first bookings into lasting favorites.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -529,10 +522,10 @@ function buildHome() {
   <section class="section section--off-white" aria-labelledby="care-heading">
     <div class="container">
       <div class="section__header section__header--center reveal">
-        <p class="eyebrow">Client Experience</p>
-        <h2 id="care-heading" class="display-lg">Designed to Keep You Coming Back</h2>
+        <p class="eyebrow">Client Care</p>
+        <h2 id="care-heading" class="display-lg">Built to Accommodate You</h2>
         <span class="gold-line gold-line--center draw"></span>
-        <p class="lead" style="max-width:36rem;margin:1rem auto 0">A sustainable cleaning brand earns loyalty through clear expectations, flexible scheduling, and service that respects your life.</p>
+        <p class="lead" style="max-width:36rem;margin:1rem auto 0">We run a sustainable cleaning business by keeping expectations clear, honoring preferences, and making it easy to book with confidence.</p>
       </div>
       <div class="care-grid">
         <article class="care-point reveal">
@@ -594,9 +587,10 @@ function buildHome() {
   <section class="section section--surface" aria-labelledby="ba-heading">
     <div class="container">
       <div class="section__header reveal">
-        <p class="eyebrow">Results</p>
-        <h2 id="ba-heading" class="display-lg">See the Difference</h2>
+        <p class="eyebrow">Proof in the Finish</p>
+        <h2 id="ba-heading" class="display-lg">Before Ordinary. After Favorite.</h2>
         <span class="gold-line draw"></span>
+        <p class="lead" style="max-width:36rem;margin-top:1rem">Drag to compare — this is the transformation clients expect when they choose a higher standard.</p>
       </div>
       <div class="ba-tabs" role="tablist" aria-label="Before and after examples">
         <button class="ba-tab" role="tab" id="tab-kitchen" aria-selected="true" aria-controls="panel-kitchen">Kitchen Cleaning</button>
@@ -648,8 +642,8 @@ function buildHome() {
   <section class="section" id="faq" aria-labelledby="faq-heading">
     <div class="container">
       <div class="section__header section__header--center reveal">
-        <p class="eyebrow">FAQ</p>
-        <h2 id="faq-heading" class="display-lg">Questions, Answered</h2>
+        <p class="eyebrow">Clear Answers</p>
+        <h2 id="faq-heading" class="display-lg">Confidence Before You Book</h2>
         <span class="gold-line gold-line--center draw"></span>
       </div>
       <div class="faq-list reveal">
@@ -663,9 +657,9 @@ function buildHome() {
 
   return pageShell({
     meta: {
-      title: "The Favorite Cleaner | Premium Cleaning That Wins Loyalty",
+      title: "The Favorite Cleaner | Premium Cleaning Clients Prefer",
       description:
-        "The Favorite Cleaner — Texas premium cleaning for homes and businesses. Detail-first results, clear pricing before you commit, and plans built around your preferences.",
+        "The Favorite Cleaner delivers premium residential and commercial cleaning across Texas — detail-focused finishes, clear pricing before service, and a standard clients choose over ordinary cleaning.",
       path: "index.html",
       schema: localBusinessSchema + faqSchema,
       extraHead: `<link rel="preload" as="image" href="assets/images/hero/hero-main.jpg" fetchpriority="high" />`
@@ -859,7 +853,7 @@ function buildAbout() {
   const content = `
   ${pageHero({
     title: "About The Favorite Cleaner",
-    copy: "The brand clients choose when ordinary cleaning is no longer enough — professionalism, integrity, and a finish worth recommending.",
+    copy: "The premium cleaning brand built to be preferred — professionalism, integrity, and a finish clients notice.",
     image: "assets/images/about/about-hero.jpg",
     crumbs: [
       { label: "Home", href: "index.html" },
@@ -870,12 +864,12 @@ function buildAbout() {
     <div class="container split">
       <div class="reveal">
         <p class="eyebrow">Our Story</p>
-        <h2 id="story-heading" class="display-lg">Built to Be the Cleaning Brand Clients Prefer</h2>
+        <h2 id="story-heading" class="display-lg">Built to Be Chosen — Again and Again</h2>
         <span class="gold-line draw"></span>
         <div class="prose">
-          <p>The Favorite Cleaner exists for homes and businesses that want more than a quick pass — spotless, welcoming spaces with clear communication and real respect for the property.</p>
-          <p>We compete on what clients actually remember: a detailed finish, confirmed pricing, preferences honored, and service that feels consistent every visit.</p>
-          <p>Our goal is simple and ambitious — become the cleaning company Texas clients confidently choose, keep, and recommend.</p>
+          <p>We don’t compete on “good enough.” We compete on the finish clients remember: sharper detail, clearer communication, and respect for every property.</p>
+          <p>The Favorite Cleaner creates spotless, fresh, and welcoming spaces — giving customers more time and peace of mind while holding a higher standard of finish.</p>
+          <p>Built on professionalism, integrity, and dependable service, we aim to be the cleaning brand clients confidently choose and recommend.</p>
         </div>
       </div>
       <div class="split__media reveal reveal-delay-2">
@@ -897,7 +891,7 @@ function buildAbout() {
         </article>
         <article class="value-card reveal reveal-delay-1">
           <h3>Vision</h3>
-          <p>Be the preferred cleaning brand across Texas — the name clients think of when they want the Favorite standard.</p>
+          <p>Become the cleaning company customers confidently choose and recommend across Texas.</p>
         </article>
         <article class="value-card reveal reveal-delay-2">
           <h3>Values</h3>
@@ -912,8 +906,8 @@ function buildAbout() {
       <h2 id="philosophy-heading" class="display-lg reveal">A Customer-First Approach to Quality</h2>
       <span class="gold-line draw"></span>
       <div class="prose reveal">
-        <p>We believe a premium clean is about more than appearance. It is about how a space feels — ordered, refreshed, and unmistakably cared for.</p>
-        <p>That is how we earn preference: listen carefully, confirm clearly, and deliver a standard clients compare against everyone else.</p>
+        <p>We believe a premium clean is about more than appearance. It is about how a space feels — ordered, refreshed, and thoughtfully cared for.</p>
+        <p>Our commitment to quality means listening carefully, communicating clearly, and applying professional standards with respect for every property and preference.</p>
         <ul>
           <li>Plans tailored to each home or business</li>
           <li>Clear communication before and after service</li>
@@ -979,7 +973,7 @@ function buildServices() {
   const content = `
   ${pageHero({
     title: "Cleaning Services",
-    copy: "Thoughtfully organized cleaning solutions for homes, businesses, and every space in between.",
+    copy: "Elevated cleaning for homes and businesses — planned around your space, delivered to a higher standard of finish.",
     image: "assets/images/services/office.jpg",
     crumbs: [
       { label: "Home", href: "index.html" },

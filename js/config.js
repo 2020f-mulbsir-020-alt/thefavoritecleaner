@@ -6,7 +6,7 @@
 const SITE_CONFIG = {
   companyName: "The Favorite Cleaner",
   tagline: "Clean Beyond Expectations.",
-  supportingLine: "The modern standard of clean — detail, clarity, and client-led care.",
+  supportingLine: "The premium cleaning standard clients prefer.",
   email: "contact@thefavoritecleaner.com",
   website: "https://thefavoritecleaner.com",
   serviceArea: "Texas",

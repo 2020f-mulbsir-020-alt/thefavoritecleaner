@@ -4,7 +4,8 @@
 
 @media (max-width: 1200px) {
   .benefits-grid,
-  .care-grid {
+  .care-grid,
+  .why-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.75rem 1.5rem;
   }
@@ -207,6 +208,8 @@
   .services-grid,
   .benefits-grid,
   .care-grid,
+  .why-grid,
+  .difference-grid,
   .values-grid,
   .service-group__list,
   .related-services,
@@ -215,18 +218,8 @@
     grid-template-columns: 1fr;
   }
 
-  .diff-row {
-    grid-template-columns: 1fr;
-    gap: 0.85rem;
-  }
-
-  .diff-row--head {
-    display: none;
-  }
-
-  .hero__brand,
-  .hero h1.hero__brand {
-    max-width: 11ch;
+  .difference-col--favorite {
+    transform: none;
   }
 
   .gallery-grid {
